@@ -1,6 +1,6 @@
 /* Mobile */
 
-/* @media screen and (max-width: 200px) {
+@media screen and (max-width: 280px) {
     h1 {
         font-size: 1.5rem;
     }
@@ -21,4 +21,78 @@
     .side-nav {
         font-size: 1rem;
     }
-} */
+}
+
+/* Tablet */
+
+@media screen and (min-width: 281px) and (max-width: 599px) {
+    h1 {
+        font-size: clamp(20px, 12vw, 40px);
+    }
+    h2 {
+        font-size: initial;
+    }
+    h3,
+    footer .wrap h3 {
+        font-size: initial;
+    }
+    p,
+    .work-p-wrap p,
+    input,
+    .intro .wrapper-1 input,
+    .work .work-p-wrap p {
+        font-size: initial;
+    }
+    .side-nav {
+        font-size: initial;
+    }
+    .about-p {
+        max-width: clamp(300px, 10vw, 400px);
+    }
+    p {
+        font-size: clamp(12px, 3.5vw, 16px);
+    }
+}
+
+@media screen and (min-width: 600px) {
+
+    .about-me .wrap,
+    section[class="work"],
+    footer {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .about-p {
+        max-width: 300px;
+    }
+    .work :is(.work-p) {
+        width: fit-content;
+    }
+    .work .work-p {
+        max-width: 260px;
+    }
+    .work .intro {
+        width: fit-content;
+        flex: 3;
+    }
+     h1 {
+        font-size: clamp(10px, 9vw, 90px);
+    }
+    /* h2 {
+        font-size: initial;
+    }
+    h3,
+    footer .wrap h3 {
+        font-size: initial;
+    }
+    p,
+    .work-p-wrap p,
+    input,
+    .intro .wrapper-1 input,
+    .work .work-p-wrap p {
+        font-size: initial;
+    }
+    .side-nav {
+        font-size: initial;
+    } */
+}
