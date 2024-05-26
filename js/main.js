@@ -48,68 +48,6 @@ window.addEventListener('scroll', () => {
   }
 })
 
-const workimg = document.querySelector('.work-img');
-const workp = document.querySelector('.p-event');
-const pcancel = document.querySelector('.p-cancel');
-const mobileorpcwrap = pcancel.nextElementSibling;
-const mobileorpcborder = mobileorpcwrap.lastElementChild
-const mobileorpc = pcancel.parentElement;
-const count = workp.childElementCount;
-
-for (let i = 0; i < count; i++) {
-  const p = workp.children[i];
-  const imgdiv = workimg.children[i];
-  let open = false;
-  let pc = true;
-
-  mobileorpcwrap.addEventListener('click', () => {
-      
-    if(pc) {
-      mobileorpcborder.style.transform = 'translateX(120%)';
-      mobileorpcborder.style.width = '53px';
-      imgdiv.firstElementChild.style.display = 'unset';
-      imgdiv.lastElementChild.style.display = 'none';
-      console.log(imgdiv.firstElementChild);
-      pc = !pc;
-    } else {
-      mobileorpcborder.style.transform = 'translateX(0)';
-      mobileorpcborder.style.width = '60px'
-      imgdiv.firstElementChild.style.display = 'none';
-      imgdiv.lastElementChild.style.display = 'unset';
-      pc = !pc;
-    }
-  })
-
-  p.addEventListener('click', () => {
-
-    if(!open) {
-      workimg.style.display = 'flex';
-      imgdiv.style.display = 'unset';
-      mobileorpc.style.display = 'flex';
-      open = true;
-    } else {
-      closeall()
-    }
-  })
-
-  pcancel.addEventListener('click', () => {
-    closeall()
-  })
-
-  function closeall() {
-    if(open) {
-      for (let i = 0; i < count; i++) {
-        const imgdiv = workimg.children[i];
-        imgdiv.style.display = 'none';
-        mobileorpc.style.display = 'none';
-      }
-      
-      open = false
-    }
-  }
-}
-
-
 //scroll to the requested view gunction by passing class
 
 function scrollToElement(elementClass) {
@@ -160,3 +98,90 @@ scrollcontent.forEach((content) => {
   clonedcontent = content.cloneNode(true);
   scroller.appendChild(clonedcontent);
 })
+
+// When work name is clicked, the work should show up
+
+const workp = document.querySelector('.p-event');
+const workimg = document.querySelector('.work-img');
+const pcancel = document.querySelector('.p-cancel');
+const workDeviceSwitch = pcancel.nextElementSibling;
+const workSwitchBorder = workDeviceSwitch.lastElementChild
+const workSwitchContainer = pcancel.parentElement;
+const count = workp.childElementCount;
+
+for (let i = 0; i < count; i++) {
+  const p = workp.children[i];
+  const imgdiv = workimg.children[i];
+  imgdiv.setAttribute('open', 'false');
+
+  p.addEventListener('click', () => {
+  
+    if(imgdiv.getAttribute('open') && imgdiv.getAttribute('open') == 'false') {
+      closeall()
+      openImgDiv(p, workSwitchContainer, imgdiv)
+      imgdiv.setAttribute('open', 'true');     
+    } else {
+      closeImgDiv(p, workSwitchContainer, imgdiv)
+      imgdiv.setAttribute('open', 'false');
+    }
+  })
+
+  pcancel.addEventListener('click', () => {
+    closeall()
+  })
+
+  function closeall() {
+    if(open) {
+      for (let i = 0; i < count; i++) {
+        const imgdiv = workimg.children[i];
+        imgdiv.style.display = 'none';
+        workSwitchContainer.style.display = 'none';
+      }
+      
+      open = false
+    }
+  }
+}
+
+
+workDeviceSwitch.addEventListener('click', () => {
+  
+  if(pc) {
+    switchMobileOrPc(pc, workSwitchBorder, imgdiv)
+    pc = !pc;
+  } else {
+    switchMobileOrPc(pc, workSwitchBorder, imgdiv)
+    pc = !pc;
+  }
+})
+
+function closeImgDiv(workDeviceSwitch, imgdiv, p) {
+
+  p.style.opacity = 'initial';
+  workimg.style.display = 'flex';
+  imgdiv.style.display = 'unset';
+  workSwitchContainer.style.display = 'flex';
+}
+
+function openImgDiv(p, workDeviceSwitch, imgdiv) {
+
+  p.style.opacity = '.5';
+  workimg.style.display = 'flex';
+  imgdiv.style.display = 'unset';
+  workSwitchContainer.style.display = 'flex';
+}
+
+function switchMobileOrPc(pc, workSwitchBorder, imgdiv) {
+
+  if(pc) {
+    workSwitchBorder.style.transform = 'translateX(120%)'
+    workSwitchBorder.style.width = '53px';
+    imgdiv.firstElementChild.style.display = 'unset';
+    imgdiv.lastElementChild.style.display = 'none';
+  } else {
+    workSwitchBorder.style.transform = 'translateX(0)'
+    workSwitchBorder.style.width = '60px';
+    imgdiv.firstElementChild.style.display = 'none';
+    imgdiv.lastElementChild.style.display = 'unset';
+  }
+}

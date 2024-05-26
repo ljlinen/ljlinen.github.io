@@ -31,7 +31,7 @@ body {
 /* Global Settings */
 
 h1 {
- font-size: calc(1rem * (1.618*2));
+ font-size: calc(1.2rem * (1.618*2));
  font-weight: 500;
 }
 h2 {
@@ -48,7 +48,9 @@ p {
   font-size: calc(1.4rem);
   font-weight: 100;
 }
-
+a {
+  text-decoration: none;
+}
 .side-nav {
   display: flex;
   top: 50vh;
@@ -424,6 +426,14 @@ section[class="work"] {
 .about-me h2 {
   opacity: .7;
 }
+.about-p div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.about-p div img {
+  height: 20px;
+}
 
 footer {
   background-color: #000000;
@@ -433,35 +443,49 @@ footer {
   gap: 10px;
   justify-content: space-between;
   width: 100%;
-  align-items: first baseline;
+  min-height: 150px;
+  padding: 20px 10px;
+  flex-direction: column;
+}
+footer .i {
+  height: 20px;
+}
+footer .wrap-i {
+  display: flex;
+  padding-block: 2px;
+  gap: 1px;
 }
 footer .wrap-m-row {
   display: flex;
-  align-items: center;
+  align-items: first baseline;
   width: 100%;
+  flex: 3;
+  justify-content: center;
+}
+footer .wrap-m-row :nth-child(2){
+  flex-direction: row;
 }
 footer .wrap-m-row .wrap {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   width: 100%;
 }
 footer .wrap-m-row .wrap h3 {
   font-weight: 300;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
 }
-footer .wrap p {
-  text-align: center;
+footer .wrap-m-row .wrap p {
   opacity: .6;
 }
 .footer-signature {
-  width: 20%;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 .footer-signature p {
   text-transform: uppercase;
-  font-size: calc(1.2rem);
+  font-size: 1rem;
   filter: saturate(1);
   font-weight: 300;
 }
