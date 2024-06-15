@@ -134,61 +134,64 @@ let openworktitle = false;
 
 const addWorkEvents = (workTitles, imgwrappers) => {
 
-  workTitles.forEach((workTitle, i) => {
+  for(let i = 0; workTitles.length; i++) {
 
-      const pcOrMobMain = imgwrappers[i].firstElementChild;
-      const switchItems = Array.from(pcOrMobMain.children)
-      const switchBorder = switchItems[3]; // Assuming the wrap is the fourth child
-      switchItems.pop()
-      switchItems.pop()
+    let workTitle = workTitles[i];
     
-      switchItems.forEach((item, j) => {
-        item.addEventListener('click', () => {
-    
-          const itemOffsetLeft = item.offsetLeft;
-          const itemWidth = item.scrollWidth;
-          switchBorder.style.width = `${itemWidth}px`;
-    
-          switch (j) {
-            case 0:
-              switchBorder.style.transform = `translateX(0)`;
-              break;
-            case 1:
-              switchBorder.style.transform = `translateX(${itemOffsetLeft-4}px)`;
-              break;
-            case 2:
-              switchBorder.style.transform = `translateX(${itemOffsetLeft-4}px)`;
-              break;
-          }
-        });
+    const pcOrMobMain = imgwrappers[i].firstElementChild;
+    const switchItems = Array.from(pcOrMobMain.children)
+    const switchBorder = switchItems[3]; // Assuming the wrap is the fourth child
+    switchItems.pop()
+    switchItems.pop()
+
+    for(let j = 0; j < switchItems.length; j++) {
+      let item = switchItems[i]
+      item.addEventListener('click', () => {
+
+        const itemOffsetLeft = item.offsetLeft;
+        const itemWidth = item.scrollWidth;
+        switchBorder.style.width = `${itemWidth}px`;
+
+        switch (j) {
+          case 0:
+            switchBorder.style.transform = `translateX(0)`;
+            break;
+          case 1:
+            switchBorder.style.transform = `translateX(${itemOffsetLeft-4}px)`;
+            break;
+          case 2:
+            switchBorder.style.transform = `translateX(${itemOffsetLeft-4}px)`;
+            break;
+        }
       });
+    }
 
-    workTitles[i].addEventListener('click', () => {
+    workTitle.addEventListener('click', () => {
 
-      console.log(imgwrapopen);
-      console.log(openworktitle);
-      
-      if(imgwrapopen && openworktitle) {
+      if (imgwrapopen && openworktitle) {
         imgwrapopen.style.display = 'none';
         imgwrappers[i].style.display = 'flex';
 
-        openworktitle.classList.toggle('s1-div-work-p-inactive');
-
-        openworktitle = workTitles[i];
-        imgwrapopen = imgwrappers[i];
+        openworktitle.classList.add('s1-div-work-p-inactive');
+        workTitle.classList.remove('s1-div-work-p-inactive');
       } else {
         imgwrappers[i].style.display = 'flex';
-        workTitles[i].classList.remove('s1-div-work-p-inactive')
-        imgwrapopen = imgwrappers[i]
-
-        openworktitle = workTitles[i];
-        imgwrapopen = imgwrappers[i];
+        workTitle.classList.remove('s1-div-work-p-inactive')
       }
+
+      openworktitle = workTitle;
+      imgwrapopen = imgwrappers[i];
+
     });
-  });
+  }
+  
+  
 }
 
-  createWorkElement(data[0]);
+  for(let i in data) {
+    createWorkElement(data[i])
+  }
+  
   const arrWorkTitles = Array.from(document.querySelector('.s1-div-worklist').children);
   const arrImgWrappers = Array.from(document.querySelectorAll('.s1-div-imgwrap'));
   addWorkEvents(arrWorkTitles, arrImgWrappers);
