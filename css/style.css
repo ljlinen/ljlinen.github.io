@@ -53,6 +53,73 @@ p {
 a {
   text-decoration: none;
 }
+
+
+.work-p h2 {
+  text-transform: none;
+}
+.s1-div-main-work {
+  align-content: flex-start;
+}
+.s1-div-main-work h3 {
+  font-weight: 300;
+  padding-left: 3px;
+}
+.intro {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  z-index: 3;
+}
+.intro h1 {
+  max-width: 610px;
+  text-align: start;
+  text-transform: uppercase;
+  opacity: .9;
+}
+.intro .wrapper-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  gap: 5px;
+}
+.intro .wrapper-1 input {
+  text-transform: uppercase;
+  font-size: calc(1rem * 1.618);
+  font-family: body;
+  padding: 8px;
+  border-radius: 3px;
+  box-shadow: #000 0px 0px 6px 1px;
+  transition: .1s ease-out;
+}
+.intro input {
+  font-weight: 900;
+  background-color: var(--clr-40);
+}
+
+.work-p, .about-p, footer {
+  width: 100%;
+  padding: clamp(10px, 5vw, 20px);
+  text-align: start;
+}
+
+.work-p {
+  height: fit-content;
+}
+.work-p-wrap p {
+  padding: 2px;
+  text-align: start;
+  text-transform: uppercase;
+  font-size: 4rem;
+}
+
+
+
+
 .side-nav {
   display: flex;
   top: 50vh;
@@ -128,7 +195,9 @@ a {
   padding: 100px 5vw;
   gap: 100px;
   background-image: linear-gradient(var(--clr-60), #080714);
-  color: var(--clr-60);
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 
   .s1-div-worklist {
     display: flex;
@@ -145,8 +214,9 @@ a {
   max-width: 220px;
   min-height: 60px;
   padding: 15px;
-  box-shadow: #00000062 0px 0px 10px 1px;
+  box-shadow: #00000062 0px 0px 3px 1px;
   overflow: hidden;
+  transition: background-color .8s;
 
   h3 {
     color: var(--clr-40);
@@ -190,7 +260,7 @@ a {
 }
 
 .s1-div-worklist .s1-div-work-p-inactive {
-  background-color: var(--clr-ff);
+  background-color: var(--clr-60)
 }
 
 .s1-div-worklist :focus-within {
@@ -212,7 +282,6 @@ a {
   position: relative;
   
   .s1-ul-pcormob {
-    background-color: #fff;
     padding: 2px;
   }
 
@@ -270,7 +339,8 @@ header {
     padding-inline: clamp(10px, 10vw, 100px);
 }
 
-banner {
+banner,
+.s1-div-main-work {
   position: relative;
   width: 100%;
   display: flex;

@@ -15,7 +15,7 @@
     .work-p-wrap p,
     input,
     .intro .wrapper-1 input,
-    .work .work-p-wrap p {
+    .s1-div-main-work.work-p-wrap p {
         font-size: .8rem;
     }
     .side-nav {
@@ -40,7 +40,7 @@
     .work-p-wrap p,
     input,
     .intro .wrapper-1 input,
-    .work .work-p-wrap p {
+    .s1-div-main-work.work-p-wrap p {
         font-size: initial;
     }
     .side-nav {
@@ -57,7 +57,7 @@
 @media screen and (min-width: 600px) {
 
     .about-me .wrap,
-    section[class="work"],
+    .s1-div-main-work,
     footer {
         flex-wrap: wrap;
         flex-direction: row;
@@ -65,13 +65,13 @@
     .about-p {
         max-width: 300px;
     }
-    .work :is(.work-p) {
+    .s1-div-main-work:is(.work-p) {
         width: fit-content;
     }
-    .work .work-p {
+    .s1-div-main-work.work-p {
         max-width: 260px;
     }
-    .work .intro {
+    .s1-div-main-work.intro {
         width: fit-content;
         flex: 3;
     }
@@ -89,7 +89,7 @@
     .work-p-wrap p,
     input,
     .intro .wrapper-1 input,
-    .work .work-p-wrap p {
+    .s1-div-main-work.work-p-wrap p {
         font-size: initial;
     }
     .side-nav {
