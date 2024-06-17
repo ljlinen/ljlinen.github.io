@@ -239,3 +239,9 @@ const addWorkEvents = (workTitles, imgwrappers) => {
 //     imgdiv.lastElementChild.style.display = 'unset';
 //   }
 // }
+
+const imgwrap = querySelector('.s1-div-imgwrap')
+const pcormob = querySelector('.s1-ul-pcormob')
+imgwrap.addEventListener('scroll', () => {
+  alert("hhhh")
+})
