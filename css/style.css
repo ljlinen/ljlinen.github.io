@@ -53,6 +53,19 @@ p {
 a {
   text-decoration: none;
 }
+input {
+  transition: filter .4s;
+}
+input:hover {
+  filter: contrast(1.6);
+}
+
+.i {
+  height: 32px;
+  transition: opacity .6s ease-out;
+}
+
+/* End */
 
 
 .work-p h2 {
@@ -64,6 +77,11 @@ a {
 .s1-div-main-work h3 {
   font-weight: 300;
   padding-left: 3px;
+}
+.s1-div-main-work h2 {
+  width: 100%;
+  text-align: center;
+  padding-block: 25px;
 }
 .intro {
   display: flex;
@@ -191,7 +209,7 @@ a {
 /* First Section | Work Section  */
 
 .s1-div-main-work {
-  border: #000 1px solid;
+  border-top: var(--clr-50) 1px solid;
   display: flex;
   padding: 50px 5vw;
   gap: 100px;
@@ -293,6 +311,7 @@ a {
     background-color: var(--clr-40);
     z-index: 5;
     color: #fff;
+    /* transition: all .8s; */
   }
 
   .s1-ul-pcormob .wrap {
@@ -407,14 +426,6 @@ li input {
   min-height: 100%;
   display: flex;
   flex-wrap: wrap;
-}
-input:hover {
-  transform: rotateY(360deg);
-}
-
-.i {
-  height: 32px;
-  transition: opacity .6s ease-out;
 }
 
 
