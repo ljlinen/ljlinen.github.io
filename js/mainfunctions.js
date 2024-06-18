@@ -69,4 +69,3 @@
         main.appendChild(imgWrapDiv);
         console.log(main);
     }
-

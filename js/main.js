@@ -77,7 +77,7 @@ for (let i = 0; i < 3; i++) {
     switch(i) {
       case 0
         : libg.style.top = '-2px';
-        scrollToElement('.work');
+        scrollToElement('.s1-sec-work');
         break;
       case 1
         : libg.style.top = '15px';
@@ -85,7 +85,7 @@ for (let i = 0; i < 3; i++) {
         break;
       case 2
         : libg.style.top = '32px';
-        scrollToElement('.work');
+        scrollToElement('.footer');
         break;
     }
   })
@@ -134,10 +134,13 @@ let openworktitle = false;
 
 const addWorkEvents = (workTitles, imgwrappers) => {
 
-  for(let i = 0; workTitles.length; i++) {
+  console.log('worktitles ', workTitles);
+  console.log('imgwrappers ', imgwrappers);
+  console.log('img leng: ', imgwrappers.length);
+  for(let i = 0; i < workTitles.length; i++) {
 
     let workTitle = workTitles[i];
-    
+    console.log('i at this point ', i);
     const pcOrMobMain = imgwrappers[i].firstElementChild;
     const switchItems = Array.from(pcOrMobMain.children)
     const switchBorder = switchItems[3]; // Assuming the wrap is the fourth child
@@ -240,8 +243,19 @@ const addWorkEvents = (workTitles, imgwrappers) => {
 //   }
 // }
 
-const imgwrap = querySelector('.s1-div-imgwrap')
-const pcormob = querySelector('.s1-ul-pcormob')
+const imgwrap = document.querySelector('.s1-div-imgwrap')
+const pcormob = document.querySelector('.s1-ul-pcormob')
 imgwrap.addEventListener('scroll', () => {
-  alert("hhhh")
+  let scrollTop = imgwrap.scrollTop
+  if (scrollTop > 2) {
+      pcormob.style.visibility = 'hidden';
+    } else {
+      pcormob.style.visibility = 'visible'
+    }
+})
+
+const btnBannerMyWrok = document.querySelector('#id-my-work')
+
+btnBannerMyWrok.addEventListener('click', () => {
+  scrollToElement('.s1-sec-work');
 })
