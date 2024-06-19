@@ -1,7 +1,6 @@
+import { createWorkElement, scrollToElement } from "./mainfunctions.js"
+
 // function that runs when the page loads
-
-import { createWorkElement } from "./mainfunctions.js"
-
 onpageload()
 
 function onpageload() {
@@ -13,7 +12,6 @@ function onpageload() {
     loading(false)
   }
 }
-
 function loading(toggle) {
   const loader = document.querySelector('.loader');
   
@@ -24,43 +22,37 @@ function loading(toggle) {
   }
 }
 
+
+
 // Hide the nav bar when scrolling, for a cleaner UI
 
 const nav = document.querySelector('.nav-nav');
+
+window.addEventListener('scroll', () => {
   
-// window.addEventListener('scroll', () => {
-  
-//     const navulone = nav.firstElementChild;
-//     const navultwo = nav.firstElementChild.nextElementSibling;
-//     parentnav = nav.parentElement;
-    
+      const navulone = nav.firstElementChild;
+      const navultwo = nav.firstElementChild.nextElementSibling;
+      const parentnav = nav.parentElement;
         
-//   if(window.scrollY > 100) {
-//     navulone.classList.add('translate');
-//     navultwo.classList.remove('nav-nav');
-//     navultwo.style.opacity = '0';
-//     navulone.style.display = 'none';
-//     parentnav.style.visibility = 'hidden'
-//   } else {
-//     navultwo.classList.add('nav-nav');
-//     navultwo.style.opacity = '1';
-//     navulone.style.display = 'revert';
-//     navultwo.style.opacity = 'revert';
-//     parentnav.style.visibility = 'revert'
-//   }
-// })
+  if(window.scrollY > 100) {
 
-//scroll to the requested view gunction by passing class
+      navulone.classList.add('translate');
+      navultwo.classList.remove('nav-nav');
+      navultwo.style.opacity = '0';
+      navulone.style.display = 'none';
+      parentnav.style.visibility = 'hidden'
 
-function scrollToElement(elementClass) {
-  const elementToScrollToView = document.querySelector(elementClass);
-  const elementStyle = getComputedStyle(elementToScrollToView);
+  } else {
 
-    if(elementStyle.display == 'none') {
-        elementToScrollToView.style.display = 'unset';
-    }
-        elementToScrollToView.scrollIntoView({scrollBehavior:"smooth"});
-}
+      navultwo.classList.add('nav-nav');
+      navultwo.style.opacity = '1';
+      navulone.style.display = 'revert';
+      navultwo.style.opacity = 'revert';
+      parentnav.style.visibility = 'revert'
+
+  }
+})
+
 
 
 // Switching between sidenav elements on hover
@@ -91,6 +83,8 @@ for (let i = 0; i < 3; i++) {
   })
 }
 
+
+
 // Infinite scroll on the header
 
 // const scroller = document.querySelector('.scroll-content')
@@ -101,74 +95,80 @@ for (let i = 0; i < 3; i++) {
 //   scroller.appendChild(clonedcontent);
 // })
 
-    // Array of randomly generated values
-    const data = [
-      {
-          title: "Baking Company",
-          description: "An info landing page for a baking company. This website provides basic information about the company including some of the company’s work.",
-          technologies: "html css javascript nodejs expressjs",
-          iconSrc: "./src/icon/expand.svg",
-          imageSrc: "./src/img/theegiftedhands pc.png",
-          links: ["desktop", "mobile", "git repo"]
-      },
-      {
-          title: "Tech Blog",
-          description: "A tech blog providing the latest updates in the tech industry.",
-          technologies: "html css javascript reactjs",
-          iconSrc: "./src/icon/expand.svg",
-          imageSrc: "./src/img/techblog.png",
-          links: ["desktop", "mobile", "git repo"]
-      },
-      // Add more objects as needed
-  ];
-
-    // Append created elements to the container
-    // const container = document.querySelector('.s1-div-main-work')
 
 
-// When work name is clicked, the work should show up
+// Work Data
+const data = [
+  {
+      title: "Baking Company",
+      description: "An info landing page for a baking company. This website provides basic information about the company including some of the company’s work.",
+      technologies: "html css javascript nodejs expressjs",
+      iconSrc: "./src/icon/expand.svg",
+      imageSrcDesktop: "./src/img/work/work-desktop.jpg",
+      imageSrcMobile: "./src/img/work/work-mobile.jpg",
+      links: ["desktop", "mobile", "git repo"]
+  },
+  {
+      title: "Tech Blog",
+      description: "A tech blog providing the latest updates in the tech industry.",
+      technologies: "html css javascript reactjs",
+      iconSrc: "./src/icon/expand.svg",
+      imageSrcDesktop: "./src/img/work/work-desktop.jpg",
+      imageSrcMobile: "./src/img/work/work-mobile.jpg",
+      links: ["desktop", "mobile", "git repo"]
+  },
+  // Add more objects as needed
+];
 
+
+
+/* When Work Card is Clicked, The Work Should Pop Up/Switch */
 
 let imgwrapopen = false;
 let openworktitle = false;
 
 const addWorkEvents = (workTitles, imgwrappers) => {
 
-  console.log('worktitles ', workTitles);
-  console.log('imgwrappers ', imgwrappers);
-  console.log('img leng: ', imgwrappers.length);
   for(let i = 0; i < workTitles.length; i++) {
-
+    
+    let imgwrapperIdx = imgwrappers[i]
     let workTitle = workTitles[i];
-    console.log('i at this point ', i);
-    const pcOrMobMain = imgwrappers[i].firstElementChild;
+    
+    const pcOrMobMain = imgwrapperIdx.firstElementChild;
+    const imgwrapperMain = pcOrMobMain.nextElementSibling;
+    const imgDesk = imgwrapperMain.firstElementChild;
+    const imgMobi = imgDesk.nextElementSibling;
+    
     const switchItems = Array.from(pcOrMobMain.children)
     const switchBorder = switchItems[3]; // Assuming the wrap is the fourth child
     switchItems.pop()
     switchItems.pop()
 
-    for(let j = 0; j < switchItems.length; j++) {
-      let item = switchItems[i]
-      item.addEventListener('click', () => {
-
-        const itemOffsetLeft = item.offsetLeft;
-        const itemWidth = item.scrollWidth;
-        switchBorder.style.width = `${itemWidth}px`;
-
-        switch (j) {
-          case 0:
-            switchBorder.style.transform = `translateX(0)`;
-            break;
-          case 1:
-            switchBorder.style.transform = `translateX(${itemOffsetLeft-4}px)`;
-            break;
-          case 2:
-            switchBorder.style.transform = `translateX(${itemOffsetLeft-4}px)`;
-            break;
-        }
-      });
-    }
-
+  const itemDesktop = switchItems[0];
+  const itemMobile = switchItems[1];
+ 
+ /* switching between desktop work and mobile */
+    itemDesktop.addEventListener('click', () => {
+        const item = itemMobile;
+        
+      console.log("Desktop works!");
+      switchBorder.style.transform = `translateX(0)`;
+      switchBorder.style.width = `${item.scrollWidth}px`;
+      imgMobi.style.display = "none";
+      imgDesk.style.display = "unset";
+    });
+  
+    itemMobile.addEventListener('click', () => {
+        const item = itemMobile;
+        
+      console.log("Mobile works!");
+      switchBorder.style.transform = `translateX(${item.offsetLeft - 4}px)`;
+      switchBorder.style.width = `${item.scrollWidth}px`;
+      imgDesk.style.display = "none";
+      imgMobi.style.display = "unset";
+    });
+  
+  /* adds click events to the work cards */
     workTitle.addEventListener('click', () => {
 
       if (imgwrapopen && openworktitle) {
@@ -187,61 +187,26 @@ const addWorkEvents = (workTitles, imgwrappers) => {
 
     });
   }
-  
-  
+}
+/* End */
+
+
+
+/* For Each Of The Data Values, Create The Work */
+
+for(let i in data) {
+  createWorkElement(data[i])
 }
 
-  for(let i in data) {
-    createWorkElement(data[i])
-  }
-  
-  const arrWorkTitles = Array.from(document.querySelector('.s1-div-worklist').children);
-  const arrImgWrappers = Array.from(document.querySelectorAll('.s1-div-imgwrap'));
-  addWorkEvents(arrWorkTitles, arrImgWrappers);
+const arrWorkTitles = Array.from(document.querySelector('.s1-div-worklist').children);
+const arrImgWrappers = Array.from(document.querySelectorAll('.s1-div-imgwrap'));
+// then add all required events for the work
 
-// const workSwitchBorder = pcormobMain.lastElementChild
+addWorkEvents(arrWorkTitles, arrImgWrappers);
 
-// workDeviceSwitch.addEventListener('click', () => {
-  
-//   if(pc) {
-//     switchMobileOrPc(pc, workSwitchBorder, imgdiv)
-//     pc = !pc;
-//   } else {
-//     switchMobileOrPc(pc, workSwitchBorder, imgdiv)
-//     pc = !pc;
-//   }
-// })
+/* End */
 
-// function closeImgDiv(workDeviceSwitch, imgdiv, p) {
 
-//   p.style.opacity = 'initial';
-//   workimg.style.display = 'flex';
-//   imgdiv.style.display = 'unset';
-//   workSwitchContainer.style.display = 'flex';
-// }
-
-// function openImgDiv(p, workDeviceSwitch, imgdiv) {
-
-//   p.style.opacity = '.5';
-//   workimg.style.display = 'flex';
-//   imgdiv.style.display = 'unset';
-//   workSwitchContainer.style.display = 'flex';
-// }
-
-// function switchMobileOrPc(pc, workSwitchBorder, imgdiv) {
-
-//   if(pc) {
-//     workSwitchBorder.style.transform = 'translateX(120%)'
-//     workSwitchBorder.style.width = '53px';
-//     imgdiv.firstElementChild.style.display = 'unset';
-//     imgdiv.lastElementChild.style.display = 'none';
-//   } else {
-//     workSwitchBorder.style.transform = 'translateX(0)'
-//     workSwitchBorder.style.width = '60px';
-//     imgdiv.firstElementChild.style.display = 'none';
-//     imgdiv.lastElementChild.style.display = 'unset';
-//   }
-// }
 
 const imgwrap = document.querySelector('.s1-div-imgwrap')
 const pcormob = document.querySelector('.s1-ul-pcormob')

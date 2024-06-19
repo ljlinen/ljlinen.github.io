@@ -289,6 +289,7 @@ input:hover {
 .s1-div-imgwrap-hidden {
   display: none;
 }
+
 .s1-div-imgwrap::-webkit-scrollbar {
   width: 6px;
 }
@@ -308,7 +309,6 @@ input:hover {
     position: absolute;
     top: 0;
     border-radius: 3px;
-    background-color: var(--clr-40);
     z-index: 5;
     color: #fff;
     /* transition: all .8s; */
@@ -323,7 +323,7 @@ input:hover {
     margin-top: 2px;
     border-radius: 1px;
     top: 0;
-    transition: transform .4s ease;
+    transition: transform .6s ease;
     z-index: -1;
   }
 
