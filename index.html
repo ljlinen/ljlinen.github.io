@@ -1,171 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Linen</title>
-
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="./css/reset.css">  
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/media-queries.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed PDF with embed Tag</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .pdf-container {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="side-nav">
-    <ul>
-      <li>my work</li>
-      <li>about me</li>
-      <li>connect</li>
-      <div class="wrap">
-      </div>
-    </ul>
-  </div>
-
-  
-  <nav>
-    <div class="nav-nav">
-      <ul>
-        <li>LinenDev</li>
-      </ul>
-
-      <ul>
-        <li>
-          <img class="menu i" src="./src/icon/menu.svg" alt="Menu">
-          </img>
-          <div class="wrap">
-            <div class="line"></div>
-          </div>
-        </li>
-      </ul>
+    <h1>Embed PDF in a Webpage</h1>
+    <div class="pdf-container">
+      <iframe src="http://docs.google.com/gview?url=http://infolab.stanford.edu/pub/papers/google.pdf&embedded=true" frameborder="0"></iframe>
     </div>
-  </nav>
-  
-  <header>
-    <div class="loader">
-      <p>Loading...</p>
-    </div>
-
-    <banner>
-      <div class="intro">
-        <div class="wrapper-1">
-          <h1>Linen's portfolio</h1>
-          <p>'I am a web and software developer specialising in JavaScript.'</p>
-          <input type="button" value="my work"></input>
-        </div>
-      </div>
-
-      <div class="work-p scroll-container">
-        <div class="work-p-wrap design scroll-content">
-          <p>JavaScript</p>
-          <p>Frontend</p>
-          <p>Nodejs</p>
-          <p>Backend</p>
-          <p>Expressjs</p>
-          <p>ReactNative</p>
-          <p>HTML</p>
-          <p>CSS</p>
-          <p>MySQL</p>
-          <p>Git</p>
-          <p>Figma</p>
-          <p>Aws</p>
-          <p>Linux</p>
-          <p>Ubuntu</p>
-          <p>Server</p>
-          <p>MySQLServer</p>
-        </div>
-      </div>
-    </banner>
-  </header>
-
-<section class="s1-sec-work">
-  <div class="s1-div-main-work">
-    <div class="s1-div-worklist">
-    </div>
-  </div>
-</section>
-
-  <section class="about-me">
-    <h2>about me</h2>
-
-    <div class="wrap">
-      <div class="about-p">
-        <div>
-          <h3>Skills</h3>
-          <img src="./src/icon/code.svg">
-        </div>
-
-        <ul class="b">
-          <li>Frontend <span>77%</span></li>
-          <li>Backend <span>56%</span></li>
-        </ul>
-
-        <p>I possess strong skills in HTML, CSS, JavaScript for frontend. For backend development, i have experience using Node.js, Express and MySQL for database. Additionally, I am proficient in React Native for developing mobile applications. Finally, Git and Figma as my bonus skills.</p>
-      </div>
-
-      <div class="about-p">
-        <div>
-          <h3>Education</h3>
-          <img src="./src/icon/school.svg">
-        </div>
-
-        <ul class="b">
-          <li>HC in IT <span>NQF5</span></li>
-          <li>Matric NSC</li>
-        </ul>
-
-        <p>I currently hold a higher cirtificate in information technology as my highest education level acquired. Due to lack of finance, i am currently unable to further my studies. Although i do plan on doing so as soon as i am financially stable.</p>
-      </div>
-
-      <div class="about-p">
-        <div>
-          <h3>Experience</h3>
-          <img src="./src/icon/suitcase.svg">
-        </div>
-
-        <ul class="b">
-          <li>Walker's Multimedia <span>1 month</span></li>
-          <li>Hlelo's Internet Cafe <span>3 months</span></li>
-        </ul>
-
-        <p>I have worked part time jobs at two of my local internet cafe's as a software troubleshooter, where i helped fix mobile devices. I do however acknowledge the lack of experience i need in some fields<p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap-m-row">
-      <div class="wrap">
-        <h3>QuickLinks</h3>
-        <p>home</p>
-        <p>work</p>
-        <p>about</p>
-      </div>
-  
-      <div class="wrap">
-        <h3>Connect</h3>
-        <div class="wrap-i">
-          <a href="https://www.linkedin.com/in/ljlinen/" target="_blank">
-            <img  class="i" src="./src/icon/linkedin.svg">
-          </a>
-          <a href="mailto:siphomoloto0@gmail.com" target="_blank">
-            <img  class="i" src="./src/icon/mail.svg">
-          </a>
-          <a href="https://wa.me/+27712024580" target="_blank">
-            <img  class="i" src="./src/icon/whatsapp.svg">
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-signature">
-    <p>copyright &copy; 2024</p>
-    </div>
-  </footer>
-
-  <script type="module" src="./js/mainfunctions.js"></script>
-  <script type="module" src="./js/main.js"></script>
-  <script src="./js/anim.js"></script>
 </body>
 </html>
