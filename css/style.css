@@ -346,6 +346,25 @@ input:hover {
   }
 }
 
+/* First Section | Work Section  */
+
+.s3-sec-cv {
+  display: flex;
+  background-color: #848594;
+  width: 100%;
+  z-index: 998;
+  
+  .s3-div-cv {
+    width: 100%;
+    height: 100%;
+  }
+  .s3-div-cv iframe {
+    width: 100%;
+  }
+}
+
+/* End */
+
 
 .loader {
   display: none;

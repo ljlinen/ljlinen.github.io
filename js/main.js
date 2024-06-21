@@ -219,8 +219,5 @@ imgwrap.addEventListener('scroll', () => {
     }
 })
 
-const btnBannerMyWrok = document.querySelector('#id-my-work')
-
-btnBannerMyWrok.addEventListener('click', () => {
-  scrollToElement('.s1-sec-work');
-})
+const btnBannerMyWork = document.querySelector('.btn-my-work');
+console.log(btnBannerMyWork)
