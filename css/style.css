@@ -346,20 +346,37 @@ input:hover {
   }
 }
 
-/* First Section | Work Section  */
+/* 3rd Section | CV Section  */
 
 .s3-sec-cv {
   display: flex;
-  background-color: #848594;
+  flex-direction: column;
+  background-color: var(--clr-60);
   width: 100%;
-  z-index: 998;
+  position: relative;
+  z-index: 1;
+  padding: 50px 5vw;
+  align-items: center;
+  
+  h2 {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 8px;
+  }
+  
+  p {
+    text-align: center;
+    padding-bottom: 40px;
+    max-width: 80%;
+  }
   
   .s3-div-cv {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    min-height: 100%;
   }
-  .s3-div-cv iframe {
-    width: 100%;
+  .s3-div-cv .cv {
+    max-width: 100%;
+    min-height: 100%;
   }
 }
 
@@ -641,6 +658,7 @@ footer .wrap-m-row .wrap p {
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding-block: 25px;
 }
 .footer-signature p {
   text-transform: uppercase;
