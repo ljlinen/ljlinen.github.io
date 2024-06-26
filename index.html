@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Linen</title>
 
@@ -51,7 +51,7 @@
     <banner>
       <div class="intro">
         <div class="wrapper-1">
-          <h1>Linen's portfolio</h1>
+          <h1>LinenDev portfolio site</h1>
           <p>'I am a web and software developer specialising in JavaScript.'</p>
           <input class="btn-my-work" type="button" value="my work"></input>
         </div>
@@ -81,8 +81,11 @@
   </header>
 
 <section class="s1-sec-work">
-  <div class="s1-div-main-work work">
+  <div class="s1-div-main-work">
     <h2>My Work</h2>
+    <p class="desc">below are some of the projects I've worked on.
+       i have replaced some of the clients' personal info.
+    </p>
     <div class="s1-div-worklist">
     </div>
   </div>
@@ -90,6 +93,7 @@
 
   <section class="about-me">
     <h2>about me</h2>
+    <p class="desc">Find out some basic information about my career journey and my educational background.</p>
 
     <div class="wrap">
       <div class="about-p">
@@ -140,7 +144,11 @@
     <h2>Curriculum Vitae</h2>
     <p>all my info can be found on my cv below. Should any other info be required, my contact details can be found on the footer.</p>
     <div class="s3-div-cv">
-      
+      <img src="./src/img/Sipho Moloto CV.png" alt="Curriculum Vitae.pdf">
+      <a href="./src/pdf/CV.pdf" download="Sipho Moloto CV.pdf">
+        <p>Download</p>
+      </a>
+      <p id="fullscreenImage">View CV</p>
     </div>
   </section>
 
@@ -173,12 +181,9 @@
     </div>
   </footer>
 
-  <script type="module" src="./js/mainfunctions.js"></script>
+  <script type="module" src="./js/mainfunctions.js"></script> 
   <script type="module" src="./js/main.js"></script>
   <script src="./js/anim.js"></script>
   <script src="https://unpkg.com/pdfobject"></script>
-  <script>
-    PDFObject.embed("./src/pdf/CV.pdf", ".s3-div-cv");
-  </script>
 </body>
 </html>

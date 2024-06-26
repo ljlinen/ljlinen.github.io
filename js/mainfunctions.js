@@ -1,3 +1,29 @@
+// Loading animation 
+
+export function onpageload() {
+    window.onloadstart = () => {
+      loading(true)
+  }
+    window.onloadend = () => {
+      loading(false)
+  }
+}
+
+function loading(toggle) {
+  const loader = document.querySelector('.loader');
+  
+  if(toggle) {
+    loader.style.display = 'flex';
+  } else {
+    loader.style.display = 'revert';
+  }
+}
+
+// End
+
+
+
+
 // scroll to the requested view gunction by passing class
 
 export function scrollToElement(elementClass) {
@@ -27,8 +53,8 @@ export function createWorkElement(data) {
     pHidden.className = 's1-p-hidden';
     pHidden.textContent = data.description;
 
-    const iconAndPWrapDiv = document.createElement('div');
-    iconAndPWrapDiv.className = 's1-div-iconandpwrap';
+    const h3AndIcon = document.createElement('div');
+    h3AndIcon.className = 's1-div-iconandpwrap';
 
     const techP = document.createElement('p');
     techP.textContent = data.technologies;
@@ -36,12 +62,12 @@ export function createWorkElement(data) {
     const iconImg = document.createElement('img');
     iconImg.src = data.iconSrc;
 
-    iconAndPWrapDiv.appendChild(techP);
-    iconAndPWrapDiv.appendChild(iconImg);
-
-    workPDiv.appendChild(h3);
+    h3AndIcon.appendChild(h3);
+    h3AndIcon.appendChild(iconImg);
+    
+    workPDiv.appendChild(h3AndIcon);
     workPDiv.appendChild(pHidden);
-    workPDiv.appendChild(iconAndPWrapDiv);
+    workPDiv.appendChild(techP);
     workPDiv.classList.add('s1-div-work-p-inactive')
 
     const imgWrapDiv = document.createElement('div');
@@ -55,10 +81,19 @@ export function createWorkElement(data) {
         const li = document.createElement('li');
         if (linkText === "git repo") {
             const a = document.createElement('a');
-            a.href = "#"; // Replace with actual URL
+            a.href = data.repo; // Replace with actual URL
             a.target = "_blank";
             a.textContent = linkText;
+            a.classList.add('a-repo')
             li.appendChild(a);
+        } else if(linkText === 'mobile' &&
+          !data.imageSrcDesktop
+        ) {
+          li.style.color = 'var(--clr-40)';
+          li.textContent = linkText;
+        } else if(linkText === 'desktop') {
+          li.style.color = 'var(--clr-40)';
+          li.textContent = linkText;
         } else {
             li.textContent = linkText;
         }
@@ -68,28 +103,38 @@ export function createWorkElement(data) {
     const wrapDiv = document.createElement('div');
     wrapDiv.className = 'wrap';
 
-    ul.appendChild(wrapDiv);
-    imgWrapDiv.appendChild(ul);
+    
 
     const workImgs = document.createElement('div');
-    
-    const workImgDesktop = document.createElement('img');
-    workImgDesktop.src = data.imageSrcDesktop;
-    
-    const workImgMobile = document.createElement('img');
-    workImgMobile.src = data.imageSrcMobile;
-    workImgMobile.style.display = 'none';
-    
     workImgs.className = 's1-img-workimg';
     
-    workImgs.append(workImgDesktop, workImgMobile)
+    if(data.imageSrcDesktop) {
+       const workImgDesktop = document.createElement('img');
+       workImgDesktop.src = data.imageSrcDesktop;
+       workImgs.append(workImgDesktop)
+    }
+    if(data.imageSrcMobile) {
+       const workImgMobile = document.createElement('img');
+       if(!data.imageSrcDesktop) {
+          workImgs.style.width = '50%';
+          wrapDiv.style.width = '34px';
+       }
+       workImgMobile.src = data.imageSrcMobile;
+      if(data.imageSrcDesktop) {
+         workImgMobile.style.display = 'none';
+      }
+      
+      workImgs.append(workImgMobile)
+    }
+    
+    ul.appendChild(wrapDiv);
+    imgWrapDiv.appendChild(ul);
     imgWrapDiv.appendChild(workImgs);
 
-    const main = document.querySelector('.s1-div-main-work')
     const worklist = document.querySelector('.s1-div-worklist')
+    workPDiv.appendChild(imgWrapDiv)
+    worklist.appendChild(workPDiv)
 
-    worklist.appendChild(workPDiv);
-    main.appendChild(imgWrapDiv);
-    console.log(main);
 }
+
 // End

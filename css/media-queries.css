@@ -52,6 +52,10 @@
     p {
         font-size: clamp(12px, 3.5vw, 16px);
     }
+    
+    .about-p .wrap {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -77,6 +81,10 @@
     }
      h1 {
         font-size: clamp(10px, 9vw, 90px);
+    }
+    
+    .about-p .wrap {
+      grid-template-columns: 1fr 1fr 1fr;
     }
     /* h2 {
         font-size: initial;

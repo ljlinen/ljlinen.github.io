@@ -1,28 +1,16 @@
-import { createWorkElement, scrollToElement } from "./mainfunctions.js"
+import 
+{ 
+  createWorkElement, 
+  scrollToElement,
+  onpageload,
+} from "./mainfunctions.js"
+
+
+
 
 // function that runs when the page loads
 onpageload()
-
-function onpageload() {
-
-  window.onloadstart = () => {
-    loading(true)
-  }
-  window.onloadend = () => {
-    loading(false)
-  }
-}
-function loading(toggle) {
-  const loader = document.querySelector('.loader');
-  
-  if(toggle) {
-    loader.style.display = 'flex';
-  } else {
-    loader.style.display = 'revert';
-  }
-}
-
-
+//
 
 // Hide the nav bar when scrolling, for a cleaner UI
 
@@ -52,7 +40,7 @@ window.addEventListener('scroll', () => {
 
   }
 })
-
+//
 
 
 // Switching between sidenav elements on hover
@@ -62,21 +50,20 @@ const libg = sidenavli.item(3);
 for (let i = 0; i < 3; i++) {
   const navli = sidenavli[i];
   navli.addEventListener('click', () => {
-
     libg.style.opacity = '.7';
     libg.style.animation = 'blink 1.7s infinite';
 
     switch(i) {
       case 0
-        : libg.style.top = '-2px';
+        : libg.style.top = `${navli.offsetTop}px`;
         scrollToElement('.s1-sec-work');
         break;
       case 1
-        : libg.style.top = '15px';
+        : libg.style.top = `${navli.offsetTop}px`;
         scrollToElement('.about-me');
         break;
       case 2
-        : libg.style.top = '32px';
+        : libg.style.top = `${navli.offsetTop}px`;
         scrollToElement('.footer');
         break;
     }
@@ -87,13 +74,13 @@ for (let i = 0; i < 3; i++) {
 
 // Infinite scroll on the header
 
-// const scroller = document.querySelector('.scroll-content')
-// const scrollcontent = Array.from(scroller.children)
-
-// scrollcontent.forEach((content) => {
-//   clonedcontent = content.cloneNode(true);
-//   scroller.appendChild(clonedcontent);
-// })
+ const scroller = document.querySelector('.scroll-content')
+ const scrollcontent = Array.from(scroller.children)
+/*
+ scrollcontent.forEach((content) => {
+   let clonedcontent = content.cloneNode(true);
+   scroller.appendChild(clonedcontent);
+}) */
 
 
 
@@ -104,19 +91,42 @@ const data = [
       description: "An info landing page for a baking company. This website provides basic information about the company including some of the company’s work.",
       technologies: "html css javascript nodejs expressjs",
       iconSrc: "./src/icon/expand.svg",
-      imageSrcDesktop: "./src/img/work/work-desktop.jpg",
-      imageSrcMobile: "./src/img/work/work-mobile.jpg",
-      links: ["desktop", "mobile", "git repo"]
+      clrDominant: '#0E0C22',
+      imageSrcDesktop: "./src/img/theegiftedhands pc.png",
+      imageSrcMobile: "./src/img/work/bakingcompany mobi.jpg",
+      links: ["desktop", "mobile", "git repo"],
+      repo: 'https://github.com/ljlinen/theegiftedhands'
   },
   {
-      title: "Tech Blog",
-      description: "A tech blog providing the latest updates in the tech industry.",
-      technologies: "html css javascript reactjs",
+      title: "Gmail&FB API's WebApp",
+      description: "A webapp that intergrates fcebook and gmail apis to allow page messages to be recieved via gmail.",
+      technologies: "html css javascript mysql expressjs nodejs ",
       iconSrc: "./src/icon/expand.svg",
-      imageSrcDesktop: "./src/img/work/work-desktop.jpg",
-      imageSrcMobile: "./src/img/work/work-mobile.jpg",
-      links: ["desktop", "mobile", "git repo"]
+      clrDominant: '#fff',
+      imageSrcMobile: "/ljlinen.github.io/src/img/work/mailtoteam mobi.jpg",
+      links: ["mobile", "git repo"],
+      repo: 'https://github.com/ljlinen/mailtoteam'
   },
+    {
+      title: "Personal Finance Stats WebApp",
+      description: "An info landing page for a baking company. This website provides basic information about the company including some of the company’s work.",
+      technologies: "html css javascript nodejs expressjs",
+      iconSrc: "./src/icon/expand.svg",
+      clrDominant: '#000',
+      imageSrcDesktop: "./src/img/work/bankroll mobi.jpg",
+      links: ["desktop", "git repo"],
+      repo: 'https://github.com/ljlinen/bankroll'
+  },
+  {
+      title: "Driving School Info Site",
+      description: "An information website for a driving school company.",
+      technologies: "html css javascript nodejs",
+      iconSrc: "./src/icon/expand.svg",
+      clrDominant: 'blue',
+      imageSrcMobile: "./src/img/work/drivingschool mobi.jpg",
+      links: ["mobile", "git repo"],
+      repo: 'https://github.com/ljlinen/mziyonkedrivingschool'
+  }
   // Add more objects as needed
 ];
 
@@ -138,36 +148,59 @@ const addWorkEvents = (workTitles, imgwrappers) => {
     const imgwrapperMain = pcOrMobMain.nextElementSibling;
     const imgDesk = imgwrapperMain.firstElementChild;
     const imgMobi = imgDesk.nextElementSibling;
-    
     const switchItems = Array.from(pcOrMobMain.children)
-    const switchBorder = switchItems[3]; // Assuming the wrap is the fourth child
-    switchItems.pop()
-    switchItems.pop()
+    const switchBorder = switchItems[switchItems.length - 1]; // Assuming the wrap is the fourth child
+    
+let itemDesktop, itemMobile;
+let openedItem;
 
-  const itemDesktop = switchItems[0];
-  const itemMobile = switchItems[1];
- 
- /* switching between desktop work and mobile */
+// Check if the first item is desktop or mobile
+if (switchItems[0].innerText === 'desktop') {
+    itemDesktop = switchItems[0];
+    if (switchItems.length > 1 && switchItems[1].innerText === 'mobile') {
+        itemMobile = switchItems[1];
+    }
+} else if (switchItems[0].innerText === 'mobile') {
+    itemMobile = switchItems[0];
+    if (switchItems.length > 1 && switchItems[1].innerText === 'desktop') {
+        itemDesktop = switchItems[1];
+    }
+}
+
+// Add event listener to desktop if it exists
+if (itemDesktop) {
     itemDesktop.addEventListener('click', () => {
-        const item = itemMobile;
+        const item = itemDesktop;
         
-      console.log("Desktop works!");
-      switchBorder.style.transform = `translateX(0)`;
-      switchBorder.style.width = `${item.scrollWidth}px`;
-      imgMobi.style.display = "none";
-      imgDesk.style.display = "unset";
+        itemDesktop.style.color = 'var(--clr-40)';
+        itemMobile.style.color = '#fff';
+        switchBorder.style.transform = `translateX(0)`;
+        switchBorder.style.width = `${item.scrollWidth}px`;
+        imgMobi.parentElement.style.width = '100%';
+        imgMobi.style.display = "none";
+        imgDesk.style.display = "unset";
     });
-  
+}
+
+// Add event listener to mobile if it exists
+if (itemMobile) {
     itemMobile.addEventListener('click', () => {
         const item = itemMobile;
-        
-      console.log("Mobile works!");
-      switchBorder.style.transform = `translateX(${item.offsetLeft - 4}px)`;
-      switchBorder.style.width = `${item.scrollWidth}px`;
-      imgDesk.style.display = "none";
-      imgMobi.style.display = "unset";
+
+        itemMobile.style.color = 'var(--clr-40)';
+        itemDesktop.style.color = '#fff';
+        switchBorder.style.transform = `translateX(${item.offsetLeft - 4}px)`;
+        switchBorder.style.width = `${item.scrollWidth}px`;
+        imgDesk.style.display = "none";
+        imgMobi.style.display = "unset";
+        imgMobi.parentElement.style.width = '50%';
     });
-  
+}
+
+if (!itemDesktop && !itemMobile) {
+    console.log('Error: Neither desktop nor mobile element found. switchItems:', switchItems);
+}
+ 
   /* adds click events to the work cards */
     workTitle.addEventListener('click', () => {
 
@@ -203,6 +236,8 @@ const arrImgWrappers = Array.from(document.querySelectorAll('.s1-div-imgwrap'));
 // then add all required events for the work
 
 addWorkEvents(arrWorkTitles, arrImgWrappers);
+// Open First Work/ImgWrap
+arrWorkTitles[0].click()
 
 /* End */
 
@@ -213,11 +248,27 @@ const pcormob = document.querySelector('.s1-ul-pcormob')
 imgwrap.addEventListener('scroll', () => {
   let scrollTop = imgwrap.scrollTop
   if (scrollTop > 2) {
-      pcormob.style.visibility = 'hidden';
+      pcormob.style.opacity = 0;
     } else {
-      pcormob.style.visibility = 'visible'
+      pcormob.style.opacity = 'revert';
     }
 })
 
 const btnBannerMyWork = document.querySelector('.btn-my-work');
-console.log(btnBannerMyWork)
+btnBannerMyWork.addEventListener('click', () => {
+  scrollToElement('.s1-sec-work')
+})
+
+const cvmain = document.querySelector('.s3-div-cv');
+const imgCv = cvmain.firstElementChild;
+document.getElementById('fullscreenImage').addEventListener('click', function() {
+            if (imgCv.requestFullscreen) {
+                imgCv.requestFullscreen();
+            } else if (imgCv.mozRequestFullScreen) { // Firefox
+                imgCv.mozRequestFullScreen();
+            } else if (imgCv.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                imgCv.webkitRequestFullscreen();
+            } else if (imgCv.msRequestFullscreen) { // IE/Edge
+                imgCv.msRequestFullscreen();
+            }
+        });
