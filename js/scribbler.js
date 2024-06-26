@@ -1,30 +1,31 @@
- function closeImgDiv(workDeviceSwitch, imgdiv, p) {
-  
-     p.style.opacity = 'initial';
-     workimg.style.display = 'flex';
-     imgdiv.style.display = 'unset';
-     workSwitchContainer.style.display = 'flex';
-   }
-  
-   function openImgDiv(p, workDeviceSwitch, imgdiv) {
-  
-     p.style.opacity = '.5';
-     workimg.style.display = 'flex';
-     imgdiv.style.display = 'unset';
-     workSwitchContainer.style.display = 'flex';
-   }
-  
-   function switchMobileOrPc(pc, workSwitchBorder, imgdiv) {
-  
-     if (pc) {
-       workSwitchBorder.style.transform = 'translateX(120%)'
-       workSwitchBorder.style.width = '53px';
-       imgdiv.firstElementChild.style.display = 'unset';
-       imgdiv.lastElementChild.style.display = 'none';
-     } else {
-       workSwitchBorder.style.transform = 'translateX(0)'
-       workSwitchBorder.style.width = '60px';
-       imgdiv.firstElementChild.style.display = 'none';
-       imgdiv.lastElementChild.style.display = 'unset';
-     }
+let itemDesktop, itemMobile;
+
+if(switchItems[0].innerText == 'desktop') {
+     if (switchItems.length < 3) {
+     itemDesktop = switchItems[0];
+     itemDesktop.addEventListener('click', () => {
+       const item = itemDesktop;
+   
+       console.log("Desktop works!");
+       switchBorder.style.transform = `translateX(0)`;
+       switchBorder.style.width = `${item.scrollWidth}px`;
+       imgMobi.parentElement.style.width = '100%'
+       imgMobi.style.display = "none";
+       imgDesk.style.display = "unset";
+     });
+} else {
+    if (switchItems[0].innerText == 'mobile') {
+     itemMobile = switchItems[0]
+     itemMobile.addEventListener('click', () => {
+       const item = itemMobile;
+   
+       console.log("Mobile works!");
+       switchBorder.style.transform = `translateX(${item.offsetLeft - 4}px)`;
+       switchBorder.style.width = `${item.scrollWidth}px`;
+       imgDesk.style.display = "none";
+       imgMobi.style.display = "unset";
+       imgMobi.parentElement.style.width = '50%';
+     });
+}
+
    }
