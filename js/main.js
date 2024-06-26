@@ -103,7 +103,7 @@ const data = [
       technologies: "html css javascript mysql expressjs nodejs ",
       iconSrc: "./src/icon/expand.svg",
       clrDominant: '#fff',
-      imageSrcMobile: "/ljlinen.github.io/src/img/work/mailtoteam mobi.jpg",
+      imageSrcMobile: "./src/img/work/mailtoteam mobi.jpg",
       links: ["mobile", "git repo"],
       repo: 'https://github.com/ljlinen/mailtoteam'
   },
