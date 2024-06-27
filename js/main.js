@@ -87,15 +87,15 @@ for (let i = 0; i < 3; i++) {
 // Work Data
 const data = [
   {
-      title: "Baking Company",
+      title: "Baking Tutoring Company",
       description: "An info landing page for a baking company. This website provides basic information about the company including some of the company’s work.",
       technologies: "html css javascript nodejs expressjs",
       iconSrc: "./src/icon/expand.svg",
       clrDominant: '#0E0C22',
-      imageSrcDesktop: "./src/img/theegiftedhands pc.png",
-      imageSrcMobile: "./src/img/work/bakingcompany mobi.jpg",
+      imageSrcDesktop: "./src/img/work/bakingtutoring pc.jpg",
+      imageSrcMobile: "./src/img/work/bakingtutoring mobile.jpg",
       links: ["desktop", "mobile", "git repo"],
-      repo: 'https://github.com/ljlinen/theegiftedhands'
+      repo: 'https://github.com/ljlinen/bakingtutoring'
   },
   {
       title: "Gmail&FB API's WebApp",
@@ -113,7 +113,7 @@ const data = [
       technologies: "html css javascript nodejs expressjs",
       iconSrc: "./src/icon/expand.svg",
       clrDominant: '#000',
-      imageSrcDesktop: "./src/img/work/bankroll mobi.jpg",
+      imageSrcDesktop: "./src/img/work/bankroll pc.jpg",
       links: ["desktop", "git repo"],
       repo: 'https://github.com/ljlinen/bankroll'
   },
@@ -125,7 +125,7 @@ const data = [
       clrDominant: 'blue',
       imageSrcMobile: "./src/img/work/drivingschool mobi.jpg",
       links: ["mobile", "git repo"],
-      repo: 'https://github.com/ljlinen/mziyonkedrivingschool'
+      repo: 'https://github.com/ljlinen/drivingschool'
   }
   // Add more objects as needed
 ];
