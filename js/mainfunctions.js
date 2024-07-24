@@ -41,13 +41,18 @@ export function scrollToElement(elementClass) {
 
 // Function to create the element
 
-export function createWorkElement(data) {
-
+export function createWorkElement(data, i) {
+    i = parseInt(i);
+    console.log(typeof i)
     const workPDiv = document.createElement('div');
     workPDiv.className = 's1-div-work-p';
 
     const h3 = document.createElement('h3');
-    h3.textContent = data.title;
+    const h3Index = document.createElement('span');
+    h3Index.classList.add('s1-span-workIndex');
+    h3Index.innerText = `${i+1}. `;
+    
+    h3.append(h3Index, data.title);
 
     const pHidden = document.createElement('p');
     pHidden.className = 's1-p-hidden';
@@ -138,3 +143,95 @@ export function createWorkElement(data) {
 }
 
 // End
+
+
+/* When Work Card is Clicked, The Work Should Pop Up/Switch */
+
+let imgwrapopen = false;
+let openworktitle = false;
+
+export const addWorkEvents = (workTitles, imgwrappers) => {
+
+  for(let i = 0; i < workTitles.length; i++) {
+    
+    let imgwrapperIdx = imgwrappers[i]
+    let workTitle = workTitles[i];
+    
+    const pcOrMobMain = imgwrapperIdx.firstElementChild;
+    const imgwrapperMain = pcOrMobMain.nextElementSibling;
+    const imgDesk = imgwrapperMain.firstElementChild;
+    const imgMobi = imgDesk.nextElementSibling;
+    const switchItems = Array.from(pcOrMobMain.children)
+    const switchBorder = switchItems[switchItems.length - 1]; // Assuming the wrap is the fourth child
+    
+let itemDesktop, itemMobile;
+let openedItem;
+
+// Check if the first item is desktop or mobile
+if (switchItems[0].innerText === 'desktop') {
+    itemDesktop = switchItems[0];
+    if (switchItems.length > 1 && switchItems[1].innerText === 'mobile') {
+        itemMobile = switchItems[1];
+    }
+} else if (switchItems[0].innerText === 'mobile') {
+    itemMobile = switchItems[0];
+    if (switchItems.length > 1 && switchItems[1].innerText === 'desktop') {
+        itemDesktop = switchItems[1];
+    }
+}
+
+// Add event listener to desktop if it exists
+if (itemDesktop) {
+    itemDesktop.addEventListener('click', () => {
+        const item = itemDesktop;
+        
+        itemDesktop.style.color = 'var(--clr-40)';
+        itemMobile.style.color = '#fff';
+        switchBorder.style.transform = `translateX(0)`;
+        switchBorder.style.width = `${item.scrollWidth}px`;
+        imgMobi.parentElement.style.width = '100%';
+        imgMobi.style.display = "none";
+        imgDesk.style.display = "unset";
+    });
+}
+
+// Add event listener to mobile if it exists
+if (itemMobile) {
+    itemMobile.addEventListener('click', () => {
+        const item = itemMobile;
+
+        itemMobile.style.color = 'var(--clr-40)';
+        itemDesktop.style.color = '#fff';
+        switchBorder.style.transform = `translateX(${item.offsetLeft - 4}px)`;
+        switchBorder.style.width = `${item.scrollWidth}px`;
+        imgDesk.style.display = "none";
+        imgMobi.style.display = "unset";
+        imgMobi.parentElement.style.width = '50%';
+    });
+}
+
+if (!itemDesktop && !itemMobile) {
+    console.log('Error: Neither desktop nor mobile element found. switchItems:', switchItems);
+}
+ 
+  /* adds click events to the work cards */
+    workTitle.addEventListener('click', () => {
+
+      if (imgwrapopen && openworktitle) {
+        imgwrapopen.style.display = 'none';
+        imgwrappers[i].style.display = 'flex';
+
+        openworktitle.classList.add('s1-div-work-p-inactive');
+        workTitle.classList.remove('s1-div-work-p-inactive');
+      } else {
+        imgwrappers[i].style.display = 'flex';
+        workTitle.classList.remove('s1-div-work-p-inactive')
+      }
+
+      openworktitle = workTitle;
+      imgwrapopen = imgwrappers[i];
+
+    });
+  }
+}
+/* End */
