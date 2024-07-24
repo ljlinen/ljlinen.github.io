@@ -50,7 +50,7 @@ h3 {
 p {
   font-size: calc(1.4rem);
   font-weight: 300;
-  opacity: unset;
+  opacity: .6;
   filter: unset;
 }
 a {
@@ -84,10 +84,16 @@ input:hover {
   font-weight: 300;
   padding-left: 3px;
 }
+.s1-span-workIndex {
+  font-size: 2rem;
+  font-weight: 400;
+  opacity: .5;
+}
 .s1-div-main-work h2 {
   width: 100%;
   text-align: center;
   padding-top: 25px;
+  opacity: .7;
 }
 .intro {
   display: flex;
@@ -225,7 +231,8 @@ input:hover {
 /* First Section | Work Section  */
 
 .s1-sec-work {
-  padding: 20px 20px;
+  padding: 20px;
+  padding-bottom: 100px;
   position: relative;
   z-index: 1;
   border-top: var(--clr-50) 1px solid;
@@ -235,18 +242,22 @@ input:hover {
 .s1-div-main-work {
   display: flex;
   flex-direction: column;
-  padding: 0 5vw;
+  padding: 0 6vw;
   gap: unset;
   position: relative;
   z-index: 1;
   align-items: center;
   padding-bottom: 40px;
+  
+  h2 {
+  opacity: .7;
+}
 
   .s1-div-worklist {
     display: grid;
     grid-template-columns: 100%;
-    margin-top: 40px;
-    gap: 4px;
+    margin-top: 100px;
+    gap: 10px;
   }
 }
 
@@ -264,6 +275,8 @@ input:hover {
 
   h3 {
     color: var(--clr-40);
+    font-weight: 400;
+    text-transform: lowercase;
   }
   p {
     color: var(--cl-ff);
@@ -282,7 +295,7 @@ input:hover {
   }
   .s1-div-iconandpwrap img {
     transform: rotateZ(-45deg);
-    opacity: .7;
+    opacity: .3;
   }
   .s1-div-iconandpwrap img:hover {
     filter: brightness(1.5);
@@ -336,7 +349,7 @@ input:hover {
     z-index: 2;
     display: flex;
     align-items: center;
-    opacity: .6;
+    opacity: .35;
   }
 
   .s1-ul-pcormob .wrap {
@@ -404,8 +417,29 @@ input:hover {
   position: relative;
   z-index: 1;
   padding: 50px 5vw;
+  padding-bottom: 110px;
   align-items: center;
   min-height: 80vh;
+  
+  .s3-div-cvBtns {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+  }
+  
+  .s3-div-cvBtns p {
+    border-radius: 2px;
+    padding: 3px;
+    opacity: .7;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: fit-content;
+    text-align: center;
+    color: var(--clr-60);
+    background-color: var(--clr-40);
+    margin-bottom: 6px;
+    margin-top: 30px;
+  }
   
   h2 {
     text-align: center;
@@ -431,16 +465,6 @@ input:hover {
     pointer-events: none;
     width: 100%;
     min-height: 100%;
-  }
-  
-  .s3-div-cv p {
-    padding: 1px;
-    opacity: .8;
-    font-size: 1.2rem;
-    font-weight: 500;
-    width: fit-content;
-    text-align: center;
-    color: var(--clr-40);
   }
 }
 
@@ -616,6 +640,7 @@ nav div ul {
 /* ABOUT ME SECTION*/
 .about-me {
   padding: 50px 5vw;
+  padding-bottom: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -626,7 +651,7 @@ nav div ul {
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 50px;
   gap: 5px;
 }
 .about-p {
