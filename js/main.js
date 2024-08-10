@@ -172,7 +172,7 @@ btnBannerMyWork.addEventListener('click', () => {
 })
 
 const cvmain = document.querySelector('.s3-div-cv');
-const imgCv = cvmain.firstElementChild;
+const imgCv = cvmain.firstElementChild.nextElementSibling;
 document.getElementById('fullscreenImage').addEventListener('click', function() {
             if (imgCv.requestFullscreen) {
                 imgCv.requestFullscreen();

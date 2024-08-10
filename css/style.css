@@ -271,7 +271,7 @@ input:hover {
   min-height: 60px;
   box-shadow: #00000062 0px 0px 3px 1px;
   overflow: hidden;
-  transition: background .8s;
+  transition: .8s ease-in;
 
   h3 {
     color: var(--clr-40);
@@ -316,10 +316,12 @@ input:hover {
 
 .s1-div-worklist .s1-div-work-p-inactive {
     background-color: var(--clr-60);
+    transition: 1s ease-in;
 }
 
 .s1-div-imgwrap-hidden {
-  display: none;
+  height: 0;
+  transition: 1s ease-in;
 }
 
 .s1-img-workimg::-webkit-scrollbar {
@@ -335,6 +337,7 @@ input:hover {
   position: relative;
   align-items: center;
   justify-content: 100%;
+  transition: .6s ease-out;
   
   .s1-ul-pcormob {
     padding: 5px;
@@ -345,7 +348,7 @@ input:hover {
     /*background-color: rgba(14, 12, 34, 0.6);*/
     z-index: 5;
     color: #fff;
-    transition: opacity .3s;
+    transition: opacity .4s ease-in;
     z-index: 2;
     display: flex;
     align-items: center;
@@ -376,6 +379,7 @@ input:hover {
     font-size: 1rem;
     font-weight: 600;
     z-index: 9999;
+    transition: opacity .4 ease-in;
   }
   
   ul li {
@@ -399,11 +403,13 @@ input:hover {
     max-height: 40vh;
     overflow-y: auto;
     border-radius: 4px;
+    transition: height .6s;
+    transition: width .8s;
   }
 
   img {
     width: 100%;
-    height: max-content;
+    transition: opacity .6s ease-in;
   }
 }
 
@@ -596,7 +602,8 @@ li input {
   max-width: 80%;
 }
 .mobile {
-  display: none;
+  height: 0;
+  transition: 1s ease-in;
 }
 /* Photo by Roberto Nickson: https://www.pexels.com/photo/person-swimming-in-pool-2417862/ */
 

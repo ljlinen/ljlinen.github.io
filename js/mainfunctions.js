@@ -77,7 +77,7 @@ export function createWorkElement(data, i) {
 
     const imgWrapDiv = document.createElement('div');
     imgWrapDiv.classList.add('s1-div-imgwrap');
-    imgWrapDiv.style.display = 'none';
+    imgWrapDiv.style.height = 0;
 
     const ul = document.createElement('ul');
     ul.className = 's1-ul-pcormob';
@@ -126,7 +126,8 @@ export function createWorkElement(data, i) {
        }
        workImgMobile.src = data.imageSrcMobile;
       if(data.imageSrcDesktop) {
-         workImgMobile.style.display = 'none';
+          workImgMobile.style.opacity = 0;
+          workImgMobile.style.height = 0;
       }
       
       workImgs.append(workImgMobile)
@@ -190,8 +191,11 @@ if (itemDesktop) {
         switchBorder.style.transform = `translateX(0)`;
         switchBorder.style.width = `${item.scrollWidth}px`;
         imgMobi.parentElement.style.width = '100%';
-        imgMobi.style.display = "none";
-        imgDesk.style.display = "unset";
+        imgMobi.style.opacity = 0;
+        imgMobi.style.height = 0;
+        imgDesk.style.height = "initial";
+        imgDesk.style.opacity = 1;
+        
     });
 }
 
@@ -204,8 +208,10 @@ if (itemMobile) {
         itemDesktop.style.color = '#fff';
         switchBorder.style.transform = `translateX(${item.offsetLeft - 4}px)`;
         switchBorder.style.width = `${item.scrollWidth}px`;
-        imgDesk.style.display = "none";
-        imgMobi.style.display = "unset";
+        imgDesk.style.opacity = 0;
+        imgDesk.style.height = 0;
+        imgMobi.style.height = 'initial';
+        imgMobi.style.opacity = 1;
         imgMobi.parentElement.style.width = '50%';
     });
 }
@@ -218,13 +224,18 @@ if (!itemDesktop && !itemMobile) {
     workTitle.addEventListener('click', () => {
 
       if (imgwrapopen && openworktitle) {
-        imgwrapopen.style.display = 'none';
-        imgwrappers[i].style.display = 'flex';
+        imgwrapopen.style.height = 0;
+        if(imgwrappers[i] != imgwrapopen) {
+          imgwrapopen.firstElementChild.style.opacity = 0;
+        }
+
+        imgwrappers[i].style.height = '40vh';
+        imgwrappers[i].firstElementChild.style.opacity = 0.35;
 
         openworktitle.classList.add('s1-div-work-p-inactive');
         workTitle.classList.remove('s1-div-work-p-inactive');
       } else {
-        imgwrappers[i].style.display = 'flex';
+        imgwrappers[i].style.height = '40vh';
         workTitle.classList.remove('s1-div-work-p-inactive')
       }
 
