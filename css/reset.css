@@ -7,17 +7,18 @@
   border: none;
 }
 
-li {
-  cursor: pointer;
-}
 ul {
   list-style-type: none;
   list-style: none;
 }
 
-li {
+li,
+li:hover,
+li:active {
   list-style-type: none;
   list-style: none;
+  cursor: pointer;
+  outline: none;
 }
 
 /*
