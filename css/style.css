@@ -352,7 +352,7 @@ input:hover {
     z-index: 2;
     display: flex;
     align-items: center;
-    opacity: .35;
+    opacity: 0;
   }
 
   .s1-ul-pcormob .wrap {
