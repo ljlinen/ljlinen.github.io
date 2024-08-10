@@ -236,6 +236,7 @@ if (!itemDesktop && !itemMobile) {
         workTitle.classList.remove('s1-div-work-p-inactive');
       } else {
         imgwrappers[i].style.height = '40vh';
+        imgwrappers[i].firstElementChild.style.opacity = '0.35'
         workTitle.classList.remove('s1-div-work-p-inactive')
       }
 
