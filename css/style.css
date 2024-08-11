@@ -80,21 +80,12 @@ input:hover {
   text-transform: none;
 }
 
-.s1-div-main-work h3 {
-  font-weight: 300;
-  padding-left: 3px;
-}
 .s1-span-workIndex {
   font-size: 2rem;
   font-weight: 400;
   opacity: .5;
 }
-.s1-div-main-work h2 {
-  width: 100%;
-  text-align: center;
-  padding-top: 25px;
-  opacity: .7;
-}
+
 .intro {
   display: flex;
   position: relative;
@@ -231,12 +222,30 @@ input:hover {
 /* First Section | Work Section  */
 
 .s1-sec-work {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 20px;
+  padding-top: 50px;
   padding-bottom: 100px;
   position: relative;
   z-index: 1;
   border-top: var(--clr-50) 1px solid;
   background-image: linear-gradient(var(--clr-60), #080714);
+  
+  .desc-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+  .desc-main h2 {
+  opacity: .7;
+  }
+  
+  .desc {
+    
+  }
 }
 
 .s1-div-main-work {
@@ -248,16 +257,13 @@ input:hover {
   z-index: 1;
   align-items: center;
   padding-bottom: 40px;
-  
-  h2 {
-  opacity: .7;
-}
 
   .s1-div-worklist {
-    display: grid;
-    grid-template-columns: 100%;
-    margin-top: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 80px;
     gap: 10px;
+    justify-content: space-evenly;
   }
 }
 
@@ -268,10 +274,11 @@ input:hover {
   background: rgba(25, 21, 64, .8);
   background-size: cover;
   border-radius: 4px;
-  min-height: 60px;
+  min-height: fit-content;
   box-shadow: #00000062 0px 0px 3px 1px;
   overflow: hidden;
   transition: .8s ease-in;
+  max-width: 300px;
 
   h3 {
     color: var(--clr-40);
@@ -336,7 +343,6 @@ input:hover {
   /* change this for different sizes */
   position: relative;
   align-items: center;
-  justify-content: 100%;
   transition: .6s ease-out;
   
   .s1-ul-pcormob {
@@ -429,22 +435,19 @@ input:hover {
   
   .s3-div-cvBtns {
     display: flex;
-    width: 100%;
     gap: 10px;
   }
   
   .s3-div-cvBtns p {
     border-radius: 2px;
+    height: fit-content;
     padding: 3px;
     opacity: .7;
     font-size: 1.2rem;
     font-weight: 500;
-    width: fit-content;
     text-align: center;
     color: var(--clr-60);
     background-color: var(--clr-40);
-    margin-bottom: 6px;
-    margin-top: 30px;
   }
   
   h2 {
@@ -453,24 +456,23 @@ input:hover {
     padding-bottom: 8px;
   }
   
-  p {
+  .desc {
     text-align: center;
     padding-bottom: 40px;
     max-width: 100%;
   }
   
   .s3-div-cv {
-    width: 80%;
-    min-height: 100%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
+    flex-flow: row wrap;
+    gap: 10px;
+    margin-top: 40px;
+    justify-content: center;
   }
   .s3-div-cv img {
     pointer-events: none;
-    width: 100%;
-    min-height: 100%;
+    width: clamp(200px, 80vw, 500px);
   }
 }
 
@@ -647,17 +649,21 @@ nav div ul {
 /* ABOUT ME SECTION*/
 .about-me {
   padding: 50px 5vw;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-image: linear-gradient(var(--clr-60), #080714);
+  
+  .desc {
+  max-width: 250px;
+}
+  
 }
 .about-me .wrap {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
+  display: flex;
+  flex-flow: row wrap;
   margin-top: 50px;
   gap: 5px;
 }
@@ -665,7 +671,9 @@ nav div ul {
   gap: 40px;
 }
 
-.about-p p {
+.about-p p,
+.s1-sec-work .desc,
+.s3-sec-cv .desc {
   max-width: 400px;
   filter: brightness(0.85);
   padding: 4px 9px;
@@ -715,7 +723,7 @@ footer {
   gap: 10px;
   justify-content: space-between;
   width: 100%;
-  min-height: 150px;
+  min-height: 200px;
   padding: 20px 10px;
   flex-direction: column;
 }
@@ -733,6 +741,9 @@ footer .wrap-m-row {
   width: 100%;
   flex: 3;
   justify-content: center;
+}
+footer .wrap-m-row .quicklinks{
+  
 }
 footer .wrap-m-row :nth-child(2){
   flex-direction: row;
@@ -766,7 +777,7 @@ footer .wrap-m-row .wrap p {
   font-weight: 900;
   filter: saturate(2);
 }
-.footer-signature :nth-child(2) {
+.footer-signature p {
   text-transform: lowercase;
   font-size: calc(1rem);
   filter: saturate(1);
