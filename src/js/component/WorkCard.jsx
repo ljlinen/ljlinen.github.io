@@ -3,44 +3,94 @@
 import { useEffect, useRef } from "react";
 import { useState } from "react"
 import iconExpand from '../../asset/icon/expand.svg'
+import iconCollaps from '../../asset/icon/collaps.svg'
 
 
-export default function WorkCard({ data, i, currentCard, setCurrentCard, currentImgWrap, setCurrentImgWrap }) {
+export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
   const [liText, setLiText] = useState();
-  const refImgWrap = useRef(null)
+  const [isCurrentCard, SetIsCurrentCard] = useState();
+
   const refWorkCard = useRef(null)
+  const refImgMobile = useRef(null)
+  const refImgDesktop = useRef(null)
+  const refSwitchBorder = useRef(null)
   i = parseInt(i)
+
+
+  useEffect(() => {
+    console.log(i, liText);
+  }, [liText])
+
+
+  useEffect(() => {
+    if(currentCard) {
+      if(currentCard?.current === refWorkCard.current) {
+        SetIsCurrentCard(true)
+      } else {
+        SetIsCurrentCard(false)
+      }
+    } else if(i  === 0) {
+      SetIsCurrentCard(true)
+    } else {
+      SetIsCurrentCard(false)
+    } 
+    console.log(refSwitchBorder.current.previousElementSibling.previousElementSibling.scrollWidth);
+    
+  }, [currentCard, i])
 
   useEffect(() => {
 
-  }, [currentCard])
-
-  const handleClick = () => {
-    if (currentCard?.current && currentImgWrap?.current) {
-      currentImgWrap.current.style.height = 0;
-      if (refImgWrap != currentImgWrap) {
-        currentImgWrap.current.firstElementChild.style.opacity = 0;
-      }
-
-      refImgWrap.current.style.height = '40vh';
-      refImgWrap.current.firstElementChild.style.opacity = 0.35;
-
-      // openworktitle.classList.add('s1-div-work-p-inactive');
-      // workTitle.classList.remove('s1-div-work-p-inactive');
+    if(liText === 'mobile') {
+      const mobileLi = refSwitchBorder.current.previousElementSibling.previousElementSibling;
+      refSwitchBorder.current.style.transform = `translateX(${mobileLi.offsetLeft - 4}px)`
+      refSwitchBorder.current.style.width = `${mobileLi.scrollWidth}px`
+    }
+    if(liText === 'desktop') {
+      const desktopLi = refSwitchBorder.current.parentElement.firstElementChild
+      refSwitchBorder.current.style.transform = `translateX(0px)`
+      refSwitchBorder.current.style.width = `${desktopLi.scrollWidth}px`
     }
 
+    if(!liText) {
+      if(refImgDesktop?.current && refImgMobile?.current) {
+        setLiText('desktop')
+      } else if(refImgDesktop?.current) {
+        setLiText('desktop')
+      } else if(refImgMobile?.current) {
+        setLiText('mobile')
+      }
+    }
+  }, [liText])
+
+
+  const handleClick = () => {
     setCurrentCard(refWorkCard)
-    setCurrentImgWrap(refImgWrap)
   }
 
+  const handleScrollForUl = (e) => {
+    
+    const scrollTop = e.target.scrollTop
+    const ul =     refSwitchBorder.current.parentElement
+    if (scrollTop > 2) {
+      ul.style.opacity = 0;
+    } else {
+      ul.style.opacity = .7;
+    }
+  }
+
+  const handleSetText = (item) => {
+    if(!(item === 'git repo')) setLiText(item)
+  }
+
+
   return (
-    <div ref={refWorkCard} className={currentCard?.current === refWorkCard.current ? "s1-div-work-p" : "s1-div-work-p s1-div-work-p-inactive"} onClick={handleClick}>
+    <div ref={refWorkCard} className={isCurrentCard ? "s1-div-work-p" : "s1-div-work-p s1-div-work-p-inactive"} onClick={handleClick}>
       <div className="s1-div-iconandpwrap">
         <h3>
           <span className="s1-span-workIndex">{i + 1}</span>
           {data?.title}
         </h3>
-        <img src={iconExpand} alt="expand icon" />
+        <img src={isCurrentCard ? iconExpand : iconCollaps} alt="expand icon" />
       </div>
 
       <p className="s1-p-hidden">
@@ -49,12 +99,12 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard, current
 
       <p>{data?.technologies}</p>
 
-      <div className="s1-div-imgwrap" style={{ height: currentImgWrap?.current && currentImgWrap?.current === refImgWrap.current ? '40vh' : 0 }}>
-        <ul className="s1-ul-pcormob" style={{ opacity: currentImgWrap?.current === refImgWrap.current ? .35 : 0 }}>
+      <div className={isCurrentCard ? "s1-div-imgwrap" : "s1-div-imgwrap s1-div-imgwrap-hidden"}>
+        <ul className="s1-ul-pcormob">
           {
             data?.links ?
               data.links.map((item, i) => {
-                return <li key={i} style={{ color: (item === 'mobile' && !data?.imageSrcDesktop) || (item === 'desktop') ? 'var(--clr-40)' : 'unset' }} onClick={() => setLiText(item)}>
+                return <li  className={liText === item ? 'li-active' : 'li-inactive'} key={i} onClick={() => handleSetText(item)}>
                   {
                     item === 'git repo' ?
                       <a href={data?.repo} target='_blank' className="a-repo">{item}</a> :
@@ -62,23 +112,23 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard, current
                         <>{item}</> :
                         item === 'desktop' ?
                           <>{item}</> :
-                          <>item</>
+                          <>{item}</>
                   }
                 </li>
               }) : null
           }
-          <div className="wrap"></div>
+          <div className="wrap" ref={refSwitchBorder}></div>
         </ul>
-        <div className="s1-work-workimg" style={{ width: !data.imageSrcDesktop ? '50%' : 'unset' }}>
+        <div className="s1-img-workimg" style={{ width: liText === 'mobile' ? '50%' : '100%' }}  onScroll={handleScrollForUl}>
           {
             data?.imageSrcDesktop ?
-              <img src={data?.imageSrcDesktop} alt="desktop-view" /> :
+              <img className={liText === 'desktop' ? 'img-active' : 'img-inactive'} ref={refImgDesktop}  src={data?.imageSrcDesktop} alt="desktop-view" /> :
               null
           }
 
           {
             data?.imageSrcMobile ?
-              <img src={data?.imageSrcMobile} alt="mobile-view" style={{ opacity: data?.imageSrcDesktop ? 0 : 'unset', height: data?.imageSrcDesktop ? 0 : liText === 'mobile' ? 'initial' : 'unset' }} /> :
+              <img className={liText === 'mobile' ? 'img-active' : 'img-inactive'} ref={refImgMobile} src={data?.imageSrcMobile} alt="mobile-view" /> :
               null
           }
         </div>

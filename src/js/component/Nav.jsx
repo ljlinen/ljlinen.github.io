@@ -1,31 +1,35 @@
 import iconMenu from '../../asset/icon/menu.svg'
 import iconCross from '../../asset/icon/cross.svg'
 import imgProfile from '../../asset/img/profile.jpeg'
+import { scrollToElement } from '../global/reusable'
 export default function Nav({isNavOpen, setOpen}) {
-  
+
+  const handleSideNavItemCick = (classTocrollTo) => {
+    scrollToElement(classTocrollTo);
+    setOpen(!open);
+  }
 
   return (
     <>
-      <div className="side-nav" style={{transform: isNavOpen ? 'translateX(0)' : 'translateX(150%)'}}>
-              <img className="menu i" src={iconCross} alt="Menu-Cancel" onClick={() => setOpen(!isNavOpen)} />
-        <div className="profile">
-          <img src={imgProfile} alt="profile image" />
-        </div>
-        <ul>
-          <li>my work</li>
-          <li>about me</li>
-          <li>connect</li>
-          <div className="wrap">
+      <div className={isNavOpen ? "side-nav" : 'side-nav side-nav-open'}>
+        <div className="side-nav-inner" style={{transform: isNavOpen ? 'translateX(0)' : 'translateX(150%)'}}>
+                <img className="menu i" src={iconCross} alt="Menu-Cancel" onClick={() => setOpen(!isNavOpen)} />
+          <div className="profile">
+            <img src={imgProfile} alt="profile image" />
           </div>
-        </ul>
+          <ul>
+            <li onClick={() => handleSideNavItemCick('.s1-sec-work')}>my work</li>
+            <li onClick={() => handleSideNavItemCick('.about-me')}>about me</li>
+            <li onClick={() => handleSideNavItemCick('.footer')}>connect</li>
+            <div className="wrap"></div>
+          </ul>
+        </div>
       </div>
 
       
       <nav>
         <div className="nav-nav">
-          <ul>
-            <li>LinenDev</li>
-          </ul>
+            <p className='logo'>LinenDev</p>
 
           <ul>
             <li>

@@ -57,4 +57,44 @@ header {
   .intro input {
     background-color: var(--clr-40);
   }  
+
+  .design {
+    max-height: fit-content;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    animation: scroll 60s linear infinite;
+    opacity: .154;
+    right: -50%;
+  }
+  .scroll-container {
+    width: 50%;
+    z-index: 2;
+    position: fixed;
+    overflow: hidden;
+    top: 52.25px;
+    right: 0;
+    min-height: calc(50vh + 70px);;
+    mask-image: linear-gradient(to bottom, transparent, var(--clr-60) 10%, var(--clr-60) 90%, transparent);
+    padding-block: unset;
+    padding-inline: clamp(10px, 1vw, 100px)
+  }
+  .work-p-wrap p {
+    padding: 2px;
+    padding-left: 15px;
+    text-align: start;
+    text-transform: uppercase;
+    font-size: 2rem;
+    background-color: var(--clr-40);
+    color: var(--clr-60);
+    font-weight: 100;
+  }
+}
+
+@keyframes scroll {
+  to{
+      transform: translateY(-50%);
+  }
 }
