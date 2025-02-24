@@ -13,13 +13,10 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
   const refWorkCard = useRef(null)
   const refImgMobile = useRef(null)
   const refImgDesktop = useRef(null)
+  const refMobiLi = useRef(null)
+  const refDeskLi = useRef(null)
   const refSwitchBorder = useRef(null)
   i = parseInt(i)
-
-
-  useEffect(() => {
-    console.log(i, liText);
-  }, [liText])
 
 
   useEffect(() => {
@@ -33,20 +30,19 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
       SetIsCurrentCard(true)
     } else {
       SetIsCurrentCard(false)
-    } 
-    console.log(refSwitchBorder.current.previousElementSibling.previousElementSibling.scrollWidth);
+    }
     
   }, [currentCard, i])
 
   useEffect(() => {
 
     if(liText === 'mobile') {
-      const mobileLi = refSwitchBorder.current.previousElementSibling.previousElementSibling;
+      const mobileLi = refMobiLi.current
       refSwitchBorder.current.style.transform = `translateX(${mobileLi.offsetLeft - 4}px)`
       refSwitchBorder.current.style.width = `${mobileLi.scrollWidth}px`
     }
     if(liText === 'desktop') {
-      const desktopLi = refSwitchBorder.current.parentElement.firstElementChild
+      const desktopLi = refDeskLi.current
       refSwitchBorder.current.style.transform = `translateX(0px)`
       refSwitchBorder.current.style.width = `${desktopLi.scrollWidth}px`
     }
@@ -79,7 +75,7 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
   }
 
   const handleSetText = (item) => {
-    if(!(item === 'git repo')) setLiText(item)
+    if(!(['git repo', 'private repo', 'visit site'].includes(item))) setLiText(item)
   }
 
 
@@ -104,16 +100,30 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
           {
             data?.links ?
               data.links.map((item, i) => {
-                return <li  className={liText === item ? 'li-active' : 'li-inactive'} key={i} onClick={() => handleSetText(item)}>
-                  {
-                    item === 'git repo' ?
-                      <a href={data?.repo} target='_blank' className="a-repo">{item}</a> :
-                      item === 'mobile' && !data?.imageSrcDesktop ?
-                        <>{item}</> :
-                        item === 'desktop' ?
+                return <li 
+                        ref={item === 'desktop' ? refDeskLi : item === 'mobile' ? refMobiLi : null}  
+                        className={`${liText === item ? 'li-active' : 'li-inactive'}
+                        ${
+                          ['git repo', 'visit site'].includes(item)
+                            ? (item === 'git repo' && data?.repo) || (item === 'visit site' && data?.site)
+                              ? 'a-repo'
+                              : 'a-repo a-repo-disabled'
+                            : ''
+                        }`
+                      } 
+                        key={i} onClick={() => handleSetText(item)}>
+
+                      {
+                        item === 'git repo' ?
+                          <a href={data?.repo} target='_blank'>{item}</a> :
+                          item === 'visit site' ?
+                          <a href={data?.site} target='_blank'>{item}</a> :
+                          item === 'mobile' && !data?.imageSrcDesktop ?
                           <>{item}</> :
-                          <>{item}</>
-                  }
+                          item === 'desktop' ?
+                            <>{item}</> :
+                            <>{item}</>
+                      }
                 </li>
               }) : null
           }

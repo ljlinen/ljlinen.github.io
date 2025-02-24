@@ -2,6 +2,7 @@ import iconMenu from '../../asset/icon/menu.svg'
 import iconCross from '../../asset/icon/cross.svg'
 import imgProfile from '../../asset/img/profile.jpeg'
 import { scrollToElement } from '../global/reusable'
+import '../../css/component/nav.css'
 export default function Nav({isNavOpen, setOpen}) {
 
   const handleSideNavItemCick = (classTocrollTo) => {

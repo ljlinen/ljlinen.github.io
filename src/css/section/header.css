@@ -1,6 +1,6 @@
 header {
   filter: blur(0);
-  background-color: rgb(223 223 223);
+  background-color: var(--clr-60);
   transition: filter 1s ease-in-out;
     color: var(--clr-40);
     padding-inline: clamp(10px, 1vw, 100px);

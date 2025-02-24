@@ -1,0 +1,120 @@
+
+.s1-span-workIndex {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-right: 7px;
+  padding: 7px;
+  border: 2px solid;
+  border-radius: 4px
+}
+
+
+.work-p, .about-p, footer {
+  width: 100%;
+  padding: clamp(10px, 5vw, 20px);
+  text-align: start;
+}
+
+.work-p {
+  height: fit-content;
+}
+
+.side-nav {
+  display: flex;
+  right: 0;
+  height: 100%;
+  position: fixed;
+  z-index: 30;
+  transform: translateX(0);
+  width: 100vw;
+  backdrop-filter: blur(3px);
+  transition: blur 1s cubic-bezier(0.13, 0.23, 0.3, 0.98);
+}
+
+.side-nav-open {
+  transform: translateX(100vw);
+  backdrop-filter: blur(0);
+  transition: transform 0s .6s cubic-bezier(0.13, 0.23, 0.3, 0.98), backdrop-filter 0s .6s cubic-bezier(0.13, 0.23, 0.3, 0.98)  !important;
+}
+
+
+.side-nav-inner {
+  display: flex;
+  padding: 20px;
+  background-color: var(--clr-40);
+  color: var(--clr-60);
+  right: 0;
+  box-shadow: rgb(0 0 0 / 25%) 0px 0 30px 8px;
+  height: 100%;
+  position: fixed;
+  z-index: 30;
+  font-size: 1.5rem;
+  font-weight: 100;
+  flex-direction: column;
+  gap: 6px;
+  transform: translateX(150%);
+  transition: transform 1s cubic-bezier(0.13, 0.23, 0.3, 0.98);
+  align-items: center;
+  width: 150px;
+}
+.side-nav-inner .profile {
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  margin-top: 10px;
+}
+.side-nav-inner .menu {
+  width: 100%;
+}
+.nav-nav :last-child {
+  position: relative;
+}
+.nav-nav :last-child li {
+  display: flex;
+  align-items: center;
+}
+.nav-nav .menu {
+  transition: transform .5s ease-out;
+}
+.menu + .wrap {
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: -32%;
+}
+.menu + .wrap .line {
+  height: 4px;
+  width: 200px;
+  background-color: #a1a1df56;
+  transform: translateX(100%);
+  transition: transform .9s ease-out;
+}
+.side-nav-inner ul li {
+  text-transform: capitalize;
+  position: relative;
+  z-index: 3;
+}
+.side-nav-inner ul {
+  position: relative;
+}
+.side-nav-inner ul .wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120%;
+  position: absolute;
+  height: 20px;
+  border: 3px solid var(--clr-40);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity, top .4s ease-out;
+  z-index: 2;
+  left: -5px;
+}
+@keyframes blink {
+  from {opacity: .3;}
+  to {opacity: initial;}
+}

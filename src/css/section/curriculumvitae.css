@@ -1,0 +1,64 @@
+
+/* 3rd Section | CV Section  */
+
+.s3-sec-cv {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--clr-60);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 50px 5vw;
+  padding-bottom: 110px;
+  align-items: center;
+  min-height: 80vh;
+  
+  .s3-div-cvBtns {
+    display: flex;
+    gap: 10px;
+    width: 200px;
+    justify-content: center;
+
+    a {
+      height: fit-content;
+    }
+  }
+  
+  .s3-div-cvBtns p {
+    border-radius: 2px;
+    height: fit-content;
+    padding: 3px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--clr-40);
+  }
+  
+  h2 {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 8px;
+  }
+  
+  .desc {
+    text-align: center;
+    padding-bottom: 40px;
+    max-width: 100%;
+  }
+  
+  .s3-div-cv {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    margin-top: 70px;
+    justify-content: center;
+  }
+  .s3-div-cv img {
+    pointer-events: none;
+    width: clamp(200px, 80vw, 500px);
+    box-shadow: lch(0 0 0 / 0.2) 0px 0px 10px;
+  }
+}
+
+/* End */

@@ -1,0 +1,70 @@
+
+/* ABOUT ME SECTION*/
+.about-me {
+  padding-top: 50px;
+  padding-inline: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--clr-60);
+  
+  .desc {
+  max-width: 250px;
+}
+  
+}
+.about-me .wrap {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 50px;
+  gap: clamp(10px, 1.5vw ,40px);
+}
+.about-p {
+  gap: 40px;
+}
+
+.about-p p,
+.s1-sec-work .desc,
+.s3-sec-cv .desc {
+  max-width: 400px;
+  filter: brightness(0.85);
+  padding: 4px 9px;
+  font-size: 1.3rem;
+}
+.about-p .b {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4px 8px;
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-align: start;
+}
+.about-p .b span,
+.s1-div-iconandpwrap p {
+  color: var(--clr-10);
+  filter: brightness(.95);
+  padding: 2px;
+  font-size: 1rem;
+  font-weight: 100;
+}
+.about-p h3 {
+  max-width: 450px;
+  padding-block: 6px;
+}
+.about-p :nth-child(3) {
+  padding-bottom: 3px;
+}
+.about-me h2 {
+  opacity: .7;
+}
+.about-p div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.about-p div img {
+  height: 20px;
+}

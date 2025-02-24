@@ -1,6 +1,7 @@
 import iconCode from '../../asset/icon/code.svg'
 import iconSchool from '../../asset/icon/school.svg'
 import iconSuitcase from '../../asset/icon/suitcase.svg'
+import '../../css/section/about.css'
 
 export default function About() {
   return (

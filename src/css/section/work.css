@@ -1,0 +1,316 @@
+/* First Section | Work Section  */
+
+.s1-sec-work {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 1;
+  background-color: var(--clr-60);
+  color: var(--clr-40);
+  
+  .desc-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+  .desc-main h2 {
+  opacity: .7;
+  }
+  
+  .desc {
+    
+  }
+}
+
+.s1-div-main-work {
+  display: flex;
+  flex-direction: column;
+  padding: 0 6vw;
+  gap: unset;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+
+  .s1-div-worklist {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 80px;
+    min-height: 600px;
+    gap: clamp(10px, 1.5vw ,40px);
+    justify-content: space-evenly;
+    align-items: start;
+  }
+}
+
+.s1-div-worklist .s1-div-work-p {
+  display: flex;
+  padding: 2px;
+  flex-direction: column;
+  background-color: var(--clr-60);
+  background-size: cover;
+  border-radius: 4px;
+  min-height: 150px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 0px 20px 0px;
+  overflow: hidden;
+  transition: .8s ease-in;
+  max-width: 300px;
+
+  h3 {
+    display: contents;
+    color: var(--clr-40);
+    font-weight: 400;
+    text-transform: lowercase;
+  }
+  p {
+    color: var(--clr-40);
+    padding-inline: 4px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding-inline: 15px;
+    margin-block: 10px 30px
+  }
+  .s1-div-iconandpwrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin: 15px 15px 0 15px;
+  }
+  .s1-div-iconandpwrap img {
+    transform: rotateZ(-45deg);
+    align-self: baseline;
+    filter: brightness(.5);
+  }
+  .s1-div-iconandpwrap img:hover {
+    filter: brightness(1.5);
+  }
+  .s1-div-iconandpwrap p {
+    margin-top: unset;
+    font-size: 1rem;
+    font-weight: 900;
+    filter: none;
+    color: var(--clr-40);
+  }
+
+  .s1-p-hidden {
+    position: fixed;
+    opacity: 0;
+    display: none;
+    transition: position .6s ease-out;
+  }
+}
+
+.s1-div-worklist .s1-div-work-p-inactive {
+    box-shadow: rgb(0 0 0 / 20%) 0 0 10px 0px;
+    transition: box-shadow 1s ease-in !important;
+}
+
+.s1-div-imgwrap-hidden {
+  height: 0 !important;
+  transition: 1s ease-in;
+
+  .s1-ul-pcormob {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+  .s1-work-workimg {
+    opacity: 0 !important;
+  }
+}
+
+
+.s1-img-workimg::-webkit-scrollbar {
+  width: 3px;
+}
+
+.s1-div-imgwrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 40vh;
+  gap: 4px;
+  margin-top: 10px;
+  /* change this for different sizes */
+  position: relative;
+  align-items: center;
+  transition: height 1s cubic-bezier(0.13, 0.23, 0.3, 0.98);
+  
+  .s1-ul-pcormob {
+    padding: 5px;
+    position: absolute;
+    top: -20px;
+    left: 15px;
+    border-radius: 3px;
+    /*background-color: rgba(14, 12, 34, 0.6);*/
+    z-index: 5;
+    transition: opacity .4s ease-in;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    opacity: .7;
+
+    .li-active {
+      
+    }
+    .li-inactive {
+
+    }
+  }
+
+  .s1-ul-pcormob .wrap {
+    position: absolute;
+    border-bottom: 2px solid var(--clr-40);
+    opacity: .7;
+    width: 40px;
+    min-height: 20px;
+    margin-top: 2px;
+    border-radius: 1px;
+    top: 1px;
+    transition: transform .6s ease;
+    z-index: -1;
+  }
+
+  ul {
+    position: relative;
+    padding: 4px;
+    color: var(--clr-40);
+    display: flex;
+    max-width: fit-content;
+    gap: 10px;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    z-index: 9999;
+    transition: opacity .4 ease-in;
+  }
+  
+  ul .a-repo {
+    background-color: var(--clr-ff);
+    padding: 4px;
+    padding-inline: 7px;
+    border-radius: 2px;
+    color: #0000EE;
+  }
+
+  ul .a-repo-disabled {
+    background-color: var(--clr-ff);
+    padding: 4px;
+    padding-inline: 7px;
+    border-radius: 2px;
+    color: #ee000c;
+  }
+  
+  
+  .s1-img-workimg {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    max-height: 40vh;
+    overflow-y: auto;
+    border-radius: 4px;
+    transition: height .6s;
+    transition: width .8s;
+  }
+
+  img {
+    width: 100%;
+    transition: opacity .6s ease-in;
+  }
+
+  .img-inactive {
+    opacity: 0;
+    height: 0;
+  }
+  .img-active {
+    opacity: 1;
+    height: initial;
+  }
+
+}
+
+
+.hovered-work {
+  display: flex;
+  position: absolute;
+  background-color: var(--clr-60);
+  min-height: 400px;
+  max-width: 80%;
+}
+.mobile {
+  height: 0;
+  transition: 1s ease-in;
+}
+/* Photo by Roberto Nickson: https://www.pexels.com/photo/person-swimming-in-pool-2417862/ */
+
+nav {
+  font-size: calc(1.5rem * 1.618);
+  position: fixed;
+  padding-inline: 12px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 25;
+  background-color: var(--clr-60);
+}
+nav div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: var(--clr-40);
+  font-weight: 100;
+  font-family: logo;
+  font-size: calc(1.5rem * 1.618);
+}
+nav div ul {
+  display: flex;
+  padding: 5px;
+  font-weight: 600;
+  transition: transform 2s ease-in;
+}
+.nav-nav {
+  transition: opacity 1s ease-in-out;
+}
+.pc {
+  width: 100%;
+}
+.mobile {
+  width: 100%;
+}
+
+.mobi-pc-switch {
+  display: none;
+  position: relative;
+  padding: 6px;
+  gap: 6px;
+  height: fit-content;
+  transform: scale(.7) translate(-20%, 10px);
+}
+.mobi-pc-switch p {
+  position: relative;
+  padding: 2px;
+  font-size: 1.5rem;
+  z-index: 5;
+  filter: none;
+  color: var(--clr-40);
+}
+.mobi-pc-switch :last-child {
+  height: fit-content;
+  position: relative;
+  display: flex;
+  left: 28px;
+}
+.mobi-pc-switch .wrap p {
+  position: relative;
+  top: -3px;
+}

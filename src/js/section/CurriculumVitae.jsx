@@ -1,5 +1,6 @@
 import { useRef } from 'react';
-import imageCV from '../../asset/img/Sipho Moloto CV.png'
+import imageCV from '../../asset/img/cv.png'
+import '../../css/section/curriculumvitae.css'
 
 export default function CurriculumVitae() {
   const refCvImage = useRef(null)
@@ -23,7 +24,7 @@ const handleViewCv = () => {
     <div className="s3-div-cv">
     <img ref={refCvImage} src={imageCV} alt="Curriculum Vitae.pdf" />
       <div className="s3-div-cvBtns">
-       <a href="../../asset/pdf/CV.pdf" download="Sipho Moloto CV.pdf">
+       <a href="../../asset/pdf/SiphoMolotoCV.pdf" download="Sipho Moloto CV.pdf">
         <p>Download</p>
        </a>
        <p id="fullscreenImage" onClick={handleViewCv}>View CV</p>
