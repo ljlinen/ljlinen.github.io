@@ -155,13 +155,6 @@
     display: flex;
     align-items: center;
     opacity: .7;
-
-    .li-active {
-      
-    }
-    .li-inactive {
-
-    }
   }
 
   .s1-ul-pcormob .wrap {
@@ -172,7 +165,7 @@
     min-height: 20px;
     margin-top: 2px;
     border-radius: 1px;
-    top: 1px;
+    top: 3px;
     transition: transform .6s ease;
     z-index: -1;
   }

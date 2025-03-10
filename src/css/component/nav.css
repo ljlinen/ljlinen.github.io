@@ -57,12 +57,25 @@
   align-items: center;
   width: 150px;
 }
+.side-nav-inner .profile-main:hover {
+  .profile {
+    border-radius: 0;
+    margin-top: 10px;
+    width: 150%;
+    right: 50%;
+  }
+}
 .side-nav-inner .profile {
+  position: relative;
   overflow: hidden;
   border-radius: 50%;
   border: 2px solid #ffffff;
   margin-top: 10px;
+  width: 100%;
+  right: 0;
+  transition:  .8s cubic-bezier(0.13, 0.23, 0.3, 0.98);
 }
+
 .side-nav-inner .menu {
   width: 100%;
 }
@@ -93,9 +106,25 @@
   transition: transform .9s ease-out;
 }
 .side-nav-inner ul li {
+  display: flex;
+  align-items: center;
   text-transform: capitalize;
   position: relative;
   z-index: 3;
+  gap: 8px;
+}
+.side-nav-inner ul li span {
+  display: block;
+  opacity: 0;
+  height: 2px;
+  width: 8px;
+  background-color: var(--clr-ff);
+  transition: opacity .8s cubic-bezier(0.13, 0.23, 0.3, 0.98);
+}
+.side-nav-inner ul li:hover {
+  span {
+    opacity: 1;
+  }
 }
 .side-nav-inner ul {
   position: relative;
@@ -113,6 +142,16 @@
   transition: opacity, top .4s ease-out;
   z-index: 2;
   left: -5px;
+}
+.side-nav-inner .menu {
+  transform: rotate(0deg) scale(1);
+  filter: contrast(1);
+  transition: transform .6s ease-in-out, filter .4s ease-in-out;
+}
+.side-nav-inner .menu:hover {
+  transform: rotate(90deg) scale(1.2);
+  filter: contrast(2);
+  transition: transform .6s ease-in-out, filter .6s ease-in-out;
 }
 @keyframes blink {
   from {opacity: .3;}
