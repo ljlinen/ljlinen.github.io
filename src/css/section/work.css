@@ -127,7 +127,11 @@
 
 
 .s1-img-workimg::-webkit-scrollbar {
-  width: 3px;
+  width: 12px;
+}
+.s1-img-workimg::-webkit-scrollbar-thumb {
+  border: 3px solid var(--clr-60);
+  border-radius: 20px;
 }
 
 .s1-div-imgwrap {

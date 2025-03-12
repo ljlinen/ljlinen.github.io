@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import '../../css/section/header.css'
 import Nav from '../component/Nav'
 import { scrollToElement } from '../global/reusable'
+
 export default function Header() {
   const [isNavOpen, setOpen] = useState(false)
   const refcroller = useRef(null);
@@ -29,7 +30,7 @@ export default function Header() {
       <div className='banner'>
         <div className="intro">
           <div className="wrapper-1">
-            <h1>Linen&apos;s portfolio</h1>
+            <h1>Sipho&apos;s portfolio</h1>
             <p>&apos;A web and software developer specialising in JavaScript.&apos;</p>
             <input className="btn-my-work" type="button" value="my work" onClick={() => scrollToElement('.s1-sec-work')} />
           </div>

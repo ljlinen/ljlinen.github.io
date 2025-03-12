@@ -27,7 +27,7 @@
   z-index: 30;
   transform: translateX(0);
   width: 100vw;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(5px);
   transition: blur 1s cubic-bezier(0.13, 0.23, 0.3, 0.98);
 }
 
@@ -57,14 +57,72 @@
   align-items: center;
   width: 150px;
 }
-.side-nav-inner .profile-main:hover {
+.side-nav-inner .profile-main-focus {
+  position: relative;
+
+  .profile-ul {
+    position: relative;
+    opacity: 1 !important;
+    transform: translateX(-140%) !important;
+    transition: transform .8s cubic-bezier(0.13, 0.23, 0.3, 0.98), opacity .8s cubic-bezier(0.13, 0.23, 0.3, 0.98) !important;
+  }
+
   .profile {
     border-radius: 0;
     margin-top: 10px;
     width: 150%;
     right: 50%;
   }
+
+  .expand-collaps-icon {
+    right: 4px;
+    bottom: 4px;
+    max-width: 100% !important;
+  }
 }
+
+.side-nav-inner .profile-main {
+  position: relative;
+
+  .profile-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    opacity: 0;
+    width: 150px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    transform: translateX(0);
+    position: absolute;
+    filter: drop-shadow(0px 0px 2px var(--clr-60));
+    color: var(--clr-40);
+    transition: opacity .8s, transform 0s 1s;
+  }
+
+  .profile-ul .itsdynamic-note {
+    height: auto;
+    width: 60px;
+    position: absolute;
+    left: -45%;
+    top: -60%;
+  }
+  .profile-ul li {
+    font-weight: 900;
+  }
+  .profile-ul li span {
+    font-weight: 100;
+  }
+
+  .expand-collaps-icon {
+    position: absolute;
+    right: 3px;
+    bottom: 35%;
+    max-width: 80% !important;
+    color: var(--clr-40);
+    border-radius: 6px;
+  }
+}
+
 .side-nav-inner .profile {
   position: relative;
   overflow: hidden;
@@ -74,6 +132,9 @@
   width: 100%;
   right: 0;
   transition:  .8s cubic-bezier(0.13, 0.23, 0.3, 0.98);
+}
+.side-nav-inner .nav-ul {
+  margin-top: 10px;
 }
 
 .side-nav-inner .menu {
@@ -105,7 +166,7 @@
   transform: translateX(100%);
   transition: transform .9s ease-out;
 }
-.side-nav-inner ul li {
+.side-nav-inner .nav-ul li {
   display: flex;
   align-items: center;
   text-transform: capitalize;
@@ -113,7 +174,7 @@
   z-index: 3;
   gap: 8px;
 }
-.side-nav-inner ul li span {
+.side-nav-inner .nav-ul li span {
   display: block;
   opacity: 0;
   height: 2px;
@@ -121,15 +182,15 @@
   background-color: var(--clr-ff);
   transition: opacity .8s cubic-bezier(0.13, 0.23, 0.3, 0.98);
 }
-.side-nav-inner ul li:hover {
+.side-nav-inner .nav-ul li:hover {
   span {
     opacity: 1;
   }
 }
-.side-nav-inner ul {
+.side-nav-inner .nav-ul {
   position: relative;
 }
-.side-nav-inner ul .wrap {
+.side-nav-inner .nav-ul .wrap {
   display: flex;
   justify-content: center;
   align-items: center;
