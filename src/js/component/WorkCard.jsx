@@ -132,7 +132,6 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
           <div className="wrap" ref={refSwitchBorder}></div>
         </ul>
         <div className="s1-img-workimg" style={{ width: liText === 'mobile' ? '50%' : '100%' }}  onScroll={handleScrollForUl}>
-          <div>
             {
               data?.imageSrcDesktop ?
                 <img className={liText === 'desktop' ? 'img-active' : 'img-inactive'} ref={refImgDesktop}  src={data?.imageSrcDesktop} alt="desktop-view" /> :
@@ -143,9 +142,7 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
               data?.imageSrcMobile ?
                 <img className={liText === 'mobile' ? 'img-active' : 'img-inactive'} ref={refImgMobile} src={data?.imageSrcMobile} alt="mobile-view" /> :
                 null
-            }            
-          </div>
-
+            }      
         </div>
       </div>
     </div>

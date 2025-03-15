@@ -19,7 +19,7 @@ export default function MyWork() {
   // Work Data
 const data = [
     {
-      title: "Baking Tutoring Company",
+      title: "Baking School Info Site",
       description: "An info landing page for a baking company. This website provides basic information about the company including some of the company’s work.",
       technologies: "html css javascript nodejs expressjs",
       iconSrc: "./src/icon/expand.svg",
@@ -42,7 +42,7 @@ const data = [
       repo: undefined
   },
     {
-      title: "Instrumental Ecormmerce Site",
+      title: "Instrumental Sales Website",
       description: "",
       technologies: "reactjs honojs cloudflare-kv cloudflare-R2",
       iconSrc: "./src/icon/expand.svg",

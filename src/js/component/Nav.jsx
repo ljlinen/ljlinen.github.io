@@ -32,7 +32,7 @@ export default function Nav({ isNavOpen, setOpen }) {
 
     console.log('month is ', month); ''
     if (monthsLeft < 0)
-      setAge({ age: `${age - 1}`, message: ` ${age} in ${monthsLeft ^ -1} Months` })
+      setAge({ age: `${age - 1}`, message: ` turning ${age} in ${monthsLeft ^ -1} Months` })
     else if (monthsLeft === 0)
       setAge({ age: `${age}`, message: ` it's my birth month!` })
     else

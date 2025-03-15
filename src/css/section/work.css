@@ -46,7 +46,6 @@
 
 .s1-div-worklist .s1-div-work-p {
   display: flex;
-  padding: 2px;
   flex-direction: column;
   background-color: var(--clr-60);
   background-size: cover;
@@ -61,7 +60,7 @@
   h3 {
     color: var(--clr-40);
     font-weight: 400;
-    text-transform: lowercase;
+    text-transform: capitalize;
   }
   p {
     color: var(--clr-40);
@@ -74,6 +73,7 @@
   .s1-div-iconandpwrap {
     display: grid;
     grid-template-columns: 20px 1fr 25px;
+    align-items: start;
     gap: 6px;
     margin: 15px 15px 0 15px;
 
@@ -205,16 +205,6 @@
     color: #ee000c;
   }
   
-  .s1-img-workimg::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: calc(100% - 12px);
-    top: 0;
-    right: 12px;
-    border-radius: 20px;
-    z-index: 1;
-  }
   .s1-img-workimg {
     width: 100%;
     justify-content: center;
