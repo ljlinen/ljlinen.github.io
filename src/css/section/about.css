@@ -1,7 +1,7 @@
 
 /* ABOUT ME SECTION*/
 .about-me {
-  padding-top: 50px;
+  margin-top: 150px;
   padding-inline: 5vw;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
   background-color: var(--clr-60);
   
   .desc {
-  max-width: 250px;
+  max-width: 400px;
 }
   
 }
@@ -25,11 +25,8 @@
   gap: 40px;
 }
 
-.about-p p,
-.s1-sec-work .desc,
-.s3-sec-cv .desc {
+.about-p p {
   max-width: 400px;
-  filter: brightness(0.85);
   padding: 4px 9px;
   font-size: 1.3rem;
 }
@@ -56,9 +53,6 @@
 }
 .about-p :nth-child(3) {
   padding-bottom: 3px;
-}
-.about-me h2 {
-  opacity: .7;
 }
 .about-p div {
   display: flex;

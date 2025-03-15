@@ -8,14 +8,19 @@
 }
 @font-face {
   font-family: body;
-  src: url('../../asset/fonts/Lexend-Regular.woff2');
+  src: url('../../asset/fonts/PlusJakartaSans-VariableFont_wght.ttf');
+}
+@font-face {
+  font-family: accent;
+  src: url('../../asset/fonts/KGNeatlyPrinted.ttf');
 }
 :root {
   /* font-size: 62.25%; */
-  --clr-60: rgb(240, 240, 240);
+  --clr-60: rgb(255, 255, 255);
   --clr-50: #322e618c;
-  --clr-40: rgb(24 24 24);
-  --clr-10: rgb(57 130 220);
+  --clr-40: #003140;
+  --clr-10: #00b1de;
+  --clr-10-2: #ffebb3;
   --clr-ff: #fff;
   --unit: 1.618;
 }
@@ -34,33 +39,36 @@ body {
 /* Global Settings */
 
 h1 {
- font-size: calc(1.2rem * (1.618*2));
+ font-size: clamp(24px, 5vw, 40px);
  font-weight: 500;
  line-height: 1.2;
 }
 h2 {
   font-weight: 600;
-  font-size: calc(1.4rem * 1.618);
+  font-size: clamp(15px, 2.5vw, 20px);
   text-transform: capitalize;
 }
 h3 {
-  font-size: calc(1.2rem * 1.618);
+  font-size: clamp(12px, 2.5vw, 15px);
   font-weight: 500;
   text-transform: capitalize;
 }
 p {
-  font-size: calc(1.4rem);
+  font-size: clamp(12px, 2vw, 13px);
   font-weight: 300;
-  opacity: .6;
+  opacity: .8;
   filter: unset;
 }
 a {
   text-decoration: none;
 }
-input {
+input, .input-button input {
+  text-transform: capitalize;
+  font-size: calc(1rem * 1.618);
+  font-family: body;
   transition: filter .4s;
 }
-input:hover {
+input:hover, .input-button:hover {
   filter: contrast(1.6);
 }
 
@@ -70,8 +78,18 @@ input:hover {
 }
 
  .desc {
-  text-align: center;
-  max-width: 250px;
-  font-weight: 500;
+    text-align: center;
+    max-width: 250px;
+    font-weight: 500;
+    max-width: 400px;
+    padding: 4px 9px;
+    font-size: 1.3rem;
+  }
+  .hero-shape {
+    position: absolute;
+    height: 50vh;
+    aspect-ratio: 1;
+    border-radius: 40vh;
+    filter: blur(10vw) opacity(0.3);
   }
 /* End */

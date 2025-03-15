@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import { useState } from "react"
-import iconExpand from '../../asset/icon/expand.svg'
-import iconCollaps from '../../asset/icon/collaps.svg'
+import IconExpand from '../../asset/icon/expand.svg'
+import IconCollaps from '../../asset/icon/collaps.svg'
 
 
 export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
@@ -82,11 +82,13 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
   return (
     <div ref={refWorkCard} className={isCurrentCard ? "s1-div-work-p" : "s1-div-work-p s1-div-work-p-inactive"} onClick={handleClick}>
       <div className="s1-div-iconandpwrap">
-        <h3>
-          <span className="s1-span-workIndex">{i + 1}</span>
-          {data?.title}
-        </h3>
-        <img src={isCurrentCard ? iconExpand : iconCollaps} alt="expand icon" />
+        <h3 className="s1-span-workIndex" style={{textAlign: 'center'}}>{i + 1}</h3>
+        <h3>{data?.title}</h3>
+        {
+          isCurrentCard ?
+          <IconExpand style={{minWidth: 24, maxHeight: 24}} /> :
+          <IconCollaps style={{minWidth: 24, maxHeight: 24}} />
+        }
       </div>
 
       <p className="s1-p-hidden">
@@ -130,17 +132,20 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
           <div className="wrap" ref={refSwitchBorder}></div>
         </ul>
         <div className="s1-img-workimg" style={{ width: liText === 'mobile' ? '50%' : '100%' }}  onScroll={handleScrollForUl}>
-          {
-            data?.imageSrcDesktop ?
-              <img className={liText === 'desktop' ? 'img-active' : 'img-inactive'} ref={refImgDesktop}  src={data?.imageSrcDesktop} alt="desktop-view" /> :
-              null
-          }
+          <div>
+            {
+              data?.imageSrcDesktop ?
+                <img className={liText === 'desktop' ? 'img-active' : 'img-inactive'} ref={refImgDesktop}  src={data?.imageSrcDesktop} alt="desktop-view" /> :
+                null
+            }
 
-          {
-            data?.imageSrcMobile ?
-              <img className={liText === 'mobile' ? 'img-active' : 'img-inactive'} ref={refImgMobile} src={data?.imageSrcMobile} alt="mobile-view" /> :
-              null
-          }
+            {
+              data?.imageSrcMobile ?
+                <img className={liText === 'mobile' ? 'img-active' : 'img-inactive'} ref={refImgMobile} src={data?.imageSrcMobile} alt="mobile-view" /> :
+                null
+            }            
+          </div>
+
         </div>
       </div>
     </div>

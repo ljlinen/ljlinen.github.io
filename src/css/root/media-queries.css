@@ -14,7 +14,7 @@
     p,
     .work-p-wrap p,
     input,
-    .intro .wrapper-1 input,
+    .intro .input-button,
     .s1-div-main-work.work-p-wrap p {
         font-size: .8rem;
     }
@@ -39,7 +39,7 @@
     p,
     .work-p-wrap p,
     input,
-    .intro .wrapper-1 input,
+    .intro input,
     .s1-div-main-work.work-p-wrap p {
         font-size: initial;
     }
@@ -69,12 +69,6 @@
     .about-p {
         max-width: 300px;
     }
-    .s1-div-main-work:is(.work-p) {
-        width: fit-content;
-    }
-    .s1-div-main-work.work-p {
-        max-width: 260px;
-    }
     .s1-div-main-work.intro {
         width: fit-content;
         flex: 3;
@@ -96,7 +90,7 @@
     p,
     .work-p-wrap p,
     input,
-    .intro .wrapper-1 input,
+    .intro input,
     .s1-div-main-work.work-p-wrap p {
         font-size: initial;
     }

@@ -1,63 +1,38 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import '../../css/section/header.css'
+import IconWork from  '../../asset/icon/work.svg'
+import gifCoding from '../../asset/gif/coding.gif'
 import Nav from '../component/Nav'
 import { scrollToElement } from '../global/reusable'
+import InputButton from '../element/InputButton'
 
 export default function Header() {
   const [isNavOpen, setOpen] = useState(false)
-  const refcroller = useRef(null);
 
-  useEffect(() => {
-    const scroller = refcroller.current
-    if(refcroller) {
-      const scrollcontent = Array.from(scroller.children)
-
-      scrollcontent.forEach((content) => {
-        let clonedcontent = content.cloneNode(true);
-        scroller.appendChild(clonedcontent);
-      })
-    }
-  }, [])
 
   return (
     <>
-    <Nav isNavOpen={isNavOpen} setOpen={setOpen} />
-    <header>
-      <div className="loader">
-        <p>Loading...</p>
-      </div>
+      <Nav isNavOpen={isNavOpen} setOpen={setOpen} />
+      <header>
+        <div className="hero-shape" style={{backgroundColor: 'var(--clr-10-2)', bottom: '-30vh', left: '-5vw'}}>
+        </div>
+        <img className='hero' width={480} height={360} src={gifCoding} />
+        <div className="loader">
+          <p>Loading...</p>
+        </div>
 
-      <div className='banner'>
         <div className="intro">
-          <div className="wrapper-1">
-            <h1>Sipho&apos;s portfolio</h1>
-            <p>&apos;A web and software developer specialising in JavaScript.&apos;</p>
-            <input className="btn-my-work" type="button" value="my work" onClick={() => scrollToElement('.s1-sec-work')} />
-          </div>
-        </div>
+            <h1>JavaScript Dev & Problem Solver</h1>
+            <p>I&apos;m a web and software developer specializing in JavaScript, creating dynamic, high-performance websites and applications tailored to your needs</p>
+            <InputButton 
+              className="btn-my-work" value={"see what i've built"} 
+              handle={() => scrollToElement('.s1-sec-work')} color={'var(--clr-10-2)'}
+              style={{display: 'flex', gap: 15}}>
 
-        <div className="work-p scroll-container">
-          <div className="work-p-wrap design scroll-content" ref={refcroller}>
-            <p>JavaScript</p>
-            <p>Frontend</p>
-            <p>Nodejs</p>
-            <p>Backend</p>
-            <p>Expressjs</p>
-            <p>ReactNative</p>
-            <p>HTML</p>
-            <p>CSS</p>
-            <p>MySQL</p>
-            <p>Git</p>
-            <p>Figma</p>
-            <p>Aws</p>
-            <p>Linux</p>
-            <p>Ubuntu</p>
-            <p>Server</p>
-            <p>MySQLServer</p>
-          </div>
+              <IconWork color="var(--clr-10-2)" />
+            </InputButton>
         </div>
-      </div>
-    </header>
-  </>
+      </header>
+    </>
   )
 }

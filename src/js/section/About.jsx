@@ -1,6 +1,6 @@
-import iconCode from '../../asset/icon/code.svg'
-import iconSchool from '../../asset/icon/school.svg'
-import iconSuitcase from '../../asset/icon/suitcase.svg'
+import IconCode from '../../asset/icon/code.svg'
+import IconSchool from '../../asset/icon/school.svg'
+import IconSuitcase from '../../asset/icon/suitcase.svg'
 import '../../css/section/about.css'
 
 export default function About() {
@@ -13,7 +13,7 @@ export default function About() {
           <div className="about-p">
             <div>
               <h3>Skills</h3>
-              <img src={iconCode} />
+              <IconCode />
             </div>
 
             <ul className="b">
@@ -27,7 +27,7 @@ export default function About() {
           <div className="about-p">
             <div>
               <h3>Education</h3>
-              <img src={iconSchool} />
+              <IconSchool />
             </div>
 
             <ul className="b">
@@ -41,7 +41,7 @@ export default function About() {
           <div className="about-p">
             <div>
               <h3>Experience</h3>
-              <img src={iconSuitcase} alt="suitcase icon" />
+              <IconSuitcase />
             </div>
 
             <ul className="b">

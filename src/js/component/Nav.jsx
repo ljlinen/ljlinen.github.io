@@ -7,7 +7,7 @@ import imgProfile from '../../asset/img/profile.jpeg'
 import { scrollToElement } from '../global/reusable'
 import '../../css/component/nav.css'
 import { useEffect, useState } from 'react'
-export default function Nav({isNavOpen, setOpen}) {
+export default function Nav({ isNavOpen, setOpen }) {
 
   const [focusProfile, setFocusProfile] = useState()
   const year = new Date().getFullYear()
@@ -27,16 +27,16 @@ export default function Nav({isNavOpen, setOpen}) {
 
 
   useEffect(() => {
-    const monthsLeft = month - (7-1)
+    const monthsLeft = month - (7 - 1)
     const age = year - 2001
 
-    console.log('month is ', month);''
-      if(monthsLeft < 0)
-        setAge({age: `${age - 1}`, message:  ` ${age} in ${monthsLeft ^ -1} Months`})
-      else if(monthsLeft === 0)
-        setAge({age: `${age}`, message:  ` it's my birth month!`})
-      else
-        setAge({age: `${age}`, message:  ` `})
+    console.log('month is ', month); ''
+    if (monthsLeft < 0)
+      setAge({ age: `${age - 1}`, message: ` ${age} in ${monthsLeft ^ -1} Months` })
+    else if (monthsLeft === 0)
+      setAge({ age: `${age}`, message: ` it's my birth month!` })
+    else
+      setAge({ age: `${age}`, message: ` ` })
   }, [month, year])
 
   useEffect(() => {
@@ -46,23 +46,24 @@ export default function Nav({isNavOpen, setOpen}) {
   return (
     <>
       <div className={isNavOpen ? "side-nav" : 'side-nav side-nav-open'}>
-        <div className="side-nav-inner" style={{transform: isNavOpen ? 'translateX(0)' : 'translateX(150%)'}}>
-                <IconCross className="menu i" onClick={handleCloseNav} />
+        <div className="side-nav-inner" style={{ transform: isNavOpen ? 'translateX(0)' : 'translateX(150%)' }}>
+          <IconCross className="menu i" onClick={handleCloseNav} />
           <div className={focusProfile ? "profile-main profile-main-focus" : "profile-main"} >
             <ul className='profile-ul'>
               <IconDontWorryItsDynamic className='itsdynamic-note' />
-              <li>Age: <span>{Age?.age}</span><span style={{textDecoration: 'underline'}}>{Age?.message}</span></li>
+              <li>Age: <span>{Age?.age}</span><span style={{ fontFamily: 'accent', fontWeight: 900, marginLeft: 2 }}>{Age?.message}</span></li>
               <li>Type Speed: <span>26WPM</span></li>
+              <li>Style: <span>{"Minimalistic"}</span></li>
               <li>Height: <span>{"5'9"}</span></li>
             </ul>
             <div className={"profile"} onClick={() => setFocusProfile(!focusProfile)}>
               <img src={imgProfile} alt="profile image" />
               {
-                focusProfile ? 
-                <IconCollaps className='expand-collaps-icon' /> : 
-                <IconExpand className='expand-collaps-icon' />
+                focusProfile ?
+                  <IconCollaps className='expand-collaps-icon' /> :
+                  <IconExpand className='expand-collaps-icon' />
               }
-            </div>            
+            </div>
           </div>
 
           <ul className='nav-ul'>
@@ -74,16 +75,16 @@ export default function Nav({isNavOpen, setOpen}) {
         </div>
       </div>
 
-      
+
       <nav>
         <div className="nav-nav">
-            <p className='logo'>Sipho&apos;s Portfolio</p>
+          <p className='logo'>dev Portfolio</p>
 
           <ul>
             <li>
-              <IconMenu className="menu i" onClick={() => setOpen(!isNavOpen)} />
+              <IconMenu className="menu i" fill="var(--clr-10)" onClick={() => setOpen(!isNavOpen)} />
               <div className="wrap">
-                <div className="line" style={{transform: isNavOpen ? 'translateX(-100%)' : 'translateX(100%)'}} ></div>
+                <div className="line" style={{ transform: isNavOpen ? 'translateX(-100%)' : 'translateX(100%)' }} ></div>
               </div>
             </li>
           </ul>

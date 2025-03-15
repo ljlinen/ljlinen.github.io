@@ -3,83 +3,57 @@ header {
   background-color: var(--clr-60);
   transition: filter 1s ease-in-out;
     color: var(--clr-40);
-    padding-inline: clamp(10px, 1vw, 100px);
-
-  .banner {
-    position: relative;
-    width: 100%;
-    display: flex;
-    gap: 20px;
-    padding: 5vw;
+    overflow: hidden;
     min-height: 100vh;
-    z-index: 1;
-  } 
+
+  .hero {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    object-fit: cover;
+  }
+
   .intro {
     display: flex;
+    flex-direction: column;
+    margin-top: 50vh;
+    height: 50vh;
+    width: fit-content;
     position: relative;
-    flex-direction: column;
-    width: 100%;
     z-index: 3;
-  }
-  .intro h1 {
-    max-width: 610px;
-    text-align: start;
-    font-weight: 500;
+    padding-inline: clamp(10px, 6vw, 100px);
+    backdrop-filter: blur(2px);
+    background: linear-gradient(90deg, var(--clr-60) 54%, transparent);
+
+    h1 {
+      max-width: 360px;
+      text-align: start;
+      font-weight: 500;
       text-transform: uppercase;
-  }
-  .intro .wrapper-1 {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    width: 100%;
-    min-height: 100vh;
-    gap: 5px;
+    }
     
     h2 {
     padding-bottom: 60px;
   }
     
     p {
-    max-width: 200px;
+      max-width: 320px;
+      margin-top: 10px;
+    }
   }
-  }
-  .intro .wrapper-1 input {
+  .intro .input-button {
+    box-shadow: #00000042 0 0 60px 0px;
     text-transform: uppercase;
-    font-size: calc(1rem * 1.618);
+    font-size: calc(1rem* 1.618);
     font-family: body;
-    padding: 8px 64px;
-    border-radius: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
     transition: .1s ease-out;
-    color: var(--clr-60);
-    margin-top: 6px;
-  }
-  .intro input {
+    color: var(--clr-40);
+    margin-top: 20px;
     background-color: var(--clr-40);
-  }  
-
-  .design {
-    max-height: fit-content;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    width: 100%;
-    animation: scroll 60s linear infinite;
-    opacity: .154;
-    right: -50%;
-  }
-  .scroll-container {
-    width: 50%;
-    z-index: 2;
-    position: fixed;
-    overflow: hidden;
-    top: 52.25px;
-    right: 0;
-    min-height: calc(50vh + 70px);;
-    mask-image: linear-gradient(to bottom, transparent, var(--clr-60) 10%, var(--clr-60) 90%, transparent);
-    padding-block: unset;
-    padding-inline: clamp(10px, 1vw, 100px)
+    width: fit-content;
   }
   .work-p-wrap p {
     padding: 2px;

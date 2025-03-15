@@ -100,11 +100,12 @@ const data = [
 
   return (
     <section className="s1-sec-work">
+      <div className="hero-shape" style={{backgroundColor: 'var(--clr-10-2)', top: '-20vh', left: '-5vw'}}>
+      </div>
       <div className="desc-main">
         <h2>My Work</h2>
         
-        <p className="desc">below are some of the projects I worked on.
-          i have replaced some of the clients&apos; personal info.
+        <p className="desc">below are some of the projects I&apos;ve worked on. i may replace some of the clients&apos; personal info.
         </p>
       </div>
       

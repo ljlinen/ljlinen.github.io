@@ -1,9 +1,3 @@
-
-
-.work-p h2 {
-  text-transform: none;
-}
-
 .loader {
   display: none;
   position: fixed;
@@ -21,8 +15,7 @@
   transition: 1s ease;
 }
 
-.about-p,
-footer {
+.about-p {
   width: 100%;
   padding: clamp(10px, 5vw, 20px);
   text-align: start;

@@ -1,23 +1,18 @@
 
-.s1-span-workIndex {
-  font-size: 2rem;
-  font-weight: 400;
-  margin-right: 7px;
-  padding: 7px;
-  border: 2px solid;
-  border-radius: 4px
+.logo {
+  color: var(--clr-40);
+  font-weight: 100;
+  font-family: logo;
+  font-size: clamp(12px, 5vw, 30px);
+  margin-left: clamp(0px, 5vw, 60px);
 }
 
-
-.work-p, .about-p, footer {
+.about-p {
   width: 100%;
   padding: clamp(10px, 5vw, 20px);
   text-align: start;
 }
 
-.work-p {
-  height: fit-content;
-}
 
 .side-nav {
   display: flex;
@@ -89,7 +84,7 @@
     flex-direction: column;
     gap: 2px;
     opacity: 0;
-    width: 150px;
+    width: 155px;
     margin-top: 10px;
     font-size: 1.2rem;
     transform: translateX(0);
@@ -107,10 +102,13 @@
     top: -60%;
   }
   .profile-ul li {
+    display: flex;
     font-weight: 900;
+    align-items: center;
+    gap: 3px;
   }
   .profile-ul li span {
-    font-weight: 100;
+    font-weight: 300;
   }
 
   .expand-collaps-icon {
