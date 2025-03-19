@@ -5,7 +5,7 @@ import '../../css/section/about.css'
 
 export default function About() {
   return (
-    <section className="about-me">
+    <section className="s2-sec-about">
         <h2>about me</h2>
         <p className="desc">Find basic information about my career journey and my educational background.</p>
 

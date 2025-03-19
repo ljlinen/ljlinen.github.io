@@ -60,7 +60,7 @@
 
 @media screen and (min-width: 600px) {
 
-    .about-me .wrap,
+    .s2-sec-about .wrap,
     .s1-div-main-work,
     footer {
         flex-wrap: wrap;

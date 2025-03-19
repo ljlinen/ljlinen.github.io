@@ -14,13 +14,13 @@ export default function Footer() {
           </div>
           <div className="wrap quicklinks">
             <h3>QuickLinks</h3>
-            <a>
+            <a onClick={() => scrollToElement('.s1-sec-work')}>
               <p>my work</p>
             </a>
-            <a onClick={() => scrollToElement('.s1-sec-work')}>
+            <a onClick={() => scrollToElement('.s2-sec-about')}>
               <p>about me</p>
             </a>
-            <a onClick={() => scrollToElement('.about-me')}>
+            <a onClick={() => scrollToElement('.s3-sec-cv')}>
               <p>my cv</p>
             </a>
           </div>

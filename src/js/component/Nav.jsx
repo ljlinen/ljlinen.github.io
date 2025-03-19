@@ -68,7 +68,7 @@ export default function Nav({ isNavOpen, setOpen }) {
 
           <ul className='nav-ul'>
             <li onClick={() => handleSideNavItemCick('.s1-sec-work')}><span></span>my work<span></span></li>
-            <li onClick={() => handleSideNavItemCick('.about-me')}><span></span>about me<span></span></li>
+            <li onClick={() => handleSideNavItemCick('.s2-sec-about')}><span></span>about me<span></span></li>
             <li onClick={() => handleSideNavItemCick('.footer')}><span></span>connect<span></span></li>
             <div className="wrap"></div>
           </ul>
