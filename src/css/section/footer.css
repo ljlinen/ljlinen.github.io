@@ -6,7 +6,7 @@ footer {
   justify-content: space-between;
   width: 100%;
   min-height: 200px;
-  margin-top: 150px;
+  margin-top: clamp(50px, 10vw, 75px);
   flex-direction: column;
   padding-inline: clamp(10px, 5vw, 20px);
   text-align: start;

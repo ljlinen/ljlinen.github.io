@@ -146,6 +146,7 @@
   align-items: center;
 }
 .nav-nav .menu {
+  width: clamp(12px, 8vw, 32px);
   transition: transform .5s ease-out;
 }
 .menu + .wrap {

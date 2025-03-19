@@ -1,7 +1,7 @@
 
 /* ABOUT ME SECTION*/
 .about-me {
-  margin-top: 150px;
+  margin-top: clamp(50px, 10vw, 75px);
   padding-inline: 5vw;
   display: flex;
   flex-direction: column;

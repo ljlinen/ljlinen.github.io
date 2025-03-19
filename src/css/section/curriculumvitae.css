@@ -9,7 +9,7 @@
   position: relative;
   z-index: 1;
   padding-inline: 5vw;
-  margin-top: 150px;
+  margin-top: clamp(50px, 10vw, 75px);
   align-items: center;
   
   .s3-div-cvBtns {
