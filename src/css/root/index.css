@@ -91,5 +91,6 @@ input:hover, .input-button:hover {
     aspect-ratio: 1;
     border-radius: 40vh;
     filter: blur(10vw) opacity(0.3);
+    pointer-events: none;
   }
 /* End */

@@ -6,8 +6,10 @@ import '../../css/section/about.css'
 export default function About() {
   return (
     <section className="s2-sec-about">
-        <h2>about me</h2>
-        <p className="desc">Find basic information about my career journey and my educational background.</p>
+        <div className="head">
+          <h2>about me</h2>
+          <p className="desc">Find basic information about my career journey and my educational background.</p>
+        </div>
 
         <div className="wrap">
           <div className="about-p">

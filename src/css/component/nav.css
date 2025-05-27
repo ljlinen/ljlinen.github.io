@@ -1,10 +1,21 @@
 
 .logo {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
   color: var(--clr-40);
   font-weight: 100;
   font-family: logo;
-  font-size: clamp(12px, 5vw, 30px);
   margin-left: clamp(0px, 5vw, 60px);
+  align-items: start;
+  line-height: 1;
+}
+.logo :first-child {
+  font-size: clamp(12px, 5vw, 30px);
+}
+.logo :last-child {
+  font-size: clamp(8px, 1vw, 26px);
+  opacity: .5;
 }
 
 .about-p {

@@ -9,8 +9,10 @@ export default function Footer() {
     <footer className="footer">
         <div className="wrap-m-row">
           <div className="wrap">
-            <p className='logo' style={{marginLeft: 'unset !important', marginBottom: 10}}>Sipho || Linen</p>
-            <p style={{fontSize: '1rem', textTransform: 'capitalize'}}>copyright &copy; 2024</p>
+            <div className='logo'>
+              <p>Sipho Moloto</p>
+              <p>Dev Portfolio</p>
+            </div>
           </div>
           <div className="wrap quicklinks">
             <h3>QuickLinks</h3>
@@ -41,8 +43,8 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-signature">
-          <p>site designed and developed by owner. </p>
-          <p>copyright &copy; 2024</p>
+          <p>designed and developed by Myself</p>
+          <p>Copyright &copy; {new Date().getFullYear()}</p>
         </div>
   </footer>
   )

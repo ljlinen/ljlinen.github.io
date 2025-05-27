@@ -27,21 +27,16 @@ export default function Nav({ isNavOpen, setOpen }) {
 
 
   useEffect(() => {
-    const monthsLeft = month - (7 - 1)
-    const age = year - 2001
+    const monthsLeft = month - (7 - 1);
+    const age = year - 2001;
 
-    console.log('month is ', month); ''
     if (monthsLeft < 0)
-      setAge({ age: `${age - 1}`, message: ` turning ${age} in ${monthsLeft ^ -1} Months` })
+      setAge({ age: `${age - 1}`, message: ` turning ${age} in ${monthsLeft ^ -1} ${(monthsLeft ^ -1) < 2 ? 'Month' : 'Months'}` });
     else if (monthsLeft === 0)
-      setAge({ age: `${age}`, message: ` it's my birth month!` })
+      setAge({ age: `${age}`, message: ` it's my birth month!` });
     else
-      setAge({ age: `${age}`, message: ` ` })
+      setAge({ age: `${age}`, message: ` ` });
   }, [month, year])
-
-  useEffect(() => {
-    console.log(focusProfile);
-  }, [focusProfile])
 
   return (
     <>
@@ -75,11 +70,12 @@ export default function Nav({ isNavOpen, setOpen }) {
         </div>
       </div>
 
-
       <nav>
         <div className="nav-nav">
-          <p className='logo'>dev Portfolio</p>
-
+          <div className='logo'>
+            <p>Sipho Moloto</p>
+            <p>dev Portfolio</p>
+          </div>
           <ul>
             <li>
               <IconMenu className="menu i" fill="var(--clr-10)" onClick={() => setOpen(!isNavOpen)} />

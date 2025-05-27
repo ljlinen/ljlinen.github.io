@@ -13,7 +13,6 @@ function App() {
 
   return (
     <>
-      <Nav />
       <Header />
       <MyWork />
       <About />

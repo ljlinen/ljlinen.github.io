@@ -2,14 +2,15 @@
 
 import { useEffect, useRef } from "react";
 import { useState } from "react"
-import IconExpand from '../../asset/icon/expand.svg'
-import IconCollaps from '../../asset/icon/collaps.svg'
+import InputButton from "../element/InputButton";
+import IconNext from '../../asset/icon/chevron-up.svg'
+import IconPrev from '../../asset/icon/chevron-up.svg'
 
 
-export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
+export default function WorkCard({ data, i }) {
   const [liText, setLiText] = useState();
-  const [isCurrentCard, SetIsCurrentCard] = useState();
 
+  const scrollImgRef = useRef(null)
   const refWorkCard = useRef(null)
   const refImgMobile = useRef(null)
   const refImgDesktop = useRef(null)
@@ -17,22 +18,6 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
   const refDeskLi = useRef(null)
   const refSwitchBorder = useRef(null)
   i = parseInt(i)
-
-
-  useEffect(() => {
-    if(currentCard) {
-      if(currentCard?.current === refWorkCard.current) {
-        SetIsCurrentCard(true)
-      } else {
-        SetIsCurrentCard(false)
-      }
-    } else if(i  === 0) {
-      SetIsCurrentCard(true)
-    } else {
-      SetIsCurrentCard(false)
-    }
-    
-  }, [currentCard, i])
 
   useEffect(() => {
 
@@ -59,10 +44,6 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
   }, [liText])
 
 
-  const handleClick = () => {
-    setCurrentCard(refWorkCard)
-  }
-
   const handleScrollForUl = (e) => {
     
     const scrollTop = e.target.scrollTop
@@ -75,29 +56,39 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
   }
 
   const handleSetText = (item) => {
-    if(!(['git repo', 'private repo', 'visit site'].includes(item))) setLiText(item)
+    if(!(['git repo', '(private repo)', 'visit site'].includes(item))) setLiText(item)
+  }
+
+  const handleScrollImage = (direction) => {
+    switch (direction) {
+      case 'up':
+        scrollImgRef?.current
+        break;
+    
+      default:
+        break;
+    }
   }
 
 
   return (
-    <div ref={refWorkCard} className={isCurrentCard ? "s1-div-work-p" : "s1-div-work-p s1-div-work-p-inactive"} onClick={handleClick}>
+    <div ref={refWorkCard} className="s1-div-work-p">
       <div className="s1-div-iconandpwrap">
         <h3 className="s1-span-workIndex" style={{textAlign: 'center'}}>{i + 1}</h3>
         <h3>{data?.title}</h3>
-        {
-          isCurrentCard ?
-          <IconExpand style={{minWidth: 24, maxHeight: 24}} /> :
-          <IconCollaps style={{minWidth: 24, maxHeight: 24}} />
-        }
       </div>
 
       <p className="s1-p-hidden">
         {data?.description}
       </p>
 
-      <p>{data?.technologies}</p>
+      <ul className="tech-ul">
+        {
+          data.technologies.split(" ").map((item, i) => <li key={'tech' + i}>{item}</li>)
+        }
+      </ul>
 
-      <div className={isCurrentCard ? "s1-div-imgwrap" : "s1-div-imgwrap s1-div-imgwrap-hidden"}>
+      <div className="s1-div-imgwrap">
         <ul className="s1-ul-pcormob">
           {
             data?.links ?
@@ -131,7 +122,7 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
           }
           <div className="wrap" ref={refSwitchBorder}></div>
         </ul>
-        <div className="s1-img-workimg" style={{ width: liText === 'mobile' ? '50%' : '100%' }}  onScroll={handleScrollForUl}>
+        <div ref={scrollImgRef} className="s1-img-workimg" style={{ width: liText === 'mobile' ? '50%' : '100%' }}  onScroll={handleScrollForUl}>
             {
               data?.imageSrcDesktop ?
                 <img className={liText === 'desktop' ? 'img-active' : 'img-inactive'} ref={refImgDesktop}  src={data?.imageSrcDesktop} alt="desktop-view" /> :
@@ -142,8 +133,12 @@ export default function WorkCard({ data, i, currentCard, setCurrentCard }) {
               data?.imageSrcMobile ?
                 <img className={liText === 'mobile' ? 'img-active' : 'img-inactive'} ref={refImgMobile} src={data?.imageSrcMobile} alt="mobile-view" /> :
                 null
-            }      
+            } 
         </div>
+        <div className="scroll-buttons">
+            <IconNext onClick={handleScrollImage} />
+            <IconPrev style={{rotate: '180deg'}} />
+        </div>  
       </div>
     </div>
   )

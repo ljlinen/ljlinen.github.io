@@ -18,8 +18,10 @@ const handleViewCv = () => {
 }
   return (
     <section className="s3-sec-cv">
-    <h2>Curriculum Vitae</h2>
-    <p className="desc">Should any additional information be required, my contact details can be found on the footer.</p>
+    <div className="head">
+      <h2>Curriculum Vitae</h2>
+      <p className="desc">Should any additional information be required, my contact details can be found on the footer.</p>
+    </div>
       
     <div className="s3-div-cv">
     <img ref={refCvImage} src={imageCV} alt="Curriculum Vitae.pdf" />
