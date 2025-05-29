@@ -2,13 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import { useState } from "react"
-import InputButton from "../element/InputButton";
 import IconNext from '../../asset/icon/chevron-up.svg'
 import IconPrev from '../../asset/icon/chevron-up.svg'
 
 
 export default function WorkCard({ data, i }) {
   const [liText, setLiText] = useState();
+  const [scrollPos, setScrollPos] = useState({ top: true, bottom: undefined });
+
 
   const scrollImgRef = useRef(null)
   const refWorkCard = useRef(null)
@@ -43,11 +44,32 @@ export default function WorkCard({ data, i }) {
     }
   }, [liText])
 
+  useEffect(() => {
+    if(scrollImgRef?.current) {
+      scrollImgRef.current.scrollTop = '800px'
+    }
+    
+    const el = scrollImgRef.current;
+    if (!el) return;
+
+    function onScroll() {
+      setScrollPos({
+        top: el?.scrollTop === 0,
+        bottom: el && el.scrollTop + el.clientHeight >= el.scrollHeight - 1,
+      }); 
+    }
+
+    el.addEventListener('scroll', onScroll);
+    onScroll(); // initialize state
+
+    return () => el.removeEventListener('scroll', onScroll);
+  }, [])
+
 
   const handleScrollForUl = (e) => {
     
     const scrollTop = e.target.scrollTop
-    const ul =     refSwitchBorder.current.parentElement
+    const ul = refSwitchBorder.current.parentElement
     if (scrollTop > 2) {
       ul.style.opacity = 0;
     } else {
@@ -62,9 +84,11 @@ export default function WorkCard({ data, i }) {
   const handleScrollImage = (direction) => {
     switch (direction) {
       case 'up':
-        scrollImgRef?.current
+        scrollImgRef?.current?.scrollTo({ top: scrollImgRef.current.scrollTop -= 300});
         break;
-    
+      case 'down':
+        scrollImgRef?.current?.scrollTo({ top: scrollImgRef.current.scrollTop += 300 });
+        break; 
       default:
         break;
     }
@@ -135,9 +159,9 @@ export default function WorkCard({ data, i }) {
                 null
             } 
         </div>
-        <div className="scroll-buttons">
-            <IconNext onClick={handleScrollImage} />
-            <IconPrev style={{rotate: '180deg'}} />
+        <div className={`scroll-buttons ${scrollPos.bottom ? 'bottom' : ''} ${scrollPos.top  ? 'top' : ''}`} >
+            <IconNext onClick={() => handleScrollImage("up")} />
+            <IconPrev style={{rotate: '180deg'}} onClick={() => handleScrollImage("down")} />
         </div>  
       </div>
     </div>

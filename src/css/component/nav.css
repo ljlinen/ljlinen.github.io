@@ -6,7 +6,7 @@
   color: var(--clr-40);
   font-weight: 100;
   font-family: logo;
-  margin-left: clamp(0px, 5vw, 60px);
+  margin-left: 12px;
   align-items: start;
   line-height: 1;
 }
@@ -54,14 +54,14 @@
   height: 100%;
   position: fixed;
   z-index: 30;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2.25vw, 1.5rem);
   font-weight: 100;
   flex-direction: column;
   gap: 6px;
   transform: translateX(150%);
   transition: transform 1s cubic-bezier(0.13, 0.23, 0.3, 0.98);
   align-items: center;
-  width: 150px;
+  width: clamp(10rem, 22vw, 15rem);
 }
 .side-nav-inner .profile-main-focus {
   position: relative;
@@ -95,9 +95,9 @@
     flex-direction: column;
     gap: 2px;
     opacity: 0;
-    width: 155px;
+    width: clamp(102px, 22vw, 150px);
+    font-size: clamp(.9rem, 1.9vw, 1.2rem);
     margin-top: 10px;
-    font-size: 1.2rem;
     transform: translateX(0);
     position: absolute;
     filter: drop-shadow(0px 0px 2px var(--clr-60));
@@ -107,7 +107,7 @@
 
   .profile-ul .itsdynamic-note {
     height: auto;
-    width: 60px;
+    width: clamp(50px, 8vw, 6rem);
     position: absolute;
     left: -45%;
     top: -60%;
@@ -160,22 +160,7 @@
   width: clamp(12px, 8vw, 32px);
   transition: transform .5s ease-out;
 }
-.menu + .wrap {
-  height: 100%;
-  width: 50%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: -32%;
-}
-.menu + .wrap .line {
-  height: 4px;
-  width: 200px;
-  background-color: #a1a1df56;
-  transform: translateX(100%);
-  transition: transform .9s ease-out;
-}
+
 .side-nav-inner .nav-ul li {
   display: flex;
   align-items: center;

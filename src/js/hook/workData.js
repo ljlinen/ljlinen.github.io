@@ -1,10 +1,10 @@
 import imgDesktopBaking from '../../asset/img/work/bakingtutoring pc.jpg'
-import imgMobileBaking from '../../asset/img/work/bakingtutoring mobile.jpg'
+import imgMobileBaking from '../../asset/img/work/bakingtutoring mobi.jpg'
 import imgMobileMailtoteam from '../../asset/img/work/mailtoteam mobi.jpg'
 // import imgDesktopBankroll from '../../asset/img/work/bankroll pc.jpg'
 import imgMobileDrivingchool from '../../asset/img/work/drivingschool mobi.jpg'
 import imgProdFFS from '../../asset/img/work/prodffs.png'
-import imgProdFFSPC from '../../asset/img/work/prodffspc2.png'
+import imgProdFFSPC from '../../asset/img/work/prodffspc.png'
 import imgMelo from '../../asset/img/work/melodrift.png'
 import imgMeloPc from '../../asset/img/work/melodriftpc.png'
 import imgNovel from '../../asset/img/work/novel.png'
@@ -25,7 +25,7 @@ export default function workData() {
       repo: 'https://github.com/ljlinen/bakingtutoring'
   },
     {
-      title: "Audio Hosting & Streaming Plartform",
+      title: "Audio Streaming Plartform",
       description: "",
       technologies: "reactjs honojs cloudflare-kv cloudflare-R2",
       iconSrc: "./src/icon/expand.svg",
@@ -61,7 +61,7 @@ export default function workData() {
     repo: undefined
   },
   {
-      title: "Gmail & Facebook intergration WebApp",
+      title: "Send Email Via Gmail Api",
       description: "A webapp that intergrates fcebook and gmail apis to allow page messages to be recieved via gmail.",
       technologies: "html css javascript mysql expressjs nodejs ",
       iconSrc: "./src/icon/expand.svg",

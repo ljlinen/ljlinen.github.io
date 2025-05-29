@@ -3,7 +3,7 @@ import IconCross from '../../asset/icon/cross.svg'
 import IconExpand from '../../asset/icon/expand.svg'
 import IconCollaps from '../../asset/icon/collaps.svg'
 import IconDontWorryItsDynamic from '../../asset/icon/dontworryitsdynamic.svg'
-import imgProfile from '../../asset/img/profile.jpeg'
+import imgProfile from '../../asset/img/profile.jpg'
 import { scrollToElement } from '../global/reusable'
 import '../../css/component/nav.css'
 import { useEffect, useState } from 'react'
@@ -79,9 +79,6 @@ export default function Nav({ isNavOpen, setOpen }) {
           <ul>
             <li>
               <IconMenu className="menu i" fill="var(--clr-10)" onClick={() => setOpen(!isNavOpen)} />
-              <div className="wrap">
-                <div className="line" style={{ transform: isNavOpen ? 'translateX(-100%)' : 'translateX(100%)' }} ></div>
-              </div>
             </li>
           </ul>
         </div>

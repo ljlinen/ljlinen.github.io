@@ -17,13 +17,11 @@ export default function Header() {
       <header>
         <div className="hero-shape" style={{backgroundColor: 'var(--clr-40)', bottom: '-30vh', left: '-5vw', zIndex: 4}}>
         </div>
-        <img className='hero' width={480} height={360} src={gifCoding} />
         <div className="loader">
           <p>Loading...</p>
         </div>
 
         <div className="intro">
-            {/* <p>note that my website themne was not neccesarrily professional but personality based</p> */}
             <h1>JavaScript Dev & Problem Solver</h1>
             <p>I&apos;m a web and software developer specializing in JavaScript, creating dynamic, high-performance websites and applications tailored to your needs</p>
             <InputButton 
@@ -33,9 +31,6 @@ export default function Header() {
 
               <IconWork color="var(--clr-10-2)" />
             </InputButton>
-        </div>
-        <div className="background">
-          <img src={imgBackground} />
         </div>
       </header>
     </>
