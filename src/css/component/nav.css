@@ -6,12 +6,13 @@
   color: var(--clr-40);
   font-weight: 100;
   font-family: logo;
-  margin-left: 12px;
+  margin-left: 6px;
+  padding-block: 8px;
   align-items: start;
   line-height: 1;
 }
 .logo :first-child {
-  font-size: clamp(12px, 5vw, 30px);
+  font-size: clamp(12px, 5vw, 26px);
 }
 .logo :last-child {
   font-size: clamp(8px, 1vw, 26px);
@@ -149,6 +150,15 @@
 .side-nav-inner .menu {
   width: 100%;
 }
+.nav-nav {
+  font-size: calc(1.5rem * 1.618);
+  padding-inline: 10px;
+  border-radius: 6px;
+  width: 100%;
+  box-shadow: rgb(0 0 0 / 20%) 0px 0px 20px 0px;
+  background-color: var(--clr-60);
+  transition: opacity 1s ease-in-out;
+}
 .nav-nav :last-child {
   position: relative;
 }
@@ -157,7 +167,9 @@
   align-items: center;
 }
 .nav-nav .menu {
-  width: clamp(12px, 8vw, 32px);
+  width: clamp(12px, 8vw, 40px);
+  height: 34px;
+  cursor: pointer;
   transition: transform .5s ease-out;
 }
 

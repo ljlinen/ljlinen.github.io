@@ -57,10 +57,11 @@ export default function WorkCard({ data, i }) {
         top: el?.scrollTop === 0,
         bottom: el && el.scrollTop + el.clientHeight >= el.scrollHeight - 1,
       }); 
+      console.log('set b and t: ', el?.scrollTop === 0, el && el.scrollTop, '+', el.scrollHeight, '>=', el.scrollHeight - 1);
     }
 
     el.addEventListener('scroll', onScroll);
-    onScroll(); // initialize state
+    onScroll()
 
     return () => el.removeEventListener('scroll', onScroll);
   }, [])

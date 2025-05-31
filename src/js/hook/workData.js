@@ -14,7 +14,7 @@ export default function workData() {
 
   const workData = [
     {
-      title: "Baking School Info Site",
+      title: "Baking Program Website",
       description: "An info landing page for a baking company. This website provides basic information about the company including some of the company’s work.",
       technologies: "html css javascript nodejs expressjs",
       iconSrc: "./src/icon/expand.svg",
@@ -37,7 +37,7 @@ export default function workData() {
       repo: undefined
   },
     {
-      title: "Instrumental Sales Website",
+      title: "Instrumental Selling Website",
       description: "",
       technologies: "reactjs honojs cloudflare-kv cloudflare-R2",
       iconSrc: "./src/icon/expand.svg",
@@ -49,7 +49,7 @@ export default function workData() {
       repo: undefined
   },
   {
-    title: "Novel Sharing Website",
+    title: "Novels Sharing Website",
     description: "",
     technologies: "reactjs honojs cloudflare-kv cloudflare-R2",
     iconSrc: "./src/icon/expand.svg",

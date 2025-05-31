@@ -93,4 +93,10 @@ input:hover, .input-button:hover {
     filter: blur(10vw) opacity(0.3);
     pointer-events: none;
   }
+
+  @media  screen and (max-width: 600px) {
+  .hero-shape {
+    display: none !important;
+  }
+}
 /* End */

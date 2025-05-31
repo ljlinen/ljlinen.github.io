@@ -17,7 +17,7 @@ export default function Nav({ isNavOpen, setOpen }) {
 
   const handleSideNavItemCick = (classTocrollTo) => {
     scrollToElement(classTocrollTo);
-    setOpen(!isNavOpen);
+    setOpen(false);
   }
 
   const handleCloseNav = () => {
@@ -65,6 +65,7 @@ export default function Nav({ isNavOpen, setOpen }) {
             <li onClick={() => handleSideNavItemCick('.s1-sec-work')}><span></span>my work<span></span></li>
             <li onClick={() => handleSideNavItemCick('.s2-sec-about')}><span></span>about me<span></span></li>
             <li onClick={() => handleSideNavItemCick('.footer')}><span></span>connect<span></span></li>
+            <li onClick={() => handleSideNavItemCick('.s3-sec-cv')}><span></span>my cv<span></span></li>
             <div className="wrap"></div>
           </ul>
         </div>
@@ -77,6 +78,9 @@ export default function Nav({ isNavOpen, setOpen }) {
             <p>dev Portfolio</p>
           </div>
           <ul>
+            <li onClick={() => handleSideNavItemCick('.s1-sec-work')}><span>my work</span></li>
+            <li onClick={() => handleSideNavItemCick('.s2-sec-about')}><span>about me</span></li>
+            <li onClick={() => handleSideNavItemCick('.footer')}><span>connect</span></li>
             <li>
               <IconMenu className="menu i" fill="var(--clr-10)" onClick={() => setOpen(!isNavOpen)} />
             </li>

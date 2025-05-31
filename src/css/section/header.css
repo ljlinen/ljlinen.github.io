@@ -14,17 +14,41 @@ header {
     object-fit: cover;
   }
 
-  .intro {
+  .body {
     display: flex;
     flex-direction: column;
-    margin-top: 50vh;
+    padding-inline: clamp(10px, 6vw, 100px);
+    gap: clamp(10px, 6vw, 100px);
+  }
+
+  .body .achievements {
+    display: grid;
+    grid-template-columns: 140px 140px 140px;
+    overflow-x: auto;
+    column-gap: 20px;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    justify-content: end;
+    margin-top: 18vh;
+    opacity: .7;
+
+    div {
+      grid: sub-grid;
+    }
+  }
+
+  .body .achievements ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .body .intro {
+    display: flex;
+    flex-direction: column;
     height: 50vh;
     width: fit-content;
     position: relative;
+    margin-top: 8vh;
     z-index: 3;
-    padding-inline: clamp(10px, 6vw, 100px);
-    backdrop-filter: blur(2px);
-    background: linear-gradient(90deg, var(--clr-60) 54%, transparent);
 
     h1 {
       max-width: 360px;
@@ -42,7 +66,7 @@ header {
       margin-top: 10px;
     }
   }
-  .intro .input-button {
+  .body .intro .input-button {
     box-shadow: #00000042 0 0 60px 0px;
     text-transform: uppercase;
     font-size: calc(1rem* 1.618);
