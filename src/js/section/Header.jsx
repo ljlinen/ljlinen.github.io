@@ -32,7 +32,7 @@ export default function Header() {
             </div>
               <div>
               <h2>Self taught</h2>
-              <p>Passionently Learning</p>
+              <p>Passionantly Learning</p>
             </div>
           </div>
           <div className="intro">
