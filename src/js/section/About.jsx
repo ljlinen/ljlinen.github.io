@@ -15,7 +15,7 @@ export default function About() {
           <div className="about-p">
             <div>
               <h3>Skills</h3>
-              <IconCode />
+              <IconCode color="#3982dc" />
             </div>
 
             <ul className="b">

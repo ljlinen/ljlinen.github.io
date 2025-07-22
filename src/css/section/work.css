@@ -9,7 +9,7 @@
   position: relative;
   z-index: 1;
   background-color: var(--clr-60);
-  color: var(--clr-40);
+  color: hsl(var(--clr-40), 20%);
   overflow: hidden;
 
   .head {
@@ -59,17 +59,17 @@
   overflow: hidden;
   transition: .8s ease-in;
   width: clamp(240px, 60vw, 300px);
-  color: var(--clr-40);
+  color: hsl(var(--clr-40), 20%);
 
   h3 {
-    color: var(--clr-40);
+    color: hsl(var(--clr-40), 20%);
     font-weight: 400;
     text-transform: capitalize;
   }
   .tech-ul {
     display: flex;
     gap: 6px;
-    color: var(--clr-40);
+    color: hsl(var(--clr-40), 20%);
     padding-inline: 4px;
     font-size: clamp(.9rem, 1.8vw, 1.2rem);
     font-weight: 400;
@@ -100,7 +100,7 @@
     font-size: 1rem;
     font-weight: 900;
     filter: none;
-    color: var(--clr-40);
+    color: hsl(var(--clr-40), 20%);
   }
 
   .s1-p-hidden {
@@ -149,7 +149,7 @@
 
   .s1-ul-pcormob .wrap {
     position: absolute;
-    border-bottom: 2px solid var(--clr-40);
+    border-bottom: 2px solid hsl(var(--clr-40), 20%);
     opacity: .7;
     width: 40px;
     min-height: 20px;
@@ -163,7 +163,7 @@
   ul {
     position: relative;
     padding: 4px;
-    color: var(--clr-40);
+    color: hsl(var(--clr-40), 20%);
     display: flex;
     max-width: fit-content;
     gap: 10px;
@@ -229,7 +229,7 @@
     opacity: .8;
     padding: 5px;
     border-radius: 2px;
-    color: var(--clr-40);
+    color: hsl(var(--clr-40), 20%);
   }
 
   .scroll-buttons svg {
@@ -323,7 +323,7 @@ nav div li span {
   font-size: 1.5rem;
   z-index: 5;
   filter: none;
-  color: var(--clr-40);
+  color: hsl(var(--clr-40), 20%);
 }
 .mobi-pc-switch :last-child {
   height: fit-content;

@@ -1,0 +1,23 @@
+.current-section-indicator {
+  bottom: 32vh;
+  left: 3vw;
+  position: fixed;
+  z-index: 25;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  mix-blend-mode: hard-light;
+  opacity: .8;
+
+  .current {
+    height: 26px;
+  }
+
+  span {
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: hsl(var(--clr-40), 20%);
+  }
+  
+}

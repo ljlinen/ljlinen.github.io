@@ -9,7 +9,7 @@ export default function MyWork() {
 
   return (
     <section className="s1-sec-work">
-      <div className="hero-shape" style={{backgroundColor: 'var(--clr-40)', top: '-20vh', left: '-5vw'}}>
+      <div className="hero-shape" style={{ backgroundColor: 'hsl(var(--clr-40), 20%)', top: '-20vh', left: '-5vw' }}>
       </div>
       <div className="desc-main">
         <div className="head">
@@ -18,23 +18,23 @@ export default function MyWork() {
           </p>
         </div>
       </div>
-      
-        {
-            <div className="s1-div-main-work" /* key={i} */>
-            <div className="s1-div-worklist">
-              {
-                data.map((item, i) => (
-                <WorkCard 
-                  key={i} 
-                  data={item} 
+
+      {
+        <div className="s1-div-main-work" /* key={i} */>
+          <div className="s1-div-worklist">
+            {
+              data.map((item, i) => (
+                <WorkCard
+                  key={i}
+                  data={item}
                   i={i}
-                  currentImgWrap={currentImgWrap} 
+                  currentImgWrap={currentImgWrap}
                   setCurrentImgWrap={setCurrentImgWrap} />
-                ))
-              }
-            </div>
-            </div>
-        }
+              ))
+            }
+          </div>
+        </div>
+      }
     </section>
   )
 }

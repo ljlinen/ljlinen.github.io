@@ -1,6 +1,6 @@
 footer {
   display: flex;
-  background-color: var(--clr-40);
+  background-color: hsl(var(--clr-40), 20%);
   color: var(--clr-10);
   position: relative;
   z-index: 3;

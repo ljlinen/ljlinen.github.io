@@ -1,19 +1,20 @@
-import IconMenu from '../../asset/icon/menu.svg'
+import IconGithub from '../../asset/icon/github.svg'
+import IconMenu from '../../asset/icon/burger-menu-svgrepo-com.svg'
 import IconCross from '../../asset/icon/cross.svg'
 import IconExpand from '../../asset/icon/expand.svg'
 import IconCollaps from '../../asset/icon/collaps.svg'
 import IconDontWorryItsDynamic from '../../asset/icon/dontworryitsdynamic.svg'
 import imgProfile from '../../asset/img/profile.jpg'
-import { scrollToElement } from '../global/reusable'
+import { scrollToElement } from '../utils/scrollToElement'
 import '../../css/component/nav.css'
 import { useEffect, useState } from 'react'
+
 export default function Nav({ isNavOpen, setOpen }) {
 
   const [focusProfile, setFocusProfile] = useState()
   const year = new Date().getFullYear()
   const month = new Date().getMonth()
   const [Age, setAge] = useState()
-
 
   const handleSideNavItemCick = (classTocrollTo) => {
     scrollToElement(classTocrollTo);
@@ -72,17 +73,24 @@ export default function Nav({ isNavOpen, setOpen }) {
       </div>
 
       <nav>
-        <div className="nav-nav">
-          <div className='logo'>
-            <p>Sipho Moloto</p>
-            <p>dev Portfolio</p>
-          </div>
-          <ul>
-            <li onClick={() => handleSideNavItemCick('.s1-sec-work')}><span>my work</span></li>
-            <li onClick={() => handleSideNavItemCick('.s2-sec-about')}><span>about me</span></li>
-            <li onClick={() => handleSideNavItemCick('.footer')}><span>connect</span></li>
+        <div className='logo'>
+          <p>S. Moloto</p>
+          <p>dev Portfolio</p>
+        </div>
+        <div className="ul-text-icons">
+          <ul className='ul-text'>
+            <li onClick={() => handleSideNavItemCick('.s1-sec-work')}>my work</li>
+            <li onClick={() => handleSideNavItemCick('.s2-sec-about')}>about me</li>
+            <li onClick={() => handleSideNavItemCick('.footer')}>connect</li>
+          </ul>
+          <ul className='ul-icons'>
             <li>
-              <IconMenu className="menu i" fill="var(--clr-10)" onClick={() => setOpen(!isNavOpen)} />
+              <a href="https://github.com/ljlinen/">
+                <IconGithub style={{padding: 5}} fill="var(--clr-10)" />
+              </a>
+            </li>
+            <li>
+              <IconMenu onClick={() => setOpen(!isNavOpen)} />
             </li>
           </ul>
         </div>

@@ -21,9 +21,6 @@
   text-align: start;
 }
 
-nav ul li {
-  padding: 3px;
-}
 li input {
   text-transform: uppercase;
   font-size: calc(.8rem * 1.618);
@@ -47,7 +44,7 @@ li input {
   left: 2px;
   top: 2px;
   z-index: 2;
-  background-color: var(--clr-40);
+  background-color: hsl(var(--clr-40), 20%);
   border-radius: 6px;
   animation: bounce 3s ease-out infinite;
 }
@@ -71,7 +68,7 @@ li input {
   background-color: var(--clr-60);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--clr-40);
+  background-color: hsl(var(--clr-40), 20%);
   border: .2px solid var(--clr-60);
   border-radius: 4px;
 }

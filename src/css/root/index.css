@@ -1,6 +1,6 @@
 @font-face {
   font-family: logo;
-  src: url('../../asset/fonts/DESIGNER.otf');
+  src: url('../../asset/fonts/Moderniz.otf');
 }
 @font-face {
   font-family: sidebar;
@@ -18,10 +18,11 @@
   /* font-size: 62.25%; */
   --clr-60: rgb(255, 255, 255);
   --clr-50: #322e618c;
-  --clr-40: #003140;
-  --clr-10: #00b1de;
+  --clr-40: 194, 49%;
+  --clr-10: hsl(19, 66%, 67%);
   --clr-10-2: #ffebb3;
   --clr-ff: #fff;
+  --clr-text-muted: hsl(180, 100%, 27%);
   --unit: 1.618;
 }
 html {
@@ -33,12 +34,13 @@ body {
     font-size: calc(1rem * 1.618);
     font-family: body;
     background-color: var(--clr-60);
-    color: var(--clr-40);
+    color: hsl(var(--clr-40), 20%);
 }
 
 /* Global Settings */
 
 h1 {
+  font-family: logo;
  font-size: clamp(24px, 5vw, 40px);
  font-weight: 500;
  line-height: 1.2;

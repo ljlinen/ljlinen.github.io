@@ -1,7 +1,7 @@
 import IconLinkedin from '../../asset/icon/linkedin.svg'
 import IconMail from '../../asset/icon/mail.svg'
 import IconWhatsapp from '../../asset/icon/whatsapp.svg'
-import { scrollToElement } from '../global/reusable'
+import { scrollToElement } from '../utils/scrollToElement'
 import '../../css/section/footer.css'
 
 export default function Footer() {
