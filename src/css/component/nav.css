@@ -51,7 +51,7 @@
   display: flex;
   padding: 20px;
   background-color: hsl(var(--clr-40), 20%);
-  color: var(--clr-60);
+  color: hsl(var(--clr-60), 100%);;
   right: 0;
   box-shadow: rgb(0 0 0 / 25%) 0px 0 30px 8px;
   height: 100%;
@@ -103,7 +103,7 @@
     margin-top: 10px;
     transform: translateX(0);
     position: absolute;
-    filter: drop-shadow(0px 0px 2px var(--clr-60));
+    filter: drop-shadow(0px 0px 2px hsl(var(--clr-60), 100%));
     color: hsl(var(--clr-40), 20%);
     transition: opacity .8s, transform 0s 1s;
   }
@@ -165,7 +165,7 @@ nav {
 .ul-text-icons {
   display: flex;
   box-shadow: rgb(0 0 0 / 20%) 18px 20px 30px 0px;
-  background-color: var(--clr-60);
+  background-color: hsl(var(--clr-60), 100%);
   padding-right: 20px;
   border-radius: 6px;
   width: 45%;

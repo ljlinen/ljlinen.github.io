@@ -8,7 +8,7 @@
   padding-top: clamp(50px, 10vw, 75px);
   position: relative;
   z-index: 1;
-  background-color: var(--clr-60);
+  background-color: hsl(var(--clr-60), 100%);
   color: hsl(var(--clr-40), 20%);
   overflow: hidden;
 
@@ -51,7 +51,7 @@
 .s1-div-worklist .s1-div-work-p {
   display: flex;
   flex-direction: column;
-  background-color: var(--clr-60);
+  background-color: hsl(var(--clr-60), 100%);
   background-size: cover;
   border-radius: 4px;
   min-height: 130px;
@@ -90,6 +90,7 @@
       font-size: 2rem;
       font-size: clamp(15px, 4vw, 20px);
       font-weight: 400;
+      font-family: logo;
       margin-right: 7px;
       text-align: center;
       border-radius: 4px

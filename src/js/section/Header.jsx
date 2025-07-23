@@ -1,14 +1,19 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../../css/section/header.css'
 import IconWork from '../../asset/icon/work.svg'
-import imgBackground from '../../asset/img/profile.png'
 import Nav from '../component/Nav'
 import { scrollToElement } from '../utils/scrollToElement'
 import InputButton from '../element/InputButton'
 import CurrentSectionIndicator from '../component/CurrentSectionIndicator'
+import useAnimate from '../hook/useAnimate'
 
 export default function Header() {
   const [isNavOpen, setOpen] = useState(false)
+  const [ref, isInView] = useAnimate({ threshold: 0, root: null, rootMargin: '-20% 0px 0px 0px' })
+  useEffect(() => {
+    console.log(isInView ? '0.1% of element entered view' : '0.1% element left view');
+    
+  }, [isInView])
 
 
   return (
@@ -20,16 +25,16 @@ export default function Header() {
         </div>
         <div className="body">
           <div className="achievements">
-            <div>
+            <div ref={ref} className={`achievement ${isInView ? 'show' : ''}`}>
               <h2><span>9+</span> Projects</h2>
               <p>across frontend, backend, and mobile development.</p>
             </div>
-            <div>
-              <h2><span>2</span> Years of</h2>
+            <div className={`achievement ${isInView ? 'show' : ''}`}>
+              <h2 className='two'><span>2</span> Years of</h2>
               <p>of practical, hands-on development experience.</p>
             </div>
-            <div>
-              <h2>dual-taught</h2>
+            <div className={`achievement ${isInView ? 'show' : ''}`}>
+              <h2 className='three'>dual-taught</h2>
               <p>Combined IT studies with self-driven learning.</p>
             </div>
           </div>

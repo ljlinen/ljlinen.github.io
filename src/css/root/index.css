@@ -3,6 +3,10 @@
   src: url('../../asset/fonts/Moderniz.otf');
 }
 @font-face {
+  font-family: heading;
+  src: url('../../asset/fonts/built titling rg.ttf');
+}
+@font-face {
   font-family: sidebar;
   src: url('../../asset/fonts/Lexend-Regular.woff2');
 }
@@ -16,7 +20,7 @@
 }
 :root {
   /* font-size: 62.25%; */
-  --clr-60: rgb(255, 255, 255);
+  --clr-60: 0, 0%;
   --clr-50: #322e618c;
   --clr-40: 194, 49%;
   --clr-10: hsl(19, 66%, 67%);
@@ -33,7 +37,7 @@ body {
     position: relative;
     font-size: calc(1rem * 1.618);
     font-family: body;
-    background-color: var(--clr-60);
+    background-color: hsl(hsl(var(--clr-60), 100%), 100%);
     color: hsl(var(--clr-40), 20%);
 }
 
@@ -47,6 +51,7 @@ h1 {
 }
 h2 {
   font-weight: 600;
+  font-family: logo;
   font-size: clamp(15px, 2.5vw, 20px);
   text-transform: capitalize;
 }
@@ -57,7 +62,7 @@ h3 {
 }
 p {
   font-size: clamp(12px, 2vw, 13px);
-  font-weight: 300;
+  font-weight: 500;
   opacity: .8;
   filter: unset;
 }

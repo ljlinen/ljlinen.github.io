@@ -94,7 +94,7 @@ export default function WorkCard({ data, i }) {
         break;
     }
   }
-
+  
 
   return (
     <div ref={refWorkCard} className="s1-div-work-p">

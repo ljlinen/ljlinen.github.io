@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="wrap-m-row">
           <div className="wrap">
             <div className='logo'>
-              <p>Sipho Moloto</p>
+              <p>S. Moloto</p>
               <p>Dev Portfolio</p>
             </div>
           </div>

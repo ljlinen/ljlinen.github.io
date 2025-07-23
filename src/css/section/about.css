@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--clr-60);
+  background-color: hsl(var(--clr-60), 100%);
 
   .head {
     display: flex;
@@ -16,52 +16,47 @@
   }
   
 }
-.s2-sec-about .wrap {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin-top: 50px;
-  gap: clamp(10px, 1.5vw ,40px);
-}
-.about-p {
-  gap: 40px;
-}
 
-.about-p p {
-  max-width: 400px;
-  padding: 4px 9px;
-  font-size: 1.3rem;
-}
-.about-p .b {
+.about-me {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 4px 8px;
-  font-size: 1.3rem;
-  font-weight: 400;
-  text-align: start;
+  border-radius: 25px;
+  overflow: hidden;
+  gap: 15px;
 }
-.about-p .b span,
-.s1-div-iconandpwrap p {
-  color: var(--clr-10);
-  filter: brightness(.95);
-  padding: 2px;
-  font-size: 1rem;
-  font-weight: 100;
+
+.about-me .top {
+  padding: 25px;
+  background-color: hsl(var(--clr-40), 20%);
+  color: hsl(var(--clr-60), 100%);
+  min-height: 300px;
 }
-.about-p h3 {
-  max-width: 450px;
-  padding-block: 6px;
-}
-.about-p :nth-child(3) {
-  padding-bottom: 3px;
-}
-.about-p div {
+
+.about-me .summary {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 15px;
 }
-.about-p div img {
-  height: 20px;
+
+.bottom {
+  display: flex;
+  color: hsl(var(--clr-40), 20%);
+  gap: 15px;
+  min-height: 300px;
+}
+
+.bottom .experience {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: hsl(var(--clr-60), 90%);
+  padding: 25px;
+}
+
+.bottom .education {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  background-color: hsl(var(--clr-60), 90%);
+  padding: 25px;
 }
