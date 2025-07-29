@@ -180,15 +180,16 @@ nav {
   background-color: hsl(var(--clr-60), 100%);
   padding-inline: 20px;
   border-radius: 6px;
+  justify-content: space-between;
   width: fit-content;
-  gap: 40px;
-  max-width: 542px;
-  transition: max-width .8s var(--anim-cubic);
+  /* gap: 40px; */
+  /* max-width: 542px; */
+  transition: min-width .8s var(--anim-cubic);
 }
 
 .ul-text-icons.minimized {
-  max-width: 18%;
-  transition: max-width .8s var(--anim-cubic);
+  min-width: 0;
+  transition: min-width .8s var(--anim-cubic);
 }
 
 .ul-text {
@@ -231,6 +232,10 @@ nav {
 @media screen and (min-width: 800px ) {
   .ul-text-icons .ul-text {
     display: flex;
+  }
+
+  .ul-text-icons {
+    min-width: 540px;
   }
 }
 
