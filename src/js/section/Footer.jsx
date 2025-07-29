@@ -16,11 +16,11 @@ export default function Footer() {
           </div>
           <div className="wrap quicklinks">
             <h3>QuickLinks</h3>
-            <a onClick={() => scrollToElement('.s1-sec-work')}>
-              <p>my work</p>
-            </a>
             <a onClick={() => scrollToElement('.s2-sec-about')}>
               <p>about me</p>
+            </a>
+            <a onClick={() => scrollToElement('.s1-sec-work')}>
+              <p>my work</p>
             </a>
             <a onClick={() => scrollToElement('.s3-sec-cv')}>
               <p>my cv</p>
@@ -28,8 +28,8 @@ export default function Footer() {
           </div>
       
           <div className="wrap">
-            <h3>Connect With Me</h3>
-            <div className="wrap-i">
+            <h3>Connect</h3>
+            <div className="icons">
               <a href="https://www.linkedin.com/in/ljlinen/" target="_blank">
                 <IconLinkedin className="i" />
               </a>
@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-signature">
-          <p>designed and developed by Myself</p>
+          <p>designed and developed me</p>
           <p>Copyright &copy; {new Date().getFullYear()}</p>
         </div>
   </footer>

@@ -8,13 +8,14 @@ import imgProfile from '../../asset/img/profile.jpg'
 import { scrollToElement } from '../utils/scrollToElement'
 import '../../css/component/nav.css'
 import { useEffect, useState } from 'react'
+import useAnimate from '../hook/useAnimate'
 
-export default function Nav({ isNavOpen, setOpen }) {
-
+export default function Nav({ isNavOpen, setOpen, isTitleInView }) {
+  
   const [focusProfile, setFocusProfile] = useState()
+  const [Age, setAge] = useState()
   const year = new Date().getFullYear()
   const month = new Date().getMonth()
-  const [Age, setAge] = useState()
 
   const handleSideNavItemCick = (classTocrollTo) => {
     scrollToElement(classTocrollTo);
@@ -73,11 +74,11 @@ export default function Nav({ isNavOpen, setOpen }) {
       </div>
 
       <nav>
-        <div className='logo'>
+        <div className={isTitleInView ? 'logo' : 'logo hide'}>
           <p>S. Moloto</p>
           <p>dev Portfolio</p>
         </div>
-        <div className="ul-text-icons">
+        <div className={`ul-text-icons ${!isTitleInView ? 'minimized' : ''}`}>
           <ul className='ul-text'>
             <li onClick={() => handleSideNavItemCick('.s1-sec-work')}>my work</li>
             <li onClick={() => handleSideNavItemCick('.s2-sec-about')}>about me</li>
@@ -86,7 +87,7 @@ export default function Nav({ isNavOpen, setOpen }) {
           <ul className='ul-icons'>
             <li>
               <a href="https://github.com/ljlinen/">
-                <IconGithub style={{padding: 5}} fill="var(--clr-10)" />
+                <IconGithub style={{padding: 5}} />
               </a>
             </li>
             <li>

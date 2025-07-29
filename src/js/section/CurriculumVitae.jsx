@@ -21,7 +21,9 @@ const handleViewCv = () => {
     <section className="s3-sec-cv">
     <div className="head">
       <h2>Curriculum Vitae</h2>
-      <p className="desc">Should any additional information be required, my contact details can be found on the footer.</p>
+      <p>
+        Should any additional information be required, my contact details can be found on the footer.
+      </p>
     </div>
       
     <div className="s3-div-cv">

@@ -1,15 +1,20 @@
-
 .logo {
   display: flex;
   width: fit-content;
   flex-direction: column;
-  color: hsl(var(--clr-40), 20%);
+  color: hsl(var(--clr-40), 11%);
   font-weight: 100;
   font-family: logo;
   margin-left: 6px;
   padding-block: 8px;
   align-items: start;
   line-height: 1;
+  opacity: 1;
+  transition: opacity .4s ease-in-out;
+}
+
+.logo.hide {
+  opacity: 0;
 }
 
 .logo :first-child {
@@ -43,15 +48,16 @@
 .side-nav-open {
   transform: translateX(100vw);
   backdrop-filter: blur(0);
-  transition: transform 0s .6s cubic-bezier(0.13, 0.23, 0.3, 0.98), backdrop-filter 0s .6s cubic-bezier(0.13, 0.23, 0.3, 0.98)  !important;
+  transition: transform 0s .6s cubic-bezier(0.13, 0.23, 0.3, 0.98), backdrop-filter 0s .6s cubic-bezier(0.13, 0.23, 0.3, 0.98) !important;
 }
 
 
 .side-nav-inner {
   display: flex;
   padding: 20px;
-  background-color: hsl(var(--clr-40), 20%);
-  color: hsl(var(--clr-60), 100%);;
+  background-color: hsl(var(--clr-40), 11%);
+  color: hsl(var(--clr-60), 100%);
+  ;
   right: 0;
   box-shadow: rgb(0 0 0 / 25%) 0px 0 30px 8px;
   height: 100%;
@@ -66,6 +72,7 @@
   align-items: center;
   width: clamp(10rem, 22vw, 15rem);
 }
+
 .side-nav-inner .profile-main-focus {
   position: relative;
 
@@ -104,7 +111,7 @@
     transform: translateX(0);
     position: absolute;
     filter: drop-shadow(0px 0px 2px hsl(var(--clr-60), 100%));
-    color: hsl(var(--clr-40), 20%);
+    color: hsl(var(--clr-40), 11%);
     transition: opacity .8s, transform 0s 1s;
   }
 
@@ -115,12 +122,14 @@
     left: -45%;
     top: -60%;
   }
+
   .profile-ul li {
     display: flex;
     font-weight: 900;
     align-items: center;
     gap: 3px;
   }
+
   .profile-ul li span {
     font-weight: 300;
   }
@@ -130,7 +139,7 @@
     right: 3px;
     bottom: 35%;
     max-width: 80% !important;
-    color: hsl(var(--clr-40), 20%);
+    color: hsl(var(--clr-40), 11%);
     border-radius: 6px;
   }
 }
@@ -143,8 +152,9 @@
   margin-top: 10px;
   width: 100%;
   right: 0;
-  transition:  .8s cubic-bezier(0.13, 0.23, 0.3, 0.98);
+  transition: .8s cubic-bezier(0.13, 0.23, 0.3, 0.98);
 }
+
 .side-nav-inner .nav-ul {
   margin-top: 10px;
 }
@@ -152,6 +162,7 @@
 .side-nav-inner .menu {
   width: 100%;
 }
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -160,30 +171,50 @@ nav {
   font-family: logo;
   width: 100%;
   transition: opacity 1s ease-in-out;
+  max-width: 1280px;
+  justify-self: center;
 }
 
 .ul-text-icons {
   display: flex;
-  box-shadow: rgb(0 0 0 / 20%) 18px 20px 30px 0px;
   background-color: hsl(var(--clr-60), 100%);
-  padding-right: 20px;
+  padding-inline: 20px;
   border-radius: 6px;
-  width: 45%;
+  width: fit-content;
+  gap: 40px;
+  max-width: 542px;
+  transition: max-width .8s var(--anim-cubic);
+}
+
+.ul-text-icons.minimized {
+  max-width: 18%;
+  transition: max-width .8s var(--anim-cubic);
 }
 
 .ul-text {
+  display: none;
   gap: 30px;
   font-size: 1rem;
   padding-left: 24px;
   padding-top: 4px;
+  width: 303px;
+  align-items: center;
   opacity: .8;
+  transition: opacity .4s .6s var(--anim-cubic), width .6s var(--anim-cubic);
 
   li {
+    text-wrap: nowrap;
     cursor: pointer;
   }
 }
 
-.ul-text-icons .ul-text,
+.ul-text-icons.minimized .ul-text {
+  opacity: 0;
+  width: 0;
+  pointer-events: none;
+  transition: opacity .1s var(--anim-cubic), width .6s var(--anim-cubic);
+}
+
 .ul-text-icons .ul-icons {
   display: flex;
   align-items: center;
@@ -194,6 +225,19 @@ nav {
   height: 34px;
   cursor: pointer;
   transition: transform .5s ease-out;
+  color: var(--clr-10);
+}
+
+@media screen and (min-width: 800px ) {
+  .ul-text-icons .ul-text {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 430px ) {
+  .ul-text-icons {
+    box-shadow: rgb(0 0 0 / 20%) 4px 18px 30px 0px;
+  }
 }
 
 .side-nav-inner .nav-ul li {
@@ -231,7 +275,7 @@ nav {
   width: 120%;
   position: absolute;
   height: 20px;
-  border: 3px solid hsl(var(--clr-40), 20%);
+  border: 3px solid hsl(var(--clr-40), 11%);
   border-radius: 2px;
   opacity: 0;
   transition: opacity, top .4s ease-out;
@@ -252,6 +296,11 @@ nav {
 }
 
 @keyframes blink {
-  from {opacity: .3;}
-  to {opacity: initial;}
+  from {
+    opacity: .3;
+  }
+
+  to {
+    opacity: initial;
+  }
 }

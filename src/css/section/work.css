@@ -3,33 +3,29 @@
 .s1-sec-work {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-inline: 20px;
   padding-top: clamp(50px, 10vw, 75px);
   position: relative;
   z-index: 1;
-  background-color: hsl(var(--clr-60), 100%);
-  color: hsl(var(--clr-40), 20%);
-  overflow: hidden;
+  color: hsl(var(--clr-40), 11%);
+  max-width: 1280px;
+  padding-inline: clamp(10px, 6vw, 100px);
+  justify-self: center;
 
   .head {
     display: flex;
     flex-direction: column;
-    align-items: center;
     max-width: 400px;
   }
-  
-  .desc-main {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+
+  .head p {
+    max-width: 400px;
+    margin-top: 8px;
   }
 }
 
 .s1-div-main-work {
   display: flex;
   flex-direction: column;
-  padding: 0 6vw;
   gap: unset;
   position: relative;
   z-index: 1;
@@ -42,7 +38,7 @@
     flex-flow: row wrap;
     margin-top: 80px;
     min-height: 600px;
-    gap: clamp(10px, 1.5vw ,40px);
+    gap: clamp(10px, 1.5vw, 40px);
     justify-content: space-evenly;
     align-items: start;
   }
@@ -59,17 +55,19 @@
   overflow: hidden;
   transition: .8s ease-in;
   width: clamp(240px, 60vw, 300px);
-  color: hsl(var(--clr-40), 20%);
+  color: hsl(var(--clr-40), 11%);
 
   h3 {
-    color: hsl(var(--clr-40), 20%);
-    font-weight: 400;
+    color: hsl(var(--clr-40), 11%);
+    font-weight: 600;
+    font-family: body;
     text-transform: capitalize;
   }
+
   .tech-ul {
     display: flex;
     gap: 6px;
-    color: hsl(var(--clr-40), 20%);
+    color: hsl(var(--clr-40), 11%);
     padding-inline: 4px;
     font-size: clamp(.9rem, 1.8vw, 1.2rem);
     font-weight: 400;
@@ -96,12 +94,13 @@
       border-radius: 4px
     }
   }
+
   .s1-div-iconandpwrap p {
     margin-top: unset;
     font-size: 1rem;
     font-weight: 900;
     filter: none;
-    color: hsl(var(--clr-40), 20%);
+    color: hsl(var(--clr-40), 11%);
   }
 
   .s1-p-hidden {
@@ -117,6 +116,7 @@
   display: none;
   width: 12px;
 }
+
 .s1-img-workimg::-webkit-scrollbar-thumb {
   border: 3px solid var(--clr-60);
   border-radius: 20px;
@@ -133,9 +133,9 @@
   position: relative;
   align-items: center;
   transition: height 1s cubic-bezier(0.13, 0.23, 0.3, 0.98);
-  
+
   .s1-ul-pcormob {
-    display: flex;    
+    display: flex;
     padding: 5px;
     padding-left: 0;
     position: absolute;
@@ -150,7 +150,7 @@
 
   .s1-ul-pcormob .wrap {
     position: absolute;
-    border-bottom: 2px solid hsl(var(--clr-40), 20%);
+    border-bottom: 2px solid hsl(var(--clr-40), 11%);
     opacity: .7;
     width: 40px;
     min-height: 20px;
@@ -164,7 +164,7 @@
   ul {
     position: relative;
     padding: 4px;
-    color: hsl(var(--clr-40), 20%);
+    color: hsl(var(--clr-40), 11%);
     display: flex;
     max-width: fit-content;
     gap: 10px;
@@ -174,7 +174,7 @@
     z-index: 25;
     transition: opacity .4 ease-in;
   }
-  
+
   ul .a-repo {
     background-color: var(--clr-ff);
     padding: 4px;
@@ -190,7 +190,7 @@
     border-radius: 2px;
     color: #ee000c;
   }
-  
+
   .s1-img-workimg {
     width: 100%;
     justify-content: center;
@@ -211,6 +211,7 @@
     opacity: 0;
     height: 0;
   }
+
   .img-active {
     opacity: 1;
     height: initial;
@@ -230,7 +231,7 @@
     opacity: .8;
     padding: 5px;
     border-radius: 2px;
-    color: hsl(var(--clr-40), 20%);
+    color: hsl(var(--clr-40), 11%);
   }
 
   .scroll-buttons svg {
@@ -244,13 +245,13 @@
     transform: scale(1.1);
   }
 
-  .scroll-buttons.top > :first-child {
+  .scroll-buttons.top> :first-child {
     opacity: 0;
     pointer-events: none;
     transition: opacity .6s !important;
   }
 
-  .scroll-buttons.bottom > :last-child {
+  .scroll-buttons.bottom> :last-child {
     opacity: 0;
     pointer-events: none;
     transition: opacity .6s !important;
@@ -265,10 +266,12 @@
   min-height: 400px;
   max-width: 80%;
 }
+
 .mobile {
   height: 0;
   transition: 1s ease-in;
 }
+
 /* Photo by Roberto Nickson: https://www.pexels.com/photo/person-swimming-in-pool-2417862/ */
 
 nav {
@@ -278,12 +281,14 @@ nav {
   z-index: 25;
 
 }
+
 nav div {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 nav div ul {
   display: flex;
   font-size: clamp(12px, 2.8vw, 14px);
@@ -293,19 +298,21 @@ nav div ul {
   transition: transform 2s ease-in;
 }
 
-@media  screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   nav div ul span {
     display: none !important;
-}
+  }
 }
 
 nav div li span {
   cursor: pointer;
   opacity: .7;
 }
+
 .pc {
   width: 100%;
 }
+
 .mobile {
   width: 100%;
 }
@@ -318,20 +325,23 @@ nav div li span {
   height: fit-content;
   transform: scale(.7) translate(-20%, 10px);
 }
+
 .mobi-pc-switch p {
   position: relative;
   padding: 2px;
   font-size: 1.5rem;
   z-index: 5;
   filter: none;
-  color: hsl(var(--clr-40), 20%);
+  color: hsl(var(--clr-40), 11%);
 }
+
 .mobi-pc-switch :last-child {
   height: fit-content;
   position: relative;
   display: flex;
   left: 28px;
 }
+
 .mobi-pc-switch .wrap p {
   position: relative;
   top: -3px;

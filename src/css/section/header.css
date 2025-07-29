@@ -2,9 +2,11 @@ header {
   filter: blur(0);
   background-color: hsl(var(--clr-60), 100%);
   transition: filter 1s ease-in-out;
-    color: hsl(var(--clr-40), 20%);
-    overflow: hidden;
-    min-height: 100vh;
+  color: hsl(var(--clr-40), 11%);
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1280px;
+  justify-self: center;
 
   .hero {
     position: absolute;
@@ -22,16 +24,19 @@ header {
   }
 
   .body .achievements {
-    display: grid;
-    grid-template-columns: 140px 140px 140px;
+    display: flex;
+    flex-direction: column;
     overflow-x: auto;
-    column-gap: 30px;
+    gap: 20px;
     width: 100%;
     justify-content: end;
+    align-content: end;
+    flex-wrap: wrap;
     margin-top: 18vh;
     opacity: .7;
 
     .achievement {
+      max-width: 140px;
       transform: translateY(-30%);
       opacity: 0;
       transition: transform .3s, opacity .2s;
@@ -56,17 +61,19 @@ header {
       opacity: 1;
       transition: transform .3s, opacity .2s;
     }
+
     .achievement.show h2.two {
       transform: translateY(0);
       opacity: 1;
       transition: transform .3s .1s, opacity .2s .1s;
     }
+
     .achievement.show h2.three {
       transform: translateY(0);
       opacity: 1;
       transition: transform .3s .2s, opacity .2s .2s;
     }
-    
+
     p {
       line-height: 1.3;
       opacity: 0;
@@ -103,7 +110,7 @@ header {
     height: 50vh;
     width: fit-content;
     position: relative;
-    margin-top: 14vh;
+    margin-top: 5vh;
     z-index: 3;
 
     h1 {
@@ -112,16 +119,17 @@ header {
       font-weight: 500;
       text-transform: uppercase;
     }
-    
+
     h2 {
-    padding-bottom: 60px;
-  }
-    
+      padding-bottom: 60px;
+    }
+
     p {
-      max-width: 575px;
+      max-width: 265px;
       margin-top: 10px;
     }
   }
+
   .body .intro .input-button {
     box-shadow: #00000042 0 0 60px 0px;
     text-transform: uppercase;
@@ -130,25 +138,42 @@ header {
     padding: 10px 20px;
     border-radius: 5px;
     transition: .1s ease-out;
-    color: hsl(var(--clr-40), 20%);
+    color: hsl(var(--clr-40), 11%);
     margin-top: 20px;
-    background-color: hsl(var(--clr-40), 20%);
+    background-color: hsl(var(--clr-40), 11%);
     width: fit-content;
   }
+
   .work-p-wrap p {
     padding: 2px;
     padding-left: 15px;
     text-align: start;
     text-transform: uppercase;
     font-size: 2rem;
-    background-color: hsl(var(--clr-40), 20%);
+    background-color: hsl(var(--clr-40), 11%);
     color: hsl(var(--clr-60), 100%);
     font-weight: 100;
   }
 }
 
 @keyframes scroll {
-  to{
-      transform: translateY(-50%);
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@media screen and (min-width: 550px ) {
+  .body .achievements {
+    display: grid !important;
+    gap: 30px;
+    grid-template-columns: 140px 140px 140px;
+  }
+
+  header .body .intro {
+    margin-top: 18vh;
+  }
+
+  header .body .intro p {
+    max-width: 575px;
   }
 }

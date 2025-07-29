@@ -44,7 +44,7 @@ li input {
   left: 2px;
   top: 2px;
   z-index: 2;
-  background-color: hsl(var(--clr-40), 20%);
+  background-color: hsl(var(--clr-40), 11%);
   border-radius: 6px;
   animation: bounce 3s ease-out infinite;
 }
@@ -68,7 +68,7 @@ li input {
   background-color: hsl(var(--clr-60), 100%);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--clr-40), 20%);
+  background-color: hsl(var(--clr-40), 11%);
   border: .2px solid hsl(var(--clr-60), 100%);
   border-radius: 4px;
 }

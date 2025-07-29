@@ -8,11 +8,11 @@
 }
 @font-face {
   font-family: sidebar;
-  src: url('../../asset/fonts/Lexend-Regular.woff2');
+  src: url('../../asset/fonts/Moderniz.otf');
 }
 @font-face {
   font-family: body;
-  src: url('../../asset/fonts/PlusJakartaSans-VariableFont_wght.ttf');
+  src: url('../../asset/fonts/Helvetica.ttf');
 }
 @font-face {
   font-family: accent;
@@ -22,11 +22,12 @@
   /* font-size: 62.25%; */
   --clr-60: 0, 0%;
   --clr-50: #322e618c;
-  --clr-40: 194, 49%;
+  --clr-40: 194, 100%;
   --clr-10: hsl(19, 66%, 67%);
   --clr-10-2: #ffebb3;
-  --clr-ff: #fff;
+  --clr-ff: #ffffff;
   --clr-text-muted: hsl(180, 100%, 27%);
+  --anim-cubic: cubic-bezier(0.13, 0.23, 0.3, 0.98);
   --unit: 1.618;
 }
 html {
@@ -38,7 +39,7 @@ body {
     font-size: calc(1rem * 1.618);
     font-family: body;
     background-color: hsl(hsl(var(--clr-60), 100%), 100%);
-    color: hsl(var(--clr-40), 20%);
+    color: hsl(var(--clr-40), 11%);
 }
 
 /* Global Settings */
@@ -52,11 +53,12 @@ h1 {
 h2 {
   font-weight: 600;
   font-family: logo;
-  font-size: clamp(15px, 2.5vw, 20px);
+  font-size: clamp(15px, 2.5vw, 19px);
   text-transform: capitalize;
 }
 h3 {
-  font-size: clamp(12px, 2.5vw, 15px);
+  font-family: logo;
+  font-size: clamp(12px, 2.5vw, 10px);
   font-weight: 500;
   text-transform: capitalize;
 }

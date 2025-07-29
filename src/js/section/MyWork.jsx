@@ -9,14 +9,13 @@ export default function MyWork() {
 
   return (
     <section className="s1-sec-work">
-      <div className="hero-shape" style={{ backgroundColor: 'hsl(var(--clr-40), 20%)', top: '-20vh', left: '-5vw' }}>
+      <div className="hero-shape" style={{ backgroundColor: 'hsl(var(--clr-40), 11%)', top: '-20vh', left: '-5vw' }}>
       </div>
-      <div className="desc-main">
-        <div className="head">
-          <h2>My Work</h2>
-          <p className="desc">below are some of the projects I&apos;ve worked on. i may replace some of the clients&apos; personal info.
-          </p>
-        </div>
+      <div className="head">
+        <h2>My Work</h2>
+        <p>
+        below are some of the projects I&apos;ve worked on. i may replace some of the clients&apos; personal info.
+        </p>
       </div>
 
       {

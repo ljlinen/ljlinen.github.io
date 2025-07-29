@@ -1,15 +1,16 @@
 footer {
   display: flex;
-  background-color: hsl(var(--clr-40), 20%);
+  background-color: hsl(var(--clr-40), 11%);
   color: hsl(var(--clr-60), 100%);
   position: relative;
   z-index: 3;
   gap: 10px;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 50px;
   width: 100%;
   min-height: 200px;
-  margin-top: clamp(50px, 10vw, 75px);
-  padding-top: clamp(50px, 10vw, 75px);
+  margin-top: clamp(50px, 15vw, 150px);
+  padding-block: clamp(50px, 10vw, 75px);
   flex-direction: column;
   padding-inline: clamp(10px, 5vw, 20px);
   text-align: start;
@@ -18,67 +19,71 @@ footer {
     display: flex;
     width: fit-content;
     flex-direction: column;
-    font-weight: 100;
     font-family: logo;
     margin-left: unset;
     align-items: start;
     line-height: 1;
   }
+
   .logo :first-child {
     font-size: clamp(12px, 5vw, 14.8px);
-    color: hsl(var(--clr-60), 100%);
+    color: var(--clr-10);
   }
+
   .logo :last-child {
     font-size: clamp(8px, 1vw, 10px);
-    color: var(--clr-60);
-    opacity: .5;
+    color: hsl(var(--clr-60), 100%);
   }
 
-
-  .i {
-    height: 20px;
-  }
-  .wrap-i {
+  .icons {
     display: flex;
-    padding-block: 2px;
-    gap: 10px;
+    padding-block: 3px;
+    gap: 16px;
   }
+
+  .icons svg {
+    height: 20px;
+    color: var(--clr-10);
+  }
+
   .wrap-m-row {
     padding-left: 4vw;
     display: flex;
     width: 100%;
+    max-width: calc(70 / 100 * 1280px);
     flex: 3;
     gap: 20px;
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
   }
-  
-  .wrap-m-row .quicklinks {
-    
-  }
-  .wrap-m-row :nth-child(2){
+
+  .wrap-m-row :nth-child(2) {
     flex-direction: row;
   }
+
   .wrap-m-row .wrap {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
+
   .wrap-m-row .wrap-i,
   .quicklinks a {
     margin-top: 2px;
     padding-left: 5px
   }
+
   .wrap-m-row .wrap h3 {
     font-weight: 300;
     font-size: 1.4rem;
     color: inherit;
   }
+
   .wrap-m-row .wrap p {
-    opacity: .6;
     text-transform: capitalize;
   }
+
   .footer-signature {
     flex: 1;
     display: flex;
@@ -86,13 +91,17 @@ footer {
     margin-top: 50px;
     padding-bottom: 40px;
     padding-left: 20px;
+    align-items: flex-end;
+    max-width: calc(30 / 100 * 1280px);
   }
+
   .footer-signature p {
     text-transform: capitalize;
     font-size: 1rem;
     filter: saturate(1);
     font-weight: 300;
   }
+
   .footer-signature p span {
     font-weight: 900;
     filter: saturate(2);

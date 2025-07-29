@@ -1,4 +1,3 @@
-
 /* ABOUT ME SECTION*/
 .s2-sec-about {
   margin-top: clamp(50px, 10vw, 75px);
@@ -7,56 +6,213 @@
   flex-direction: column;
   align-items: center;
   background-color: hsl(var(--clr-60), 100%);
+  max-width: 1280px;
+  justify-self: center;
 
-  .head {
+  .about-me {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-width: 400px;
+    border-radius: 25px;
+    overflow: hidden;
+    gap: 15px;
   }
-  
-}
 
-.about-me {
-  display: flex;
-  flex-direction: column;
-  border-radius: 25px;
-  overflow: hidden;
-  gap: 15px;
-}
+  .about-me .top {
+    padding: 25px;
+    background-color: hsl(var(--clr-40), 11%);
+    color: hsl(var(--clr-60), 100%);
+  }
 
-.about-me .top {
-  padding: 25px;
-  background-color: hsl(var(--clr-40), 20%);
-  color: hsl(var(--clr-60), 100%);
-  min-height: 300px;
-}
+  .top>.wrap {
+    margin-top: 25px;
+  }
 
-.about-me .summary {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+  .about .head,
+  .education .head,
+  .experience .head,
+  .competencies .head,
+  .stack .head {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
 
-.bottom {
-  display: flex;
-  color: hsl(var(--clr-40), 20%);
-  gap: 15px;
-  min-height: 300px;
-}
+  .about .head svg,
+  .education .head svg,
+  .experience .head svg,
+  .competencies .head svg,
+  .stack .head svg {}
 
-.bottom .experience {
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  background-color: hsl(var(--clr-60), 90%);
-  padding: 25px;
-}
+  .experience .head,
+  .education .head {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+  }
 
-.bottom .education {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  background-color: hsl(var(--clr-60), 90%);
-  padding: 25px;
+  .experience .head svg,
+  .education .head svg {
+    width: 50px;
+  }
+
+  .summary-and-projects-count {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .summary-and-projects-count .summary {
+    width: 100%;
+  }
+
+  .summary-and-projects-count .projects-count {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 10%;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+    @media screen and (min-width: 900px) {
+    .summary-and-projects-count {
+      flex-direction: row;
+    }
+
+    .summary-and-projects-count .summary {
+      width: 60%;
+    }
+
+    .summary-and-projects-count .projects-count {
+      margin-top: unset;
+      width: 40%;
+    }
+  }
+
+  .projects-count h3 {
+    color: var(--clr-10);
+  }
+
+  .projects-count h3 span {
+    margin-left: 10px;
+    color: hsl(var(--clr-60), 100%);
+    font-family: body;
+    font-weight: 900;
+    font-size: 1.6rem;
+  }
+
+  .projects-count :last-child span {
+    margin-left: 22px;
+  }
+
+  .bottom {
+    display: flex;
+    color: hsl(var(--clr-40), 11%);
+    gap: 15px;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 1050px) {
+    .bottom {
+      flex-direction: row;
+    }
+
+    .bottom .experience,
+    .bottom .education {
+      width: 60%;
+    }
+  }
+
+  .bottom .experience {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: hsl(var(--clr-60), 90%);
+    padding: 25px;
+  }
+
+  .bottom .texts {
+    display: flex;
+    flex-direction: column;
+    margin-top: 14px;
+    gap: 6px;
+  }
+
+  .bottom .texts-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+  }
+
+  .texts-wrap :first-child,
+  .texts-wrap>p {
+    font-weight: 900;
+  }
+
+  .education .texts-wrap>p {
+    color: var(--clr-10);
+  }
+
+
+  .bottom .education {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: hsl(var(--clr-60), 90%);
+    padding: 25px;
+  }
+
+  .competencies {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-inline: 50px;
+    width: 100%;
+  }
+
+  .competencies .skills-and-steck {
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+    flex-direction: column;
+  }
+
+  .competencies .skills-and-steck > :first-child {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    p {
+      margin-top: 12px;
+    }
+  }
+
+  .competencies .skills-and-steck> :last-child {
+    width: 100%;
+
+    .stack {
+      margin-top: 12px;
+      color: var(--clr-10);
+    }
+  }
+
+  .competencies .skills-and-steck .stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+
+  @media screen and (min-width: 700px) {
+    .competencies .skills-and-steck > :first-child {
+      width: 70%;
+    }
+    
+    .competencies .skills-and-steck > :last-child {
+      width: 30%;
+    }
+    .competencies .skills-and-steck {
+      flex-direction: row;
+    }
+  }
 }

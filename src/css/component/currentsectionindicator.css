@@ -9,7 +9,7 @@
   mix-blend-mode: hard-light;
   opacity: .8;
 
-  .current {
+  .current-section {
     height: 26px;
   }
 
@@ -17,7 +17,6 @@
     width: 4px;
     height: 4px;
     border-radius: 2px;
-    background-color: hsl(var(--clr-40), 20%);
-  }
-  
+    background-color: hsl(var(--clr-40), 11%);
+  }  
 }

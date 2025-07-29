@@ -10,7 +10,6 @@ export default function WorkCard({ data, i }) {
   const [liText, setLiText] = useState();
   const [scrollPos, setScrollPos] = useState({ top: true, bottom: undefined });
 
-
   const scrollImgRef = useRef(null)
   const refWorkCard = useRef(null)
   const refImgMobile = useRef(null)
@@ -22,33 +21,33 @@ export default function WorkCard({ data, i }) {
 
   useEffect(() => {
 
-    if(liText === 'mobile') {
+    if (liText === 'mobile') {
       const mobileLi = refMobiLi.current
       refSwitchBorder.current.style.transform = `translateX(${mobileLi.offsetLeft - 4}px)`
       refSwitchBorder.current.style.width = `${mobileLi.scrollWidth}px`
     }
-    if(liText === 'desktop') {
+    if (liText === 'desktop') {
       const desktopLi = refDeskLi.current
       refSwitchBorder.current.style.transform = `translateX(0px)`
       refSwitchBorder.current.style.width = `${desktopLi.scrollWidth}px`
     }
 
-    if(!liText) {
-      if(refImgDesktop?.current && refImgMobile?.current) {
+    if (!liText) {
+      if (refImgDesktop?.current && refImgMobile?.current) {
         setLiText('desktop')
-      } else if(refImgDesktop?.current) {
+      } else if (refImgDesktop?.current) {
         setLiText('desktop')
-      } else if(refImgMobile?.current) {
+      } else if (refImgMobile?.current) {
         setLiText('mobile')
       }
     }
   }, [liText])
 
   useEffect(() => {
-    if(scrollImgRef?.current) {
+    if (scrollImgRef?.current) {
       scrollImgRef.current.scrollTop = '800px'
     }
-    
+
     const el = scrollImgRef.current;
     if (!el) return;
 
@@ -56,7 +55,7 @@ export default function WorkCard({ data, i }) {
       setScrollPos({
         top: el?.scrollTop === 0,
         bottom: el && el.scrollTop + el.clientHeight >= el.scrollHeight - 1,
-      }); 
+      });
       console.log('set b and t: ', el?.scrollTop === 0, el && el.scrollTop, '+', el.scrollHeight, '>=', el.scrollHeight - 1);
     }
 
@@ -68,7 +67,7 @@ export default function WorkCard({ data, i }) {
 
 
   const handleScrollForUl = (e) => {
-    
+
     const scrollTop = e.target.scrollTop
     const ul = refSwitchBorder.current.parentElement
     if (scrollTop > 2) {
@@ -79,27 +78,27 @@ export default function WorkCard({ data, i }) {
   }
 
   const handleSetText = (item) => {
-    if(!(['git repo', '(private repo)', 'visit site'].includes(item))) setLiText(item)
+    if (!(['git repo', '(private repo)', 'visit site'].includes(item))) setLiText(item)
   }
 
   const handleScrollImage = (direction) => {
     switch (direction) {
       case 'up':
-        scrollImgRef?.current?.scrollTo({ top: scrollImgRef.current.scrollTop -= 300});
+        scrollImgRef?.current?.scrollTo({ top: scrollImgRef.current.scrollTop -= 300 });
         break;
       case 'down':
         scrollImgRef?.current?.scrollTo({ top: scrollImgRef.current.scrollTop += 300 });
-        break; 
+        break;
       default:
         break;
     }
   }
-  
+
 
   return (
     <div ref={refWorkCard} className="s1-div-work-p">
       <div className="s1-div-iconandpwrap">
-        <h3 className="s1-span-workIndex" style={{textAlign: 'center'}}>{i + 1}</h3>
+        <h3 className="s1-span-workIndex" style={{ textAlign: 'center' }}>{i + 1}</h3>
         <h3>{data?.title}</h3>
       </div>
 
@@ -118,52 +117,51 @@ export default function WorkCard({ data, i }) {
           {
             data?.links ?
               data.links.map((item, i) => {
-                return <li 
-                        ref={item === 'desktop' ? refDeskLi : item === 'mobile' ? refMobiLi : null}  
-                        className={`${liText === item ? 'li-active' : 'li-inactive'}
-                        ${
-                          ['git repo', 'visit site'].includes(item)
-                            ? (item === 'git repo' && data?.repo) || (item === 'visit site' && data?.site)
-                              ? 'a-repo'
-                              : 'a-repo a-repo-disabled'
-                            : ''
-                        }`
-                      } 
-                        key={i} onClick={() => handleSetText(item)}>
+                return <li
+                  ref={item === 'desktop' ? refDeskLi : item === 'mobile' ? refMobiLi : null}
+                  className={`${liText === item ? 'li-active' : 'li-inactive'}
+                        ${['git repo', 'visit site'].includes(item)
+                      ? (item === 'git repo' && data?.repo) || (item === 'visit site' && data?.site)
+                        ? 'a-repo'
+                        : 'a-repo a-repo-disabled'
+                      : ''
+                    }`
+                  }
+                  key={i} onClick={() => handleSetText(item)}>
 
-                      {
-                        item === 'git repo' ?
-                          <a href={data?.repo} target='_blank'>{item}</a> :
-                          item === 'visit site' ?
-                          <a href={data?.site} target='_blank'>{item}</a> :
-                          item === 'mobile' && !data?.imageSrcDesktop ?
+                  {
+                    item === 'git repo' ?
+                      <a href={data?.repo} target='_blank'>{item}</a> :
+                      item === 'visit site' ?
+                        <a href={data?.site} target='_blank'>{item}</a> :
+                        item === 'mobile' && !data?.imageSrcDesktop ?
                           <>{item}</> :
                           item === 'desktop' ?
                             <>{item}</> :
                             <>{item}</>
-                      }
+                  }
                 </li>
               }) : null
           }
           <div className="wrap" ref={refSwitchBorder}></div>
         </ul>
-        <div ref={scrollImgRef} className="s1-img-workimg" style={{ width: liText === 'mobile' ? '50%' : '100%' }}  onScroll={handleScrollForUl}>
-            {
-              data?.imageSrcDesktop ?
-                <img className={liText === 'desktop' ? 'img-active' : 'img-inactive'} ref={refImgDesktop}  src={data?.imageSrcDesktop} alt="desktop-view" /> :
-                null
-            }
+        <div ref={scrollImgRef} className="s1-img-workimg" style={{ width: liText === 'mobile' ? '50%' : '100%' }} onScroll={handleScrollForUl}>
+          {
+            data?.imageSrcDesktop ?
+              <img className={liText === 'desktop' ? 'img-active' : 'img-inactive'} ref={refImgDesktop} src={data?.imageSrcDesktop} alt="desktop-view" /> :
+              null
+          }
 
-            {
-              data?.imageSrcMobile ?
-                <img className={liText === 'mobile' ? 'img-active' : 'img-inactive'} ref={refImgMobile} src={data?.imageSrcMobile} alt="mobile-view" /> :
-                null
-            } 
+          {
+            data?.imageSrcMobile ?
+              <img className={liText === 'mobile' ? 'img-active' : 'img-inactive'} ref={refImgMobile} src={data?.imageSrcMobile} alt="mobile-view" /> :
+              null
+          }
         </div>
-        <div className={`scroll-buttons ${scrollPos.bottom ? 'bottom' : ''} ${scrollPos.top  ? 'top' : ''}`} >
-            <IconNext onClick={() => handleScrollImage("up")} />
-            <IconPrev style={{rotate: '180deg'}} onClick={() => handleScrollImage("down")} />
-        </div>  
+        <div className={`scroll-buttons ${scrollPos.bottom ? 'bottom' : ''} ${scrollPos.top ? 'top' : ''}`} >
+          <IconNext onClick={() => handleScrollImage("up")} />
+          <IconPrev style={{ rotate: '180deg' }} onClick={() => handleScrollImage("down")} />
+        </div>
       </div>
     </div>
   )

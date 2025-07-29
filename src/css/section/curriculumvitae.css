@@ -1,4 +1,3 @@
-
 /* 3rd Section | CV Section  */
 
 .s3-sec-cv {
@@ -8,17 +7,21 @@
   width: 100%;
   position: relative;
   z-index: 1;
-  padding-inline: 5vw;
+  padding-inline: clamp(10px, 6vw, 100px);
   margin-top: clamp(50px, 10vw, 75px);
-  align-items: center;
+  max-width: 1280px;
+  justify-self: center;
 
   .head {
     display: flex;
     flex-direction: column;
-    align-items: center;
+  }
+
+  .head p {
+    padding-top: 8px;
     max-width: 400px;
   }
-  
+
   .s3-div-cvBtns {
     display: flex;
     gap: 10px;
@@ -29,7 +32,7 @@
       height: fit-content;
     }
   }
-  
+
   .s3-div-cvBtns p {
     border-radius: 2px;
     height: fit-content;
@@ -37,29 +40,25 @@
     font-size: 1.2rem;
     font-weight: 500;
     text-align: center;
-    color: hsl(var(--clr-40), 20%);
+    color: hsl(var(--clr-40), 11%);
   }
-  
-  h2 {
-    text-align: center;
-    width: 100%;
-    padding-bottom: 8px;
-  }
-  
+
   .s3-div-cv {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
     gap: 10px;
-    margin-top: 70px;
+    margin-top: 150px;
     justify-content: center;
   }
+
   .s3-div-cv img {
     pointer-events: none;
     width: clamp(200px, 80vw, 500px);
     box-shadow: lch(0 0 0 / 0.2) 0px 0px 10px;
   }
-  .s3-div-cv .s3-div-cvBtns > * {
+
+  .s3-div-cv .s3-div-cvBtns>* {
     cursor: pointer;
   }
 }
