@@ -67,7 +67,7 @@ export default function Nav({ isNavOpen, setOpen, isTitleInView }) {
             <li onClick={() => handleSideNavItemCick('.s1-sec-work')}><span></span>my work<span></span></li>
             <li onClick={() => handleSideNavItemCick('.s2-sec-about')}><span></span>about me<span></span></li>
             <li onClick={() => handleSideNavItemCick('.footer')}><span></span>connect<span></span></li>
-            <li onClick={() => handleSideNavItemCick('.s3-sec-cv')}><span></span>my cv<span></span></li>
+            <li onClick={() => handleSideNavItemCick('.s3-sec-cv')}><span></span>resume<span></span></li>
             <div className="wrap"></div>
           </ul>
         </div>

@@ -26,7 +26,7 @@ export default function Header() {
               <p>across frontend, backend, and mobile development.</p>
             </div>
             <div className={`achievement ${isInView ? 'show' : ''}`}>
-              <h2 className='two'><span>2</span> Years of</h2>
+              <h2 className='two'><span>2</span> Years</h2>
               <p>of practical, hands-on development experience.</p>
             </div>
             <div className={`achievement ${isInView ? 'show' : ''}`}>

@@ -1,5 +1,7 @@
 import imgDesktopBaking from '../../asset/img/work/bakingtutoring pc.jpg'
 import imgMobileBaking from '../../asset/img/work/bakingtutoring mobi.jpg'
+import imgDesktopInterstella from '../../asset/img/work/interstella pc.jpg'
+import imgMobileInterstella from '../../asset/img/work/interstella mobi.jpg'
 import imgMobileMailtoteam from '../../asset/img/work/mailtoteam mobi.jpg'
 // import imgDesktopBankroll from '../../asset/img/work/bankroll pc.jpg'
 import imgMobileDrivingchool from '../../asset/img/work/drivingschool mobi.jpg'
@@ -13,16 +15,17 @@ import imgNovelPc from '../../asset/img/work/novelpc.png'
 export default function workData() {
 
   const workData = [
-    {
-      title: "Baking Program Website",
-      description: "An info landing page for a baking company. This website provides basic information about the company including some of the company’s work.",
-      technologies: "html css javascript nodejs expressjs",
+  {
+      title: "Interstella Portfolio & Appointment Booking Website",
+      description: "",
+      technologies: "react nodejs javascript",
       iconSrc: "./src/icon/expand.svg",
       clrDominant: '#0E0C22',
-      imageSrcDesktop: imgDesktopBaking,
-      imageSrcMobile: imgMobileBaking,
-      links: ["desktop", "mobile", "git repo"],
-      repo: 'https://github.com/ljlinen/bakingtutoring'
+      imageSrcDesktop: imgDesktopInterstella,
+      imageSrcMobile: imgMobileInterstella,
+      site: 'https://ljlinen.github.io/interstella/',
+      links: ["desktop", "mobile", "git repo", "visit site"],
+      repo: 'https://github.com/ljlinen/interstella'
   },
     {
       title: "Audio Streaming Plartform",
@@ -33,8 +36,8 @@ export default function workData() {
       imageSrcMobile: imgMelo,
       imageSrcDesktop: imgMeloPc,
       site: 'https://melodrift.pages.dev/',
-      links: ["desktop", "mobile", "(private repo)", "visit site"],
-      repo: undefined
+      links: ["desktop", "mobile", "git repo", "visit site"],
+      repo: 'https://github.com/ljlinen/melodrift'
   },
     {
       title: "Instrumental Selling Website",
@@ -49,17 +52,28 @@ export default function workData() {
       repo: undefined
   },
   {
-    title: "Novels Sharing Website",
-    description: "",
-    technologies: "reactjs honojs cloudflare-kv cloudflare-R2",
-    iconSrc: "./src/icon/expand.svg",
-    clrDominant: '#0E0C22',
-    imageSrcMobile: imgNovel,
-    imageSrcDesktop: imgNovelPc,
-    // site: 'https://prodffs.pages.dev/',
-    links: ["desktop", "mobile", "(private repo)"],
-    repo: undefined
+      title: "Baking Program Website",
+      description: "An info landing page for a baking company. This website provides basic information about the company including some of the company’s work.",
+      technologies: "html css javascript nodejs expressjs",
+      iconSrc: "./src/icon/expand.svg",
+      clrDominant: '#0E0C22',
+      imageSrcDesktop: imgDesktopBaking,
+      imageSrcMobile: imgMobileBaking,
+      links: ["desktop", "mobile", "git repo"],
+      repo: 'https://github.com/ljlinen/bakingtutoring'
   },
+  // {
+  //   title: "Novels Sharing Website",
+  //   description: "",
+  //   technologies: "reactjs honojs cloudflare-kv cloudflare-R2",
+  //   iconSrc: "./src/icon/expand.svg",
+  //   clrDominant: '#0E0C22',
+  //   imageSrcMobile: imgNovel,
+  //   imageSrcDesktop: imgNovelPc,
+  //   // site: 'https://prodffs.pages.dev/',
+  //   links: ["desktop", "mobile", "(private repo)"],
+  //   repo: undefined
+  // },
   {
       title: "Send Email Via Gmail Api",
       description: "A webapp that intergrates fcebook and gmail apis to allow page messages to be recieved via gmail.",

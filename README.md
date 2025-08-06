@@ -8,4 +8,4 @@ My react based portfolio website. Showcasing my projects and providing infomatio
 ## License
 This project is proprietary and not open source.
 See the full license
-- [Here](https://github.com/ljlinen/src/licenses/LICENSE.txt)
+- [Here](https://github.com/ljlinen/ljlinen.github.io/blob/main/src/asset/lisences/LISENCE.txt)

@@ -23,7 +23,7 @@ export default function Footer() {
               <p>my work</p>
             </a>
             <a onClick={() => scrollToElement('.s3-sec-cv')}>
-              <p>my cv</p>
+              <p>resume</p>
             </a>
           </div>
       
@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-signature">
-          <p>designed and developed me</p>
+          <p>designed and developed by S.Moloto</p>
           <p>Copyright &copy; {new Date().getFullYear()}</p>
         </div>
   </footer>
