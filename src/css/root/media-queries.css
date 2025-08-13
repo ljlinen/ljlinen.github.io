@@ -26,6 +26,7 @@
 /* Tablet */
 
 @media screen and (min-width: 281px) and (max-width: 599px) {
+
     h1 {
         font-size: clamp(20px, 12vw, 40px);
     }
@@ -59,6 +60,10 @@
 }
 
 @media screen and (min-width: 600px) {
+
+    .s2-sec-about > .head p {
+        max-width: 20%;
+    }
 
     .s2-sec-about .wrap,
     .s1-div-main-work,
@@ -97,4 +102,28 @@
     .side-nav {
         font-size: initial;
     } */
+}
+
+@media screen and (min-width: 1200px) {
+
+
+    .s1-sec-work {
+
+        .two-column {
+            flex-direction: row;
+            width: 100%;
+            gap: clamp(10px, 6vw, 50px);
+        }
+
+        .two-column .type-lockup {
+            width: 20%;
+        }
+
+        .two-column .scroll-container {
+            width: 80%;
+            margin-top: unset;
+            padding-bottom: 20px;
+            padding-left: 20px;
+        }
+    }
 }

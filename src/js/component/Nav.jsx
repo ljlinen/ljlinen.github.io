@@ -3,8 +3,10 @@ import IconMenu from '../../asset/icon/burger-menu-svgrepo-com.svg'
 import IconCross from '../../asset/icon/cross.svg'
 import IconExpand from '../../asset/icon/expand.svg'
 import IconCollaps from '../../asset/icon/collaps.svg'
+import IconLogo from '../../asset/icon/logo.svg'
 import IconDontWorryItsDynamic from '../../asset/icon/dontworryitsdynamic.svg'
 import imgProfile from '../../asset/img/profile.jpg'
+import imgCat from '../../asset/img/download.gif'
 import { scrollToElement } from '../utils/scrollToElement'
 import '../../css/component/nav.css'
 import { useEffect, useState } from 'react'
@@ -75,8 +77,11 @@ export default function Nav({ isNavOpen, setOpen, isTitleInView }) {
 
       <nav>
         <div className={isTitleInView ? 'logo' : 'logo hide'}>
-          <p>S. Moloto</p>
-          <p>dev Portfolio</p>
+          <IconLogo />
+          <span>
+            <p>portfolio</p>
+            <p>Moloto</p>
+          </span>
         </div>
         <div className={`ul-text-icons ${!isTitleInView ? 'minimized' : ''}`}>
           <ul className='ul-text'>

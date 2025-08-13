@@ -1,29 +1,28 @@
 .logo {
   display: flex;
+  height: 35px;
   width: fit-content;
-  flex-direction: column;
   color: hsl(var(--clr-40), 11%);
   font-weight: 100;
-  font-family: logo;
   margin-left: 6px;
   padding-block: 8px;
-  align-items: start;
+  align-items: center;
+  gap: 6px;
   line-height: 1;
   opacity: 1;
   transition: opacity .4s ease-in-out;
 }
 
+.logo svg {
+  height: 35px;
+}
+.logo p {
+  font-weight: 900;
+  line-height: 1.2;
+}
+
 .logo.hide {
   opacity: 0;
-}
-
-.logo :first-child {
-  font-size: clamp(12px, 5vw, 14.8px);
-  color: var(--clr-10);
-}
-
-.logo :last-child {
-  font-size: clamp(8px, 1vw, 10px);
 }
 
 .about-p {
@@ -166,12 +165,9 @@
 nav {
   display: flex;
   justify-content: space-between;
-  text-transform: uppercase;
   font-weight: 600;
-  font-family: logo;
   width: 100%;
   transition: opacity 1s ease-in-out;
-  max-width: 1280px;
   justify-self: center;
 }
 
@@ -197,7 +193,8 @@ nav {
   gap: 30px;
   font-size: 1rem;
   padding-left: 24px;
-  padding-top: 4px;
+  gap: 50px;
+  font-weight: 900;
   width: 303px;
   align-items: center;
   opacity: .8;

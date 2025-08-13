@@ -92,7 +92,7 @@ footer {
     padding-bottom: 40px;
     padding-left: 20px;
     align-items: flex-end;
-    max-width: calc(30 / 100 * 1280px);
+    /* max-width: calc(30 / 100 * 1280px); */
   }
 
   .footer-signature p {

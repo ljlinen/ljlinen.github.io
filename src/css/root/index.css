@@ -12,7 +12,7 @@
 }
 @font-face {
   font-family: body;
-  src: url('../../asset/fonts/Helvetica.ttf');
+  src: url('../../asset/fonts/HelveticaOptimized.woff2');
 }
 @font-face {
   font-family: accent;
@@ -22,7 +22,7 @@
   /* font-size: 62.25%; */
   --clr-60: 0, 0%;
   --clr-50: #322e618c;
-  --clr-40: 194, 100%;
+  --clr-40: 18, 0%;
   --clr-10: hsl(19, 66%, 67%);
   --clr-10-2: #ffebb3;
   --clr-ff: #ffffff;
@@ -103,9 +103,28 @@ input:hover, .input-button:hover {
     pointer-events: none;
   }
 
+  .linkedin-link {
+    /* color: var(--clr-10); */
+    position: absolute;
+    right: clamp(10px, 3vw, 40px);
+    top: calc(100vh - clamp(10px, 3vw, 40px));
+    filter: contrast(.5);
+  }
+
   @media  screen and (max-width: 600px) {
   .hero-shape {
     display: none !important;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: hsl(var(--clr-60), 100%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--clr-40), 11%);
+  border: .2px solid hsl(var(--clr-60), 100%);
+  border-radius: 4px;
 }
 /* End */

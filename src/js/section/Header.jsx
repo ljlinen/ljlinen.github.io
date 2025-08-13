@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import '../../css/section/header.css'
 import IconWork from '../../asset/icon/work.svg'
+import imgDeveloper from '../../asset/img/profilepixelated.webp'
+import imgHired from '../../asset/img/hired.webp'
+import gifCat from '../../asset/gif/cat.webp'
 import Nav from '../component/Nav'
 import { scrollToElement } from '../utils/scrollToElement'
 import InputButton from '../element/InputButton'
@@ -35,7 +38,20 @@ export default function Header() {
             </div>
           </div>
           <div className="intro">
-            <h1 ref={refTitle}>A Fullstack Developer & Problem Solver</h1>
+            <h1 ref={refTitle}>
+              <span>
+                <span className="fullstack-wrap">
+                  A 
+                  <span className='sta-wrap'>
+                    <img src={gifCat} alt="cat" />
+                    {'\u00A0Full'}
+                  </span>
+                  stack
+                </span>
+                {'\u00A0Developer'}
+              </span>
+              <span>& Problem Solver</span>
+            </h1>
             <p>A versatile fullstack developer blending foundational IT education, independent learning, and consistent freelance experience delivering real solutions for small business clients.</p>
             <InputButton className="btn-my-work" value={"see what i've built"}
               handle={() => scrollToElement('.s1-sec-work')} color={'var(--clr-10-2)'}
@@ -44,7 +60,14 @@ export default function Header() {
             </InputButton>
           </div>
         </div>
+        <div className="background">
+          <img src={imgDeveloper} />
+          <img src={imgHired} />
+        </div>
       </header>
+        <a className='linkedin-link' href="www.linkedin.com/in/ljlinen">
+          <p>www.linkedin.com/in/ljlinen</p>
+        </a>
     </>
   )
 }

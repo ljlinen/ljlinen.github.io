@@ -3,7 +3,7 @@
 
 ## About Project
 
-My react based portfolio website. Showcasing my projects and providing infomation on each project. The website features personalinfomation clients/recruiters might be interested in such as resume, contact details, career educational background etc                                                                                                                   
+My react based portfolio website. Showcasing my projects and providing infomation on each project. The website features infomation clients/recruiters might be interested in, such as resume, contact details, career educational background and projects.                                                                                                                  
 
 ## License
 This project is proprietary and not open source.

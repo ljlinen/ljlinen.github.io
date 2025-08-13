@@ -9,7 +9,6 @@
   z-index: 1;
   padding-inline: clamp(10px, 6vw, 100px);
   margin-top: clamp(50px, 10vw, 75px);
-  max-width: 1280px;
   justify-self: center;
 
   .head {

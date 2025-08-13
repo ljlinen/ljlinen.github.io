@@ -6,7 +6,6 @@ import Footer from "../section/Footer"
 import '../../css/root/reset.css'
 import '../../css/root/media-queries.css'
 import '../../css/root/index.css'
-import '../../css/root/style.css'
 
 function Home () {
   return (

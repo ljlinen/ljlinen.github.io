@@ -7,25 +7,32 @@ import '../../css/section/about.css'
 export default function About() {
   return (
     <section className="s2-sec-about">
+      <div className="head">
+        <h2>About me</h2>
+        <p>A brief overview of who I am, my background, including my experience, skills, and educational journey as a developer.</p>
+      </div>
       <div className="about-me">
         <div className="top">
-          <h2>About me and my journey</h2>
           <div className="about">
             <div className="head">
               <h3>summary about myself</h3>
               <IconAbout />
             </div>
-            <div className="summary-and-projects-count">
               <div className="summary">
                 <p>I&apos;m a full-stack and mobile developer with 2 years of hands-on experience across 6+ projects, focused on user experience, performance optimization, and responsive design. Skilled in delivering lightweight, accessible applications across web and mobile using modern frontend and backend technologies like React, React Native, Node.js, Hono.js, etc.
                 </p>
               </div>
-              <div className="projects-count">
-                <h3>5+<span>Frontend projects</span></h3>
-                <h3>3+<span>Backend projects</span></h3>
-                <h3>1<span>mobile projects</span></h3>
-              </div>
             </div>
+            <div className="achievements">
+                <div className='head'>
+                  <h3>current experience</h3>
+                  <IconSuitcase />
+                </div>
+                <div className="count">
+                  <h3>5+<span>Frontend projects</span></h3>
+                  <h3>3+<span>Backend projects</span></h3>
+                  <h3>1<span>mobile projects</span></h3>
+                </div>
           </div>
         </div>
         <div className="bottom">

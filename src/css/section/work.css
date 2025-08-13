@@ -3,48 +3,55 @@
 .s1-sec-work {
   display: flex;
   flex-direction: column;
-  padding-top: clamp(50px, 10vw, 75px);
+  padding-top: clamp(50px, 10vw, 130px);
   position: relative;
   z-index: 1;
   color: hsl(var(--clr-40), 11%);
-  max-width: 1280px;
   padding-inline: clamp(10px, 6vw, 100px);
-  justify-self: center;
+  gap: clamp(50px, 10vw, 130px);
+  z-index: 1;
+  padding-bottom: 150px;
 
-  .head {
+  .two-column {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
+    width: 100%;
+    gap: clamp(10px, 6vw, 50px);
   }
 
-  .head p {
+  .two-column .type-lockup {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .two-column .scroll-container {
+    overflow-x: auto;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin-top: clamp(20px, 10vw, 50px);
+  }
+  .two-column .scroll-container::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .scroll-contents {
+    display: flex;
+    width: fit-content;
+    gap: clamp(10px, 1.5vw, 40px);
+  }
+
+  .type-lockup {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .type-lockup p {
     max-width: 400px;
     margin-top: 8px;
   }
 }
 
-.s1-div-main-work {
-  display: flex;
-  flex-direction: column;
-  gap: unset;
-  position: relative;
-  z-index: 1;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 150px;
-
-  .s1-div-worklist {
-    display: flex;
-    flex-flow: row wrap;
-    margin-top: 80px;
-    min-height: 600px;
-    gap: clamp(10px, 1.5vw, 40px);
-    justify-content: space-evenly;
-    align-items: start;
-  }
-}
-
-.s1-div-worklist .s1-div-work-p {
+.card-project {
   display: flex;
   flex-direction: column;
   background-color: hsl(var(--clr-60), 100%);

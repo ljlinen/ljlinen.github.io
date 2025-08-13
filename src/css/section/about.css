@@ -4,30 +4,21 @@
   padding-inline: 5vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: hsl(var(--clr-60), 100%);
-  max-width: 1280px;
   justify-self: center;
-
+    
   .about-me {
+    margin-top: clamp(50px, 10vw, 75px);
     display: flex;
     flex-direction: column;
     border-radius: 25px;
     overflow: hidden;
     gap: 15px;
-  }
-
-  .about-me .top {
-    padding: 25px;
-    background-color: hsl(var(--clr-40), 11%);
-    color: hsl(var(--clr-60), 100%);
-  }
-
-  .top>.wrap {
-    margin-top: 25px;
+    color: hsl(var(--clr-40), 11%);
   }
 
   .about .head,
+  .achievements .head,
   .education .head,
   .experience .head,
   .competencies .head,
@@ -35,80 +26,83 @@
     display: flex;
     gap: 15px;
     align-items: center;
-  }
-
-  .about .head svg,
-  .education .head svg,
-  .experience .head svg,
-  .competencies .head svg,
-  .stack .head svg {}
-
-  .experience .head,
-  .education .head {
+    color: hsl(var(--clr-40), 11%);
     flex-direction: row-reverse;
-    align-items: center;
     justify-content: flex-end;
   }
 
+  .competencies .head,
+  .stack .head {
+    flex-direction: row;
+    justify-content: unset;
+    gap: 20px;
+  }
+
   .experience .head svg,
-  .education .head svg {
+  .education .head svg, 
+  .about .head svg,
+  .achievements .head svg {
     width: 50px;
   }
 
-  .summary-and-projects-count {
+  .top {
     display: flex;
-    margin-top: 10px;
-    gap: 10px;
-    flex-direction: column;
+    gap: 15px;
   }
 
-  .summary-and-projects-count .summary {
-    width: 100%;
-  }
-
-  .summary-and-projects-count .projects-count {
+  .top .achievements {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-left: 10%;
     width: 100%;
-    margin-top: 20px;
+    color: inherit;
+    background-color: hsl(var(--clr-60), 90%);
+    padding: 25px;
+  }
+
+  .top .about {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    color: inherit;
+    background-color: hsl(var(--clr-60), 90%);
+    padding: 25px;
   }
 
     @media screen and (min-width: 900px) {
-    .summary-and-projects-count {
+    .top {
       flex-direction: row;
     }
 
-    .summary-and-projects-count .summary {
+    .top .about {
       width: 60%;
     }
 
-    .summary-and-projects-count .projects-count {
+    .top .achievements {
       margin-top: unset;
       width: 40%;
     }
   }
 
-  .projects-count h3 {
+  .achievements .count h3 {
     color: var(--clr-10);
   }
 
-  .projects-count h3 span {
+  .achievements h3 span {
     margin-left: 10px;
-    color: hsl(var(--clr-60), 100%);
+    color: hsl(var(--clr-40), 11%);
     font-family: body;
     font-weight: 900;
     font-size: 1.6rem;
   }
 
-  .projects-count :last-child span {
+  .achievements .count > :last-child span {
     margin-left: 22px;
   }
 
   .bottom {
     display: flex;
-    color: hsl(var(--clr-40), 11%);
     gap: 15px;
     flex-direction: column;
   }

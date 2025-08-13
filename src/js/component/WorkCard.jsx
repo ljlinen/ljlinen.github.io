@@ -8,7 +8,7 @@ import IconPrev from '../../asset/icon/chevron-up.svg'
 
 export default function WorkCard({ data, i }) {
   const [liText, setLiText] = useState();
-  const [scrollPos, setScrollPos] = useState({ top: true, bottom: undefined });
+  const [isAtEdge, setIsAtEdge] = useState();
 
   const scrollImgRef = useRef(null)
   const refWorkCard = useRef(null)
@@ -21,49 +21,72 @@ export default function WorkCard({ data, i }) {
 
   useEffect(() => {
 
-    if (liText === 'mobile') {
-      const mobileLi = refMobiLi.current
-      refSwitchBorder.current.style.transform = `translateX(${mobileLi.offsetLeft - 4}px)`
-      refSwitchBorder.current.style.width = `${mobileLi.scrollWidth}px`
-    }
-    if (liText === 'desktop') {
-      const desktopLi = refDeskLi.current
-      refSwitchBorder.current.style.transform = `translateX(0px)`
-      refSwitchBorder.current.style.width = `${desktopLi.scrollWidth}px`
+    const border = refSwitchBorder.current
+    const mobileLi = refMobiLi.current
+    const desktopLi = refDeskLi.current
+
+    if (border) {
+      const stylesObj = border.style
+
+      if (liText === 'mobile' && mobileLi) {
+        stylesObj.transform = `translateX(${mobileLi.offsetLeft - 4}px)`
+        stylesObj.width = `${mobileLi.scrollWidth}px`
+      }
+
+      if (liText === 'desktop' && desktopLi) {
+        stylesObj.transform = 'translateX(0px)'
+        stylesObj.width = desktopLi.scrollWidth + 'px'
+      }
     }
 
+
     if (!liText) {
-      if (refImgDesktop?.current && refImgMobile?.current) {
-        setLiText('desktop')
-      } else if (refImgDesktop?.current) {
-        setLiText('desktop')
-      } else if (refImgMobile?.current) {
-        setLiText('mobile')
-      }
+      const refDesk = refImgDesktop.current
+      const refMob = refImgMobile.current
+
+      refDesk && refMob ?
+      setLiText('desktop') :
+      refDesk ?
+      setLiText('desktop') :
+      refMob ?
+      setLiText('mobile') :
+      null
     }
   }, [liText])
 
-  useEffect(() => {
-    if (scrollImgRef?.current) {
-      scrollImgRef.current.scrollTop = '800px'
-    }
 
+  useEffect(() => {
     const el = scrollImgRef.current;
     if (!el) return;
 
-    function onScroll() {
-      setScrollPos({
-        top: el?.scrollTop === 0,
-        bottom: el && el.scrollTop + el.clientHeight >= el.scrollHeight - 1,
-      });
-      console.log('set b and t: ', el?.scrollTop === 0, el && el.scrollTop, '+', el.scrollHeight, '>=', el.scrollHeight - 1);
-    }
+    // Throttle scroll event handler to avoid too frequent updates (optional)
+    let ticking = false;
 
-    el.addEventListener('scroll', onScroll);
-    onScroll()
+    const setScrollEdges = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsAtEdge({
+            top: el.scrollTop === 0,
+            bottom: el.scrollTop + el.clientHeight >= el.scrollHeight - 1,
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
 
-    return () => el.removeEventListener('scroll', onScroll);
-  }, [])
+    // Attach scroll listener
+    el.addEventListener('scroll', setScrollEdges);
+
+    // Run once on mount after a slight delay to ensure layout
+    const timeoutId = setTimeout(setScrollEdges, 50);
+
+    return () => {
+      el.removeEventListener('scroll', setScrollEdges);
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
 
 
   const handleScrollForUl = (e) => {
@@ -96,7 +119,7 @@ export default function WorkCard({ data, i }) {
 
 
   return (
-    <div ref={refWorkCard} className="s1-div-work-p">
+    <div ref={refWorkCard} className="card-project">
       <div className="s1-div-iconandpwrap">
         <h3 className="s1-span-workIndex" style={{ textAlign: 'center' }}>{i + 1}</h3>
         <h3>{data?.title}</h3>
@@ -158,7 +181,7 @@ export default function WorkCard({ data, i }) {
               null
           }
         </div>
-        <div className={`scroll-buttons ${scrollPos.bottom ? 'bottom' : ''} ${scrollPos.top ? 'top' : ''}`} >
+        <div className={`scroll-buttons ${isAtEdge?.bottom ? 'bottom' : ''} ${isAtEdge?.top ? 'top' : ''}`} >
           <IconNext onClick={() => handleScrollImage("up")} />
           <IconPrev style={{ rotate: '180deg' }} onClick={() => handleScrollImage("down")} />
         </div>

@@ -1,38 +1,64 @@
 import '../../css/section/work.css'
 import WorkCard from "../component/WorkCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import workData from '../hook/workData';
 
 export default function MyWork() {
   const [currentImgWrap, setCurrentImgWrap] = useState();
+  const [batches, setBatches] = useState();
   const data = workData();
+
+  useEffect(() => {
+    if(data?.length) {
+      const arrays = []
+      const arrWork = [...data]
+
+      for(let i = 0; i < arrWork.length; i += 3) {
+        const sliced = arrWork.slice(i, i + 3)
+        arrays.push(sliced)
+      }
+
+      setBatches(arrays)
+    } 
+    console.count('render done');
+  }, [])
+
+  useEffect(() => {
+    console.log(batches);
+  }, [batches])
+
+
 
   return (
     <section className="s1-sec-work">
-      <div className="hero-shape" style={{ backgroundColor: 'hsl(var(--clr-40), 11%)', top: '-20vh', left: '-5vw' }}>
-      </div>
-      <div className="head">
-        <h2>My Work</h2>
-        <p>
-        below are some of the projects I&apos;ve worked on. i may replace some of the clients&apos; personal info.
-        </p>
-      </div>
-
+      {/* <div className="hero-shape" style={{ backgroundColor: 'hsl(var(--clr-40), 11%)', top: '-20vh', left: '-5vw' }}>
+      </div> */}
       {
-        <div className="s1-div-main-work" /* key={i} */>
-          <div className="s1-div-worklist">
-            {
-              data.map((item, i) => (
-                <WorkCard
-                  key={i}
-                  data={item}
-                  i={i}
-                  currentImgWrap={currentImgWrap}
-                  setCurrentImgWrap={setCurrentImgWrap} />
-              ))
-            }
+        batches?.length ?
+        batches.map((batch, i) => {            
+          return <div className="two-column" key={'batch-' + i}>
+            <div className="type-lockup">
+              <h2>{i === 0 ? "What I built" : "More projects"}</h2>
+              <p>{i === 0 ? "Below is a collection showcasing projects i have built with practical solutions and responsive design. Mobile and desktop views can be toggled to see how each project adapts across devices." : "Projects include live demos and public GitHub repositories.Private repositories accessible on request."}</p>
+            </div>
+            <div className="scroll-container">
+              <div className="scroll-contents">
+                {
+                  batch?.length ?
+                  batch.map((item, j) => {
+                      return <WorkCard
+                        key={j}
+                        data={item}
+                        i={j}
+                        currentImgWrap={currentImgWrap}
+                        setCurrentImgWrap={setCurrentImgWrap} />
+                  }) : null
+                }
+              </div>
+            </div>
           </div>
-        </div>
+        }) :
+        <p>it seems there was not any data to render here</p>
       }
     </section>
   )
