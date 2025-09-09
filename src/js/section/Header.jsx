@@ -67,7 +67,11 @@ export default function Header() {
                 </span>
                 {isTitleWordBroke ? 'Developer' : '\u00A0Developer'}
               </span>
-              <span>& Problem Solver</span>
+              {
+                !isMobile ?
+                <span>& Problem Solver</span> :
+                null
+              }
             </h1>
             <p>A versatile fullstack developer blending foundational IT education, independent learning, and consistent freelance experience delivering real solutions for small business clients.</p>
             <InputButton className="btn-my-work" value={"see what i've built"}
