@@ -12,18 +12,35 @@ import useAnimate from '../hook/useAnimate'
 
 export default function Header() {
   const [isNavOpen, setOpen] = useState(false)
-  const [ref, isInView] = useAnimate({ threshold: 0, root: null, rootMargin: '-20% 0px 0px 0px' })
+  const [isMobile, setIsMobile] = useState(true)
+  const [isTitleWordBroke, setIsTitleWordBroke] = useState(true)
+  const [ref, isInView] = useAnimate(
+    isMobile ? 
+    { threshold: 0, root: null, rootMargin: '-15% 0px 0px 0px' } :
+    { threshold: 0, root: null, rootMargin: '-20% 0px 0px 0px' }
+  )
   const [refTitle, isTitleInView] = useAnimate({ threshold: 0, root: null, rootMargin: '-30% 0px 0px 0px' })
+
+  useEffect(() => {
+    const checkViewPort = () => {
+      setIsMobile(!(document.body.clientWidth > 550))
+      setIsTitleWordBroke(document.body.clientWidth < 850)
+    }
+    window.addEventListener('resize', checkViewPort)
+    return () => window.removeEventListener('resize', checkViewPort)
+  }, [])
+
+  useEffect(() => {
+    console.log(isMobile);
+  }, [isMobile])
 
   return (
     <>
       <Nav isNavOpen={isNavOpen} setOpen={setOpen} isTitleInView={isTitleInView} />
       <CurrentSectionIndicator />
       <header>
-        <div className="hero-shape" style={{ backgroundColor: 'hsl(var(--clr-40), 11%)', bottom: '-30vh', left: '-5vw', zIndex: 4 }}>
-        </div>
         <div className="body">
-          <div className="achievements">
+          <div className={isMobile ? "achievements" : "achievements desktop"}>
             <div ref={ref} className={`achievement ${isInView ? 'show' : ''}`}>
               <h2><span>6+</span> Projects</h2>
               <p>across frontend, backend, and mobile development.</p>
@@ -48,7 +65,7 @@ export default function Header() {
                   </span>
                   stack
                 </span>
-                {'\u00A0Developer'}
+                {isTitleWordBroke ? 'Developer' : '\u00A0Developer'}
               </span>
               <span>& Problem Solver</span>
             </h1>
@@ -61,8 +78,8 @@ export default function Header() {
           </div>
         </div>
         <div className="background">
-          <img src={imgDeveloper} />
-          <img src={imgHired} />
+          <img src={imgDeveloper} loading='lazy' />
+          <img src={imgHired} loading='lazy'/>
         </div>
       </header>
         <a className='linkedin-link' href="www.linkedin.com/in/ljlinen">

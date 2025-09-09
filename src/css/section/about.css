@@ -1,7 +1,7 @@
 /* ABOUT ME SECTION*/
 .s2-sec-about {
   margin-top: clamp(50px, 10vw, 75px);
-  padding-inline: 5vw;
+  padding-inline: clamp(10px, 6vw, 100px);
   display: flex;
   flex-direction: column;
   background-color: hsl(var(--clr-60), 100%);
@@ -85,20 +85,11 @@
     }
   }
 
-  .achievements .count h3 {
+  .achievements .count p span {
     color: var(--clr-10);
-  }
-
-  .achievements h3 span {
-    margin-left: 10px;
-    color: hsl(var(--clr-40), 11%);
-    font-family: body;
-    font-weight: 900;
     font-size: 1.6rem;
-  }
-
-  .achievements .count > :last-child span {
-    margin-left: 22px;
+    font-weight: 900;
+    margin-right: 10px;
   }
 
   .bottom {
@@ -140,13 +131,14 @@
     gap: 25px;
   }
 
-  .texts-wrap :first-child,
-  .texts-wrap>p {
+  .texts-wrap .titles :first-child {
     font-weight: 900;
   }
 
-  .education .texts-wrap>p {
+  .education .texts-wrap > p {
     color: var(--clr-10);
+    font-weight: 900;
+    opacity: unset;
   }
 
 

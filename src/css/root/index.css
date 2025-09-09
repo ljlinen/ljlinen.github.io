@@ -94,14 +94,6 @@ input:hover, .input-button:hover {
     padding: 4px 9px;
     font-size: 1.3rem;
   }
-  .hero-shape {
-    position: absolute;
-    height: 50vh;
-    aspect-ratio: 1;
-    border-radius: 40vh;
-    filter: blur(10vw) opacity(0.3);
-    pointer-events: none;
-  }
 
   .linkedin-link {
     /* color: var(--clr-10); */
@@ -110,12 +102,6 @@ input:hover, .input-button:hover {
     top: calc(100vh - clamp(10px, 3vw, 40px));
     filter: contrast(.5);
   }
-
-  @media  screen and (max-width: 600px) {
-  .hero-shape {
-    display: none !important;
-  }
-}
 
 ::-webkit-scrollbar {
   width: 10px;

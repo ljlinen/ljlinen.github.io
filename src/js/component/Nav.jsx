@@ -6,11 +6,9 @@ import IconCollaps from '../../asset/icon/collaps.svg'
 import IconLogo from '../../asset/icon/logo.svg'
 import IconDontWorryItsDynamic from '../../asset/icon/dontworryitsdynamic.svg'
 import imgProfile from '../../asset/img/profile.jpg'
-import imgCat from '../../asset/img/download.gif'
 import { scrollToElement } from '../utils/scrollToElement'
 import '../../css/component/nav.css'
 import { useEffect, useState } from 'react'
-import useAnimate from '../hook/useAnimate'
 
 export default function Nav({ isNavOpen, setOpen, isTitleInView }) {
   
@@ -79,8 +77,8 @@ export default function Nav({ isNavOpen, setOpen, isTitleInView }) {
         <div className={isTitleInView ? 'logo' : 'logo hide'}>
           <IconLogo />
           <span>
-            <p>portfolio</p>
             <p>Moloto</p>
+            <p>dev</p>
           </span>
         </div>
         <div className={`ul-text-icons ${!isTitleInView ? 'minimized' : ''}`}>

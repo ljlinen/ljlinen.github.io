@@ -29,9 +29,9 @@ export default function About() {
                   <IconSuitcase />
                 </div>
                 <div className="count">
-                  <h3>5+<span>Frontend projects</span></h3>
-                  <h3>3+<span>Backend projects</span></h3>
-                  <h3>1<span>mobile projects</span></h3>
+                  <p><span>{'5+'}</span>Frontend projects</p>
+                  <p><span>{'3+'}</span>Backend projects</p>
+                  <p><span>{'1\u00A0\u00A0'}</span>mobile projects</p>
                 </div>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default function About() {
             <div className="texts">
               <div className="texts-wrap">
                 <div className="titles">
-                  <p>Freelancer</p>
+                  <p>Local Fullstack Freelancer</p>
                   <p>Fullstack developer</p>
                 </div>
                 <p>2023 - Present</p>

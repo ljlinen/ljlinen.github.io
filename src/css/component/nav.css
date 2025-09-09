@@ -191,7 +191,7 @@ nav {
 .ul-text {
   display: none;
   gap: 30px;
-  font-size: 1rem;
+  font-size: clamp(12px, 2vw, 13px);
   padding-left: 24px;
   gap: 50px;
   font-weight: 900;

@@ -79,7 +79,7 @@ export default function WorkCard({ data, i }) {
     el.addEventListener('scroll', setScrollEdges);
 
     // Run once on mount after a slight delay to ensure layout
-    const timeoutId = setTimeout(setScrollEdges, 50);
+    const timeoutId = setTimeout(setScrollEdges, 1500);
 
     return () => {
       el.removeEventListener('scroll', setScrollEdges);

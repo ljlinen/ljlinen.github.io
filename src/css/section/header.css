@@ -35,7 +35,7 @@ header {
     justify-content: end;
     align-content: end;
     flex-wrap: wrap;
-    margin-top: 18vh;
+    margin-top: 12vh;
     opacity: .7;
 
     .achievement {
@@ -232,6 +232,7 @@ header {
     display: grid !important;
     gap: 30px;
     grid-template-columns: 140px 140px 140px;
+    margin-top: 18vh !important;
   }
 
   header .body .intro {
