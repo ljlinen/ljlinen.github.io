@@ -12,8 +12,8 @@ import useAnimate from '../hook/useAnimate'
 
 export default function Header() {
   const [isNavOpen, setOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(true)
-  const [isTitleWordBroke, setIsTitleWordBroke] = useState(true)
+  const [isMobile, setIsMobile] = useState(!(document.body.clientWidth > 550))
+  const [isTitleWordBroke, setIsTitleWordBroke] = useState(document.body.clientWidth < 850)
   const [ref, isInView] = useAnimate(
     isMobile ? 
     { threshold: 0, root: null, rootMargin: '-15% 0px 0px 0px' } :
@@ -29,15 +29,16 @@ export default function Header() {
     window.addEventListener('resize', checkViewPort)
     return () => window.removeEventListener('resize', checkViewPort)
   }, [])
-
-  useEffect(() => {
-    console.log(isMobile);
-  }, [isMobile])
+  
 
   return (
     <>
       <Nav isNavOpen={isNavOpen} setOpen={setOpen} isTitleInView={isTitleInView} />
-      <CurrentSectionIndicator />
+      {
+        !isMobile
+        ? <CurrentSectionIndicator />
+        : null
+      }
       <header>
         <div className="body">
           <div className={isMobile ? "achievements" : "achievements desktop"}>

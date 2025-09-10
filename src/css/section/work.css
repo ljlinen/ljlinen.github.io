@@ -8,7 +8,7 @@
   z-index: 1;
   color: hsl(var(--clr-40), 11%);
   padding-inline: clamp(10px, 6vw, 100px);
-  gap: clamp(50px, 10vw, 130px);
+  gap: clamp(50px, 15vw, 150px);
   z-index: 1;
   padding-bottom: 150px;
 
@@ -16,17 +16,18 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: clamp(10px, 6vw, 50px);
+    gap: calc(clamp(10px, 6vw, 100px) - 20px);
   }
 
   .two-column .type-lockup {
     display: flex;
     flex-direction: column;
+    text-align: justify;
   }
 
   .two-column .scroll-container {
     overflow-x: auto;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
     padding-left: 20px;
     margin-top: clamp(20px, 10vw, 50px);
   }
