@@ -13,6 +13,11 @@ import { useEffect, useState } from 'react'
 export default function Nav({ isNavOpen, setOpen, isTitleInView }) {
   
   const [focusProfile, setFocusProfile] = useState()
+  const [isDomLoaded, setDomLoaded] = useState()
+  const [showNav, setShowNav] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [Age, setAge] = useState()
   const year = new Date().getFullYear()
   const month = new Date().getMonth()
@@ -27,6 +32,30 @@ export default function Nav({ isNavOpen, setOpen, isTitleInView }) {
     isNavOpen && setFocusProfile(false)
   }
 
+  // Initial load animation
+  useEffect(() => {
+    setShowNav(true);
+    const timeout = setTimeout(() => setInitialLoad(false), 1500); // 1s initial load
+    return () => clearTimeout(timeout);
+  }, []);
+
+  // Scroll hide/show
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY && currentY > 50) {
+        // scrolling down
+        setShowNav(false);
+      } else if(currentY <= 150) {
+        // scrolling up
+        setShowNav(true);
+      }
+      setLastScrollY(currentY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   useEffect(() => {
     const monthsLeft = month - (7 - 1);
@@ -39,6 +68,11 @@ export default function Nav({ isNavOpen, setOpen, isTitleInView }) {
     else
       setAge({ age: `${age}`, message: ` ` });
   }, [month, year])
+  
+  useEffect(() => {
+    setDomLoaded(true)
+  }, [])
+
 
   return (
     <>
@@ -81,13 +115,13 @@ export default function Nav({ isNavOpen, setOpen, isTitleInView }) {
             <p>dev</p>
           </span>
         </div>
-        <div className={`ul-text-icons ${!isTitleInView ? 'minimized' : ''}`}>
-          <ul className='ul-text'>
+        <div className={`ul-text-icons ${initialLoad ? 'initial' : 'min-max'}`} style={{boxShadow: showNav ? 'rgb(0 0 0 / 16%) 4px 14px 26px 0px' : 'rgb(0 0 0 / 0) 4px 18px 0px 0px', backgroundColor: 'transparent'}}>
+          <ul className={`ul-text ${initialLoad ? 'initial' : 'min-max'}`} style={{opacity: showNav ? .8 : 0, pointerEvents: 'none'}}>
             <li onClick={() => handleSideNavItemCick('.s1-sec-work')}>my work</li>
             <li onClick={() => handleSideNavItemCick('.s2-sec-about')}>about me</li>
             <li onClick={() => handleSideNavItemCick('.footer')}>connect</li>
           </ul>
-          <ul className='ul-icons'>
+          <ul className={`ul-icons ${isDomLoaded ? 'show' : ''}`}>
             <li>
               <a href="https://github.com/ljlinen/">
                 <IconGithub style={{padding: 5}} />

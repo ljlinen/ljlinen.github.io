@@ -19,7 +19,7 @@ footer {
     display: flex;
     width: fit-content;
     flex-direction: column;
-    font-family: logo;
+    font-family: heading;
     margin-left: unset;
     align-items: start;
     line-height: 1;

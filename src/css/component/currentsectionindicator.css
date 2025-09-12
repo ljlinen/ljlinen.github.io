@@ -7,16 +7,22 @@
   gap: 8px;
   flex-direction: column;
   mix-blend-mode: hard-light;
-  opacity: .8;
+  opacity: 0;
+  width: 3px;
 
   .current-section {
     height: 26px;
   }
 
   span {
-    width: 4px;
+    width: 100%;
     height: 4px;
     border-radius: 2px;
     background-color: hsl(var(--clr-40), 11%);
   }  
+}
+
+.current-section-indicator.show {
+  opacity: .5;
+  transition: .6s 2.4s var(--anim-cubic);
 }

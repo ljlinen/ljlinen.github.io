@@ -9,11 +9,19 @@ import { scrollToElement } from '../utils/scrollToElement'
 import InputButton from '../element/InputButton'
 import CurrentSectionIndicator from '../component/CurrentSectionIndicator'
 import useAnimate from '../hook/useAnimate'
+import useIsMounted from '../hook/useIsMounted'
 
 export default function Header() {
+  const { isMounted } = useIsMounted()
   const [isNavOpen, setOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(!(document.body.clientWidth > 550))
   const [isTitleWordBroke, setIsTitleWordBroke] = useState(document.body.clientWidth < 850)
+
+  const [imagesLoaded, setImagesLoaed] = useState({
+    hired: false,
+    developer: false
+  })
+
   const [ref, isInView] = useAnimate(
     isMobile ? 
     { threshold: 0, root: null, rootMargin: '-15% 0px 0px 0px' } :
@@ -27,7 +35,6 @@ export default function Header() {
       setIsTitleWordBroke(document.body.clientWidth < 850)
     }
     window.addEventListener('resize', checkViewPort)
-    return () => window.removeEventListener('resize', checkViewPort)
   }, [])
   
 
@@ -56,12 +63,12 @@ export default function Header() {
             </div>
           </div>
           <div className="intro">
-            <h1 ref={refTitle}>
+            <h1 className={isMounted ? 'show' : ''} ref={refTitle}>
               <span>
                 <span className="fullstack-wrap">
                   A 
                   <span className='sta-wrap'>
-                    <img src={gifCat} alt="cat" />
+                    <img src={gifCat} alt="cat" loading='lazy' />
                     {'\u00A0Full'}
                   </span>
                   stack
@@ -74,8 +81,8 @@ export default function Header() {
                 null
               }
             </h1>
-            <p>A versatile fullstack developer blending foundational IT education, independent learning, and consistent freelance experience delivering real solutions for small business clients.</p>
-            <InputButton className="btn-my-work" value={"see what i've built"}
+            <p className={isMounted ? 'show' : ''}>A versatile fullstack developer blending foundational IT education, independent learning, and consistent freelance experience delivering real solutions for small business clients.</p>
+            <InputButton className={isMounted ? "btn-my-work show" : "btn-my-work"} value={"see what i've built"}
               handle={() => scrollToElement('.s1-sec-work')} color={'var(--clr-10-2)'}
               style={{ display: 'flex', gap: 15 }}>
               <IconWork color="var(--clr-10-2)" />
@@ -83,11 +90,11 @@ export default function Header() {
           </div>
         </div>
         <div className="background">
-          <img src={imgDeveloper} loading='lazy' />
-          <img src={imgHired} loading='lazy'/>
+          <img className={imagesLoaded?.developer ? 'show' : ''} src={imgDeveloper} loading='lazy' onLoad={() => setImagesLoaed(p => ({...p, developer: true}))} />
+          <img className={imagesLoaded?.hired ? 'show' : ''} src={imgHired} loading='lazy' onLoad={() => setImagesLoaed(p => ({...p, hired: true}))} />
         </div>
       </header>
-        <a className='linkedin-link' href="www.linkedin.com/in/ljlinen">
+        <a className={`linkedin-link ${isMounted ? 'show' : ''}`} href="www.linkedin.com/in/ljlinen">
           <p>www.linkedin.com/in/ljlinen</p>
         </a>
     </>

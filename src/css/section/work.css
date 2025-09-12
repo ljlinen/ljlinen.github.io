@@ -31,10 +31,11 @@
     padding-left: 20px;
     margin-top: clamp(20px, 10vw, 50px);
   }
+
   .two-column .scroll-container::-webkit-scrollbar {
     height: 4px;
   }
-  
+
   .scroll-contents {
     display: flex;
     width: fit-content;
@@ -96,7 +97,7 @@
       font-size: 2rem;
       font-size: clamp(15px, 4vw, 20px);
       font-weight: 400;
-      font-family: logo;
+      font-family: heading;
       margin-right: 7px;
       text-align: center;
       border-radius: 4px

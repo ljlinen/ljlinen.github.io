@@ -10,7 +10,7 @@
   gap: 6px;
   line-height: 1;
   opacity: 1;
-  transition: opacity .4s ease-in-out;
+  transition: opacity 1.4s 2.1s var(--anim-cubic);
 }
 
 .logo svg {
@@ -69,7 +69,7 @@
   transform: translateX(150%);
   transition: transform 1s cubic-bezier(0.13, 0.23, 0.3, 0.98);
   align-items: center;
-  width: clamp(10rem, 22vw, 15rem);
+  width: clamp(12rem, 22vw, 15rem);
 }
 
 .side-nav-inner .profile-main-focus {
@@ -180,12 +180,7 @@ nav {
   width: fit-content;
   /* gap: 40px; */
   /* max-width: 542px; */
-  transition: min-width .8s var(--anim-cubic);
-}
-
-.ul-text-icons.minimized {
-  min-width: 0;
-  transition: min-width .8s var(--anim-cubic);
+  box-shadow: rgb(0 0 0 / 0) 4px 18px 0px 0px;
 }
 
 .ul-text {
@@ -197,8 +192,7 @@ nav {
   font-weight: 900;
   width: 303px;
   align-items: center;
-  opacity: .8;
-  transition: opacity .4s .6s var(--anim-cubic), width .6s var(--anim-cubic);
+  opacity: 0;
 
   li {
     text-wrap: nowrap;
@@ -206,16 +200,23 @@ nav {
   }
 }
 
-.ul-text-icons.minimized .ul-text {
-  opacity: 0;
-  width: 0;
-  pointer-events: none;
-  transition: opacity .1s var(--anim-cubic), width .6s var(--anim-cubic);
+.ul-text-icons.initial  .ul-text {
+    transition: opacity .6s 1.5s var(--anim-cubic);
+}
+
+.ul-text-icons.min-max .ul-text {
+  transition: opacity .3s var(--anim-cubic);
 }
 
 .ul-text-icons .ul-icons {
   display: flex;
   align-items: center;
+  opacity: 0;
+  transition: opacity .6s 1.8s var(--anim-cubic);
+}
+
+.ul-text-icons .ul-icons.show {
+  opacity: 1 !important;
 }
 
 .ul-text-icons .ul-icons svg {
@@ -237,8 +238,11 @@ nav {
 }
 
 @media screen and (min-width: 430px ) {
-  .ul-text-icons {
-    box-shadow: rgb(0 0 0 / 20%) 4px 18px 30px 0px;
+  .ul-text-icons.min-max {
+    transition:  box-shadow 1.2s var(--anim-cubic);
+  }
+  .ul-text-icons.initial {
+    transition:  box-shadow 1.2s 1.2s var(--anim-cubic);
   }
 }
 
